@@ -1,3 +1,17 @@
+<?php
+require_once("dbconnect.php");
+$sql = "SELECT * from visitorcount where IP = '" . $_SERVER['REMOTE_ADDR'] . "' and DATEDIFF(CURRENT_TIMESTAMP, view_at) <1";
+$result = $conn->query($sql);
+//$output = $result->fetch_all();
+if (mysqli_num_rows($result) == 0) {
+    $sql = "INSERT into visitorcount (ip) values ('" . $_SERVER['REMOTE_ADDR'] . "');";
+    $result = $conn->query($sql);
+}
+
+$result = $conn->query("SELECT id from visitorcount");
+$visitorcount = mysqli_num_rows($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,8 +44,20 @@
     <!-- Topbar Start -->
     <div class="container-fluid bg-primary py-1 d-none d-md-block">
         <div class="container">
-            <div class="text-center">
-                <img src="skin-care.png" style="max-width:10%;">
+            <div class="row">
+                <div class="col-4">
+
+                </div>
+                <div class="col-4 ">
+                    <a href="index.php" class="navbar-brand px-4 ">
+                        <h1 class="d-block display-4 text-white "><span class="text-secondary">C</span>LARINS</h1>
+                    </a>
+                </div>
+                <div class="col-md-4 text-center text-lg-right">
+                    <div class="d-inline-flex align-items-center">
+                        Visitor count: <?php echo ($visitorcount); ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -40,10 +66,7 @@
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
-                <a href="index.php" class="navbar-brand d-block d-lg-none">
-                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">C</span>LARINS</h1>
 
-                </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -53,13 +76,11 @@
                         <a href="about.php" class="nav-item nav-link">About</a>
                         <a href="product.php" class="nav-item nav-link">Products</a>
                     </div>
-                        <a href="index.php" class="navbar-brand mx-5 d-none d-lg-block">
-                            <h1 class="m-0 display-4 text-primary"><span class="text-secondary">C</span>LARINS</h1>
-                        </a> 
+                    <img src="img/skin-care.png" class="mx-5" style="max-width:8%;">
                     <div class="navbar-nav mr-auto py-0">
-                        <div class="dropdown">
-                            <a href="#" class="nav-item nav-link dropdown-toggle" data-bs-toggle="dropdown">Gallery</a>
-                            <div class="dropdown-menu">
+                        <div class="dropdown show">
+                            <a href="#" class="nav-item nav-link dropdown-toggle" role="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gallery</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown">
                                 <div class="dropdown-header">FACE</div>
                                 <a href="#" class="dropdown-item">Cleaners&Toners</a>
                                 <a href="#" class="dropdown-item">Serums</a>
@@ -80,13 +101,16 @@
                         </div>
                         <a href="index.php" class="nav-item nav-link">Service</a>
                         <a href="contact.php" class="nav-item nav-link">Contact</a>
+
                     </div>
                 </div>
             </nav>
         </div>
     </div>
     <!-- Navbar End -->
+    <div style="height:500px;">
 
+    </div>
 
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5 pb-5">
@@ -171,12 +195,11 @@
             </div>
             <div class="col-md-6 py-5 py-md-0 px-0">
                 <div class="h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
-                    <div class="d-flex align-items-center justify-content-center bg-white rounded-circle mb-4"
-                        style="width: 100px; height: 100px;">
+                    <div class="d-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 100px; height: 100px;">
                         <h3 class="font-weight-bold text-secondary mb-0">$199</h3>
                     </div>
                     <h3 class="font-weight-bold text-white mt-3 mb-4">"Love the texture"</h3>
-                    <p class="text-white mb-4">I started using this a month ago, and I have seen great results. 
+                    <p class="text-white mb-4">I started using this a month ago, and I have seen great results.
                         I love the texture of the serum and I love the fact that its very smooth and light.</p>
                     <a href="product.php" class="btn btn-secondary py-3 px-5 mt-2">Order Now</a>
                 </div>
@@ -193,10 +216,10 @@
                 <div class="modal-body">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                    </button>        
-                     16:9 aspect ratio 
+                    </button>
+                    16:9 aspect ratio
                     <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay"></iframe>
                     </div>
                 </div>
             </div>
@@ -227,5 +250,5 @@
 
 </html>
 <?php
-    include('footer.php');
+include('footer.php');
 ?>

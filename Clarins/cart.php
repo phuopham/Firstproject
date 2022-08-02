@@ -6,9 +6,9 @@ $total = 40;
 foreach ($items as $key => $item) {
     $sql = "SELECT * from products where productid = $item";
     $result = $conn->query($sql);
-    echo ("<pre>");
-    var_dump($result);
-    echo ("</pre>");
+    //echo ("<pre>");
+    //var_dump($result);
+    //echo ("</pre>");
 };
 
 ?>

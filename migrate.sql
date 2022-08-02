@@ -4,10 +4,7 @@ use Clarins;
 
 create table users (
     username varchar(32) unique primary key,
-    `password` varchar(40),
-    email varchar(100),
-    phone int(10),
-    usertype int
+    `password` varchar(40)
 );
 
 CREATE TABLE catalogs(
@@ -72,4 +69,11 @@ CREATE TABLE orders(
     quantity int,
     price int,
     FOREIGN KEY (ordernumber) REFERENCES user_order(ordernumber)
+);
+
+-- check IP = $_SERVER['REMOTE_ADDR'] and DATEDIFF(view_at, CURRENT_TIMESTAMP) >1
+CREATE TABLE visitorcount(
+    id int AUTO_INCREMENT PRIMARY KEY,
+    ip varchar(30),
+    view_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );

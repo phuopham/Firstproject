@@ -1,3 +1,16 @@
+<?php
+require_once("dbconnect.php");
+$sql = "SELECT * from visitorcount where IP = '" . $_SERVER['REMOTE_ADDR'] . "' and DATEDIFF(CURRENT_TIMESTAMP, view_at) <1";
+$result = $conn->query($sql);
+//$output = $result->fetch_all();
+if (mysqli_num_rows($result) == 0) {
+    $sql = "INSERT into visitorcount (ip) values ('" . $_SERVER['REMOTE_ADDR'] . "');";
+    $result = $conn->query($sql);
+}
+
+$result = $conn->query("SELECT id from visitorcount");
+$visitorcount = mysqli_num_rows($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,13 +65,7 @@
                 </div>
                 <div class="col-md-6 text-center text-lg-right">
                     <div class="d-inline-flex align-items-center">
-
-                        <a class="text-white pr-3" href="">
-                            <i class="fa fa-cart-plus"></i>
-                        </a>
-                        <span class="text-white">|</span>
-                        <a class="text-white px-3" href="">Login</a>
-                        <a class="btn btn-sm bg-light" href="">Register</a>
+                        Visitor count: <?php echo ($visitorcount); ?>
                     </div>
                 </div>
             </div>

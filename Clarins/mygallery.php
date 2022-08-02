@@ -1,200 +1,249 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
+    <meta charset="utf-8">
+    <title>iCREAM - Ice Cream Shop Website Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
 
-body {
-  background-color: #f1f1f1;
-  padding: 20px;
-  font-family: Arial;
-}
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
 
-/* Center website */
-.main {
-  max-width: 1000px;
-  margin: auto;
-}
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-h1 {
-  font-size: 50px;
-  word-break: break-all;
-}
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-.row {
-  margin: 10px -16px;
-}
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
-/* Add padding BETWEEN each column */
-.row,
-.row > .column {
-  padding: 8px;
-}
-
-/* Create three equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 33.33%;
-  display: none; /* Hide all elements by default */
-}
-
-/* Clear floats after rows */ 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Content */
-.content {
-  background-color: white;
-  padding: 10px;
-}
-
-/* The "show" class is added to the filtered elements */
-.show {
-  display: block;
-}
-
-/* Style the buttons */
-.btn {
-  border: none;
-  border-radius: 40%;
-  outline: none;
-  padding: 12px 16px;
-  background-color: white;
-  cursor: pointer;
-}
-
-.btn:hover {
-  background-color: #ddd;
-}
-
-.btn.active {
-  background-color: #666;
-  color: white;
-}
-</style>
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body>
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-primary py-1 d-none d-md-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
+                    <div class="d-inline-flex align-items-center mt-2">
+                        <a class="text-white px-3" href="">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="text-white px-3" href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="text-white px-3" href="">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a class="text-white px-3" href="">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a class="text-white pl-3" href="">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center text-lg-right">
+                    <div class="d-inline-flex align-items-center">
 
-<!-- MAIN (Center website) -->
-<div class="main">
-
-<h1>My Gallery</h1>
-<hr>
-
-<h2>Best seller</h2>
-
-<div id="myBtnContainer">
-  <button class="btn active" onclick="filterSelection('all')"> All</button>
-  <button class="btn" onclick="filterSelection('cleanser')"> Cleanser</button>
-  <button class="btn" onclick="filterSelection('lipstick')"> Lipstick</button>
-  <button class="btn" onclick="filterSelection('perfume')"> Perfume</button>
-  <button class="btn" onclick="filterSelection('powder')"> Powder</button>
-  <button class="btn" onclick="filterSelection('eyeliner')"> Eyeliner</button>
-  <button class="btn" onclick="filterSelection('remover')"> Remover</button>
-</div>
-
-<!-- Gallery Grid -->
-<div class="row">
-  <div class="column lipstick">
-    <div class="content">
-      <img src="img/gallery1.jpg" alt="Lipstick" style="width:100%">
-      <h4>Lipstick</h4>
-      <p>Lorem ipsum dolor..</p>
+                        <a class="text-white pr-3" href="">FAQs</a>
+                        <span class="text-white">|</span>
+                        <a class="text-white px-3" href="">Login</a>
+                        <a class="btn btn-sm bg-light" href="">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="column perfume">
-    <div class="content">
-    <img src="img/gallery2.png" alt="Perfume" style="width:100%">
-      <h4>Perfume</h4>
-      <p>Lorem ipsum dolor..</p>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">i</span>CREAM</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="product.html" class="nav-item nav-link">Product</a>
+                    </div>
+                    <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
+                        <h1 class="m-0 display-4 text-primary"><span class="text-secondary">i</span>CREAM</h1>
+                    </a>
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="service.html" class="nav-item nav-link">Service</a>
+                        <a href="gallery.html" class="nav-item nav-link active">Gallery</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
     </div>
-  </div>
-  <div class="column eyeliner">
-    <div class="content">
-    <img src="img/gallery3.webp" alt="Eyeliner" style="width:100%">
-      <h4>Eyeliner</h4>
-      <p>Lorem ipsum dolor..</p>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
+        <div class="container text-center py-5">
+            <h1 class="text-white display-3 mt-lg-5">Gallery</h1>
+            <div class="d-inline-flex align-items-center text-white">
+                <p class="m-0"><a class="text-white" href="">Home</a></p>
+                <i class="fa fa-circle px-3"></i>
+                <p class="m-0">Gallery</p>
+            </div>
+        </div>
     </div>
-  </div>
-  
-  <div class="column cleanser">
-    <div class="content">
-      <img src="img/gallery4.jpg" alt="Cleanser" style="width:100%">
-      <h4>Cleanser</h4>
-      <p>Lorem ipsum dolor..</p>
+    <!-- Header End -->
+
+
+    <!-- Portfolio Start -->
+    <div class="container-fluid py-5 px-0">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <h1 class="section-title position-relative text-center mb-5">Best Selling Products For Beauty Lovers</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <ul class="list-inline mb-4 pb-2" id="portfolio-flters">
+                        <li class="btn btn-sm btn-outline-primary m-1 active"  data-filter="*">All</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Cleanser</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Lipstick</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">Perfume</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".fourth">Powder</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".fifth">Eyeliner</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".sixth">Remover</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row m-0 portfolio-container">
+                <div class="col-lg-4 col-md-6 p-0 portfolio-item second">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="img/gallery1.jpg" alt="">
+                        <a class="portfolio-btn" href="img/gallery1.jpg" data-lightbox="portfolio">
+                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 p-0 portfolio-item third">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="img/gallery2.png" alt="">
+                        <a class="portfolio-btn" href="img/gallery2.png" data-lightbox="portfolio">
+                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 p-0 portfolio-item fifth">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="img/gallery3.webp" alt="">
+                        <a class="portfolio-btn" href="img/gallery3.webp" data-lightbox="portfolio">
+                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 p-0 portfolio-item first">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="img/gallery4.jpg" alt="">
+                        <a class="portfolio-btn" href="img/gallery4.jpg" data-lightbox="portfolio">
+                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 p-0 portfolio-item fourth">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="img/gallery5.webp" alt="">
+                        <a class="portfolio-btn" href="img/gallery5.webp" data-lightbox="portfolio">
+                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 p-0 portfolio-item sixth">
+                    <div class="position-relative overflow-hidden">
+                        <img class="img-fluid w-100" src="img/gallery6.webp" alt="">
+                        <a class="portfolio-btn" href="img/gallery6.webp" data-lightbox="portfolio">
+                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="column powder">
-    <div class="content">
-    <img src="img/gallery5.webp" alt="Powder" style="width:100%">
-      <h4>Powder</h4>
-      <p>Lorem ipsum dolor..</p>
+    <!-- Portfolio End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer bg-light py-5" style="margin-top: 90px;">
+        <div class="container text-center py-5">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <a href="index.html" class="navbar-brand m-0">
+                        <h1 class="m-0 mt-n2 display-4 text-primary"><span class="text-secondary">i</span>CREAM</h1>
+                    </a>
+                </div>
+                <div class="col-12 mb-4">
+                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-secondary btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-secondary btn-social" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="col-12 mt-2 mb-4">
+                    <div class="row">
+                        <div class="col-sm-6 text-center text-sm-right border-right mb-3 mb-sm-0">
+                            <h5 class="font-weight-bold mb-2">Get In Touch</h5>
+                            <p class="mb-2">123 Street, New York, USA</p>
+                            <p class="mb-0">+012 345 67890</p>
+                        </div>
+                        <div class="col-sm-6 text-center text-sm-left">
+                            <h5 class="font-weight-bold mb-2">Opening Hours</h5>
+                            <p class="mb-2">Mon – Sat, 8AM – 5PM</p>
+                            <p class="mb-0">Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <p class="m-0">&copy; <a href="#">Domain</a>. All Rights Reserved. Designed by NHP</a>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="column remover">
-    <div class="content">
-    <img src="img/gallery6.webp" alt="Remover" style="width:100%">
-      <h4>Remover</h4>
-      <p>Lorem ipsum dolor..</p>
-    </div>
-  </div>
-</div>
-<!-- END GRID -->
-</div>
-
-<!-- END MAIN -->
-</div>
-
-<script>
-filterSelection("all")
-function filterSelection(c) {
-  var x, i;
-  x = document.getElementsByClassName("column");
-  if (c == "all") c = "";
-  for (i = 0; i < x.length; i++) {
-    w3RemoveClass(x[i], "show");
-    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-  }
-}
-
-function w3AddClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
-  }
-}
-
-function w3RemoveClass(element, name) {
-  var i, arr1, arr2;
-  arr1 = element.className.split(" ");
-  arr2 = name.split(" ");
-  for (i = 0; i < arr2.length; i++) {
-    while (arr1.indexOf(arr2[i]) > -1) {
-      arr1.splice(arr1.indexOf(arr2[i]), 1);     
-    }
-  }
-  element.className = arr1.join(" ");
-}
+    <!-- Footer End -->
 
 
-// Add active class to the current button (highlight it)
-var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function(){
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
-</script>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary px-2 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
 </body>
+
 </html>

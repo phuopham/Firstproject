@@ -13,7 +13,7 @@ foreach ($items as $key => $item) {
 
 ?>
 
-<!-- About Start -->
+<!-- Cart Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="row">
@@ -58,12 +58,68 @@ foreach ($items as $key => $item) {
                 <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
                 <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
                 <h5 class="text-muted mb-3"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
-                <a href="" class="btn btn-primary mt-2">Check out</a>
+                <a href="" class="btn btn-primary mt-2" data-toggle="modal" data-target="#Checkout">Check out</a>
             </div>
         </div>
     </div>
 </div>
-<!-- About End -->
+<!-- cart End -->
+
+<!-- Checkout Start -->
+
+<div class="modal fade" id="Checkout" tabindex="-1" role="dialog" aria-labelledby="CheckoutTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form name="checkout" id="Checkout">
+                <div class="modal-header">
+                    <h5 class="modal-title m-auto">Fill in to continue</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="col-sm-6 control-group">
+                            <input type="text" class="form-control p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="col-sm-6 control-group">
+                            <input type="email" class="form-control p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <input type="text" class="form-control p-4" id="Address" placeholder="Address" required="required" data-validation-required-message="Please enter an address" />
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-sm-6 control-group">
+                            <input type="number" class="form-control p-4" id="phone" placeholder="Your Phone" required="required" data-validation-required-message="Please enter your phone" />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="col-sm-6 control-group d-flex justify-content-center pb-3">
+                            <input type="checkbox" class="align-self-center form-control p-4" id="rememberme" style="display:inline-block; width:50px;" />
+                            <label for="rememberme" class="align-self-center mb-0">Remember me</label>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <textarea class="form-control p-4" rows="6" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                        <p class="help-block text-danger"></p>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Proceed</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Checkout End -->
 
 <?php
 include("footer.php");

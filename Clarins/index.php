@@ -48,9 +48,9 @@ $visitorcount = mysqli_num_rows($result);
                 <div class="col-4">
 
                 </div>
-                <div class="col-4 ">
-                    <a href="index.php" class="navbar-brand px-4 ">
-                        <h1 class="d-block display-4 text-white "><span class="text-secondary">C</span>LARINS</h1>
+                <div class="col-4 px-2">
+                    <a href="index.php" class="navbar-brand px-5 py-0 m-0">
+                        <h1 class="d-block display-4 text-white m-0 "><span class="text-secondary">C</span>LARINS</h1>
                     </a>
                 </div>
                 <div class="col-md-4 text-center text-lg-right">
@@ -108,9 +108,6 @@ $visitorcount = mysqli_num_rows($result);
         </div>
     </div>
     <!-- Navbar End -->
-    <div style="height:500px;">
-
-    </div>
 
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5 pb-5">
@@ -249,6 +246,3 @@ $visitorcount = mysqli_num_rows($result);
 </body>
 
 </html>
-<?php
-include('footer.php');
-?>

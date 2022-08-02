@@ -3561,7 +3561,7 @@ input[type="button"].btn-block {
   display: block;
   min-height: 1.5rem;
   padding-left: 1.5rem;
-  accent-color: exact;
+  color-adjust: exact;
 }
 
 .custom-control-inline {
@@ -9812,7 +9812,7 @@ h6,
 }
 
 .page-header {
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/skin-care.png), no-repeat center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/skin.jpg), no-repeat center center;
   background-size: cover;
 }
 

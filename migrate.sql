@@ -10,6 +10,7 @@ create table users (
 CREATE TABLE catalogs(
     catalogID int AUTO_INCREMENT PRIMARY KEY,
     name varchar(40),
+    category varchar(20),
     description text
 );
 
@@ -25,7 +26,6 @@ create table products (
     catalogID int,
     description text,
     brandID int,
-    price int,
     sell_quantity int,
     pic1 varchar(40),
     pic2 varchar(40),
@@ -42,6 +42,14 @@ CREATE TABLE comments(
     subject varchar(100),
     message text,
     productID int,
+    FOREIGN KEY (productID) REFERENCES products(productID)
+);
+
+CREATE TABLE stockroom(
+    orderID int AUTO_INCREMENT PRIMARY KEY,
+    productID int,
+    price int,
+    stock int DEFAULT 0,
     FOREIGN KEY (productID) REFERENCES products(productID)
 );
 

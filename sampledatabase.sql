@@ -49,8 +49,7 @@ VALUES
         "Hair dye",
         "Other",
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
-    ),
-;
+    );
 
 INSERT INTO
     brands (name, description)
@@ -58,3 +57,50 @@ VALUES
     ("Dior", "Since 1880"),
     ("Chanel", "Since 1933"),
     ("YSL", "Cool and active");
+
+INSERT INTO
+    products (
+        `name`,
+        `catalogID`,
+        `description`,
+        `brandID`,
+        `sell_quantity`,
+        `pic1`,
+        `pic2`,
+        `pic3`,
+        `pic4`
+    )
+VALUES
+    (
+        "Dior Face Cleaner",
+        1,
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
+        1,
+        0,
+        "/img/product-1.jpg",
+        null,
+        null,
+        null
+    ),
+    (
+        "YSL Shower gel",
+        2,
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
+        3,
+        30,
+        "/img/product-2.jpg",
+        null,
+        null,
+        null
+    ),
+    (
+        "Chanel Hair dye purple",
+        2,
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
+        3,
+        30,
+        "/img/product-4.jpg",
+        null,
+        null,
+        null
+    );

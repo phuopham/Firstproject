@@ -1,6 +1,6 @@
 <?php
 require_once("dbconnect.php");
-$sql = "SELECT * from visitorcount where IP = '" . $_SERVER['REMOTE_ADDR'] . "' and DATEDIFF(CURRENT_TIMESTAMP, view_at) <1";
+$sql = "SELECT * from visitorcount where IP = '" . $_SERVER['REMOTE_ADDR'] . "' and timestampdiff(hour, view_at, now()) <1";
 $result = $conn->query($sql);
 //$output = $result->fetch_all();
 if (mysqli_num_rows($result) == 0) {

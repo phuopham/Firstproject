@@ -71,7 +71,6 @@ CREATE TABLE orders(
     FOREIGN KEY (ordernumber) REFERENCES user_order(ordernumber)
 );
 
--- check IP = $_SERVER['REMOTE_ADDR'] and DATEDIFF(view_at, CURRENT_TIMESTAMP) >1
 CREATE TABLE visitorcount(
     id int AUTO_INCREMENT PRIMARY KEY,
     ip varchar(30),

@@ -56,10 +56,10 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                                 <input type="text" name="username" placeholder="Username" require>
                                             </td>
                                             <td>
-                                                <input type="text" name="username" placeholder="Username" require>
+                                                <input type="text" name="email" placeholder="Email" require>
                                             </td>
                                             <td>
-                                                <input type="text" name="username" placeholder="Username" require>
+                                                <input type="number" name="phone" placeholder="Phonenumber" require>
                                             </td>
                                             <td><button class="btn btn-primary">Add user</button></td>
 

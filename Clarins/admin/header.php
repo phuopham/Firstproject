@@ -106,7 +106,7 @@ $_SESSION["username"] = "Phuong";
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="users.php" class="nav-link">
                                 <p>Manage users</p>
                             </a>
                         </li>
@@ -137,7 +137,7 @@ $_SESSION["username"] = "Phuong";
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="catalogs.php" class="nav-link">
                                 <p>Catalogs</p>
                             </a>
                         </li>

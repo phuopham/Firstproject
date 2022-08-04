@@ -64,8 +64,8 @@ CREATE TABLE stockroom(
 
 create table contact(
     contactID int AUTO_INCREMENT PRIMARY KEY,
-    name varchar(40),
-    email varchar(100),
+    name varchar(40) not null,
+    email varchar(100) not null,
     subject varchar(100),
     message text,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -74,9 +74,9 @@ create table contact(
 create table user_order(
     name varchar(40),
     ordernumber int AUTO_INCREMENT PRIMARY KEY,
-    email varchar(100),
-    phone int(10),
-    address varchar(200),
+    email varchar(100) not null,
+    phone int(10) not null,
+    address varchar(200) not null,
     paymethod int,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP
 );
@@ -88,7 +88,8 @@ CREATE TABLE orders(
     quantity int,
     price int,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (ordernumber) REFERENCES user_order(ordernumber)
+    FOREIGN KEY (ordernumber) REFERENCES user_order(ordernumber),
+    FOREIGN KEY (productID) REFERENCES products(productID)
 );
 
 CREATE TABLE visitorcount(

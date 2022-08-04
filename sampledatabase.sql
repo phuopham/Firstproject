@@ -31,50 +31,42 @@ VALUES
     (
         "Cleaners & Toners",
         "Face",
-        "Protect your beauty face with UV-protection and dust resistent",
-        now()
+        "Protect your beauty face with UV-protection and dust resistent"
     ),
     (
         "Serums",
         "Face",
-        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
-        now()
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
     ),
     (
         "Day care",
         "Face",
-        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
-        now()
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
     ),
     (
         "Night care",
         "Face",
-        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
-        now()
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
     ),
     (
         "Hand & Foot care",
         "Body",
-        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
-        now()
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
     ),
     (
         "Bath & Shower",
         "Body",
-        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
-        now()
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
     ),
     (
         "Sun Protection",
         "Other",
-        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
-        now()
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
     ),
     (
         "Hair dye",
         "Other",
-        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
-        now()
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
     );
 
 INSERT INTO
@@ -132,11 +124,10 @@ VALUES
     );
 
 INSERT INTO
-    `stockroom` (`productID`, `price`, `stock`)
+    `stockroom` (`productID`, `stock`)
 VALUES
     ('1', '30'),
     ('2', '44'),
     ('3', '64'),
     ('1', '21'),
-    ('1', '30'),
-;
+    ('1', '30');

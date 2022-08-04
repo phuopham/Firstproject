@@ -1,10 +1,42 @@
+<<<<<<< Updated upstream
 <?php
 
 // USER VALIDATION start //
+<?php
+    require_once 'dbconnect.php';
+    $errors = array();
+    if(isset($_POST['login'])){
+        $username = htmlspecialchars($_POST['username']);
+        $username = $conn->real_escape_string($username);
+        $password = htmlspecialchars($_POST['password']);
+        $password = $conn->real_escape_string($password);
+        if(empty($username)){
+            $errors['username'] = "Username is required";
+        }
+        if(empty($password)){
+            $errors['password'] = "Password is required";
+        }
 
+        if(count($errors) == 0){
+            $sql = sprintf("INSERT into users(username,pasword_hash) values('%s','%s')",$username,sha1($password));
+            $result = $conn->query($sql);
+            if($result){
+                echo 'main.php';
+                exit;
+            }
+            else if ($conn->errno == 1062){
+                $errors['username_exists'] = "Username already exists";
+            }
+        }
+    }
+?>
 //USER VALIDATION end //
 
 ?>
+=======
+
+
+>>>>>>> Stashed changes
 <!DOCTYPE html>
 <html lang="en">
 

@@ -3,9 +3,24 @@ use Clarins;
 INSERT INTO
     users
 VALUES
-    ("admin", sha1(12345)),
-    ("user1", sha1(12345)),
-    ("user2", sha1(123456));
+    (
+        "admin",
+        "admin@clarins.com",
+        01234567890,
+        sha1(12345)
+    ),
+    (
+        "user1",
+        "user1@clarins.com",
+        012345767899,
+        sha1(12345)
+    ),
+    (
+        "user2",
+        "user2@clarins.com",
+        01234567896,
+        sha1(123456)
+    );
 
 INSERT INTO
     catalogs (name, category, description)

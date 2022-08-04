@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <?php
 
 // USER VALIDATION start //
@@ -33,10 +32,6 @@
 //USER VALIDATION end //
 
 ?>
-=======
-
-
->>>>>>> Stashed changes
 <!DOCTYPE html>
 <html lang="en">
 

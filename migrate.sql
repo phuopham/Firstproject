@@ -4,6 +4,8 @@ use Clarins;
 
 create table users (
     username varchar(32) unique primary key,
+    email varchar(100) unique,
+    phone int(11),
     `password` varchar(40)
 );
 

@@ -42,6 +42,7 @@ CREATE TABLE comments(
     subject varchar(100),
     message text,
     productID int,
+    visible smallint,
     FOREIGN KEY (productID) REFERENCES products(productID)
 );
 

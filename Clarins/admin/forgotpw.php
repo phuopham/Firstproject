@@ -1,3 +1,8 @@
+<?php
+// USER VALIDATION start //
+
+//USER VALIDATION end //
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,8 +14,7 @@
     <title>AdminLTE 3 | Log in</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <!-- icheck bootstrap -->

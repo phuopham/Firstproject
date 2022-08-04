@@ -7,19 +7,22 @@ VALUES
         "admin",
         "admin@clarins.com",
         01234567890,
-        sha1(12345)
+        sha1(12345),
+        now()
     ),
     (
         "user1",
         "user1@clarins.com",
         012345767899,
-        sha1(12345)
+        sha1(12345),
+        now()
     ),
     (
         "user2",
         "user2@clarins.com",
         01234567896,
-        sha1(123456)
+        sha1(123456),
+        now()
     );
 
 INSERT INTO
@@ -28,42 +31,50 @@ VALUES
     (
         "Cleaners & Toners",
         "Face",
-        "Protect your beauty face with UV-protection and dust resistent"
+        "Protect your beauty face with UV-protection and dust resistent",
+        now()
     ),
     (
         "Serums",
         "Face",
-        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
+        now()
     ),
     (
         "Day care",
         "Face",
-        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
+        now()
     ),
     (
         "Night care",
         "Face",
-        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
+        now()
     ),
     (
         "Hand & Foot care",
         "Body",
-        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
+        now()
     ),
     (
         "Bath & Shower",
         "Body",
-        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
+        now()
     ),
     (
         "Sun Protection",
         "Other",
-        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
+        now()
     ),
     (
         "Hair dye",
         "Other",
-        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
+        "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
+        now()
     );
 
 INSERT INTO
@@ -119,3 +130,13 @@ VALUES
         null,
         null
     );
+
+INSERT INTO
+    `stockroom` (`productID`, `price`, `stock`)
+VALUES
+    ('1', '30'),
+    ('2', '44'),
+    ('3', '64'),
+    ('1', '21'),
+    ('1', '30'),
+;

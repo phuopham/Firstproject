@@ -49,18 +49,6 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    foreach ($userlist as $id => $user) {
-                                        echo ("<tr>");
-                                        echo ("<td>$id</td>");
-                                        echo ("<td>" . $user["username"] . "</td>");
-                                        echo ("<td>" . $user["email"] . "</td>");
-                                        echo ("<td>" . $user["phone"] . "</td>");
-                                        echo ('<td><a class="btn btn-primary" href="">Remove</a></td>');
-                                        echo ("</tr>");
-                                    };
-                                    ?>
-
                                     <tr>
                                         <form action="">
                                             <td></td>
@@ -77,6 +65,19 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
 
                                         </form>
                                     </tr>
+
+                                    <?php
+                                    foreach ($userlist as $id => $user) {
+                                        echo ("<tr>");
+                                        echo ("<td>" . ($id + 1) . "</td>");
+                                        echo ("<td>" . $user["username"] . "</td>");
+                                        echo ("<td>" . $user["email"] . "</td>");
+                                        echo ("<td>" . $user["phone"] . "</td>");
+                                        echo ('<td><a class="btn btn-primary" href="">Remove</a></td>');
+                                        echo ("</tr>");
+                                    };
+                                    ?>
+
 
 
                                 </tbody>

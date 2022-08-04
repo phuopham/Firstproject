@@ -6,33 +6,38 @@ create table users (
     username varchar(32) unique primary key,
     email varchar(100) unique,
     phone int(11),
-    `password` varchar(40)
+    `password` varchar(40),
+    create_by DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE catalogs(
     catalogID int AUTO_INCREMENT PRIMARY KEY,
     name varchar(40),
     category varchar(20),
-    description text
+    description text,
+    create_by DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE brands(
     brandID int AUTO_INCREMENT PRIMARY KEY,
     name varchar(40),
-    description text
+    description text,
+    create_by DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 create table products (
     productID int(10) AUTO_INCREMENT PRIMARY KEY,
-    name varchar(100),
+    name varchar(100) NOT NULL,
     catalogID int,
     description text,
     brandID int,
     sell_quantity int,
-    pic1 varchar(40),
+    price int not null,
+    pic1 varchar(40) not null,
     pic2 varchar(40),
     pic3 varchar(40),
     pic4 varchar(40),
+    create_by DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (catalogID) REFERENCES catalogs(catalogID),
     FOREIGN KEY (brandID) REFERENCES brands(brandID)
 );
@@ -45,14 +50,15 @@ CREATE TABLE comments(
     message text,
     productID int,
     visible smallint,
+    create_by DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (productID) REFERENCES products(productID)
 );
 
 CREATE TABLE stockroom(
     orderID int AUTO_INCREMENT PRIMARY KEY,
     productID int,
-    price int,
     stock int DEFAULT 0,
+    create_by DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (productID) REFERENCES products(productID)
 );
 
@@ -61,7 +67,8 @@ create table contact(
     name varchar(40),
     email varchar(100),
     subject varchar(100),
-    message text
+    message text,
+    create_by DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 create table user_order(
@@ -70,7 +77,8 @@ create table user_order(
     email varchar(100),
     phone int(10),
     address varchar(200),
-    paymethod int
+    paymethod int,
+    create_by DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE orders(
@@ -79,6 +87,7 @@ CREATE TABLE orders(
     productID int,
     quantity int,
     price int,
+    create_by DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (ordernumber) REFERENCES user_order(ordernumber)
 );
 

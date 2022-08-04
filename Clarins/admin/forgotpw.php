@@ -3,6 +3,42 @@
 
 //USER VALIDATION end //
 ?>
+
+<?php
+require_once 'dbconnect.php';
+
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
+if(isset($_POST['submit'])){
+    $username = htmlspecialchars($_POST['username']) ;
+    $conn->real_escape_string($username);
+    $password = htmlspecialchars($_POST['password']) ;
+    $conn->real_escape_string($password);
+    $sql = "SELECT username from users where username = '$username' AND [password] = '$password'";
+    $result = $conn->query($sql);
+    if($result->num_rows > 0){
+        $newpass = generateRandomString();
+        $newpass_hash = sha1($newpass);
+        $sql = "UPDATE users SET password = '$newpass_hash' WHERE username = '$username' AND [password] = '$password'";
+        if($conn->query($sql) === TRUE){
+            echo "Your new password is: $newpass";
+        }else{
+            echo "<p style=\"color:red;\">Error: " . $sql . "<br>" . $conn->error . "</p>";
+        }
+    }else{
+        echo "<p style=\"color:red;\">Username or password is not exist</p>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

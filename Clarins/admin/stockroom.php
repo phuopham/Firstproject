@@ -4,7 +4,7 @@ include("header.php");
 
 // get user data
 require_once("../dbconnect.php");
-$sql = "SELECT * from users";
+$sql = "SELECT * from stockroom";
 $result = $conn->query($sql);
 $userlist = $result->fetch_all(MYSQLI_ASSOC);
 
@@ -21,8 +21,8 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Users</li>
+                        <li class="breadcrumb-item"><a href="main.php">Home</a></li>
+                        <li class="breadcrumb-item active">Stockroom</li>
                     </ol>
                 </div>
             </div>
@@ -38,13 +38,14 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
+                            <table class="table table-hover text-wrap">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>User</th>
-                                        <th>email</th>
-                                        <th>phone</th>
+                                        <th>Product</th>
+                                        <th>Quantity</th>
+                                        <th>Username</th>
+                                        <th>Stock time</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -53,26 +54,32 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                         <form action="">
                                             <td></td>
                                             <td>
-                                                <input type="text" name="username" placeholder="Username" require>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" name="name" placeholder="Name" require>
+                                                </div>
                                             </td>
                                             <td>
-                                                <input type="text" name="email" placeholder="Email" require>
+                                                <div class="form-group">
+                                                    <input class="form-control" type="textarea" name="description" placeholder="Description" require>
+                                                </div>
                                             </td>
                                             <td>
-                                                <input type="number" name="phone" placeholder="Phonenumber" require>
+                                                <div class="form-group">
+                                                    <button class="btn btn-primary form-control">Add user</button>
+                                                </div>
                                             </td>
-                                            <td><button class="btn btn-primary">Add user</button></td>
-
                                         </form>
+                                    </tr>
+
+
                                     </tr>
 
                                     <?php
                                     foreach ($userlist as $id => $user) {
-                                        echo ("<tr>");
+                                        echo ('<tr>');
                                         echo ("<td>" . ($id + 1) . "</td>");
-                                        echo ("<td>" . $user["username"] . "</td>");
-                                        echo ("<td>" . $user["email"] . "</td>");
-                                        echo ("<td>" . $user["phone"] . "</td>");
+                                        echo ("<td>" . $user["name"] . "</td>");
+                                        echo ("<td>" . $user["description"] . "</td>");
                                         echo ('<td><a class="btn btn-danger" href="">Remove</a></td>');
                                         echo ("</tr>");
                                     };

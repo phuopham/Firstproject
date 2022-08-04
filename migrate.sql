@@ -55,11 +55,13 @@ CREATE TABLE comments(
 );
 
 CREATE TABLE stockroom(
-    orderID int AUTO_INCREMENT PRIMARY KEY,
+    ID int AUTO_INCREMENT PRIMARY KEY,
     productID int,
-    stock int DEFAULT 0,
+    username varchar (32),
+    quantity int DEFAULT 0,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (productID) REFERENCES products(productID)
+    FOREIGN KEY (productID) REFERENCES products(productID),
+    FOREIGN KEY (username) REFERENCES users(username)
 );
 
 create table contact(

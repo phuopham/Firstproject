@@ -12,10 +12,7 @@ include("header.php");
         </div>
         <div class="row">
             <div class="col-lg-4 py-5">
-                <p>The company was founded in 1954 by a medical student Jacques Courtin-Clarins
-                    The company founder's son, Christian Courtin-Clarins, has been Clarins' chairman since 2000.
-                    In 1957, Courtin-Clarins developed a new approach to face and body treatments and created a number of plant-based luxury products.
-                    In the early 1970s, the company began to expand worldwide with the first exclusive contracts.
+                <p> <?php echo ($about_paragraph1); ?>
                 </p>
             </div>
             <div class="col-lg-4" style="min-height: 400px;">

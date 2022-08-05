@@ -2,13 +2,13 @@
 $page = "contact";
 include("header.php");
 require_once('dbconnect.php');
-if($_POST){
+if ($_POST) {
     $id = intval($_POST['id'] ?? 0);
     $name = $_POST['name'] ?? '';
-    $email=$_POST['email'] ?? '';
-    $subject=$_POST['subject'] ?? '';
-    $message=$_POST['message'] ?? '';
-    $sql= "INSERT INTO contact (name,email,subject,message) VALUES('$name','$email','$subject','$message')";
+    $email = $_POST['email'] ?? '';
+    $subject = $_POST['subject'] ?? '';
+    $message = $_POST['message'] ?? '';
+    $sql = "INSERT INTO contact (name,email,subject,message) VALUES('$name','$email','$subject','$message')";
     $conn->query($sql);
 }
 ?>
@@ -97,7 +97,6 @@ if($_POST){
     </div>
 </div>
 <!-- Contact End -->
-
 <?php
 include('footer.php');
 ?>

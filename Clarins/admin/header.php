@@ -1,12 +1,24 @@
 <?php
-
-// USER VALIDATION start //
-
-//USER VALIDATION end //
-
+// Validate session
 session_start();
-//for test
-$_SESSION["username"] = "Phuong";
+if (!isset($_SESSION['username'])) :
+    header('location:index.php');
+endif;
+$username = $_SESSION['username'];
+// validate session end
+// fetch data
+require_once('../dbconnect.php');
+$sql = sprintf("select username, email, phone from users where username = '%s'", $username);
+$result = $conn->query($sql);
+$elm = $result->fetch_array(MYSQLI_ASSOC);
+//fetch data end
+
+// logout start
+if (isset($_GET['logout'])) {
+    session_unset();
+    header('location:index.php');
+}
+// logout end
 
 ?>
 
@@ -60,7 +72,7 @@ $_SESSION["username"] = "Phuong";
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" role="button">
+                    <a class="nav-link" href="header.php?logout" role="button">
                         <p>Logout</p>
                     </a>
                 </li>
@@ -71,7 +83,7 @@ $_SESSION["username"] = "Phuong";
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="main.php" class="brand-link">
                 <img src="../img/skin-care.png" alt="AdminLTE Logo" class="brand-image img-rounded elevation-3 bg-white" style="opacity: .8">
                 <span class="brand-text font-weight-bold"><span style="color:aqua">C</span>larins - Admin page</span>
             </a>
@@ -88,30 +100,16 @@ $_SESSION["username"] = "Phuong";
                     </div>
                 </div>
 
-                <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="users.php" class="nav-link">
                                 <p>Manage users</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="stockroom.php" class="nav-link">
                                 <p>Stockroom</p>
                             </a>
                         </li>
@@ -142,7 +140,7 @@ $_SESSION["username"] = "Phuong";
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="brands.php" class="nav-link">
                                 <p>Brands</p>
                             </a>
                         </li>

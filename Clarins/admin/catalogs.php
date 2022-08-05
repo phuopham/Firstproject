@@ -91,7 +91,7 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                         echo ("<td>" . ($id + 1) . "</td>");
                                         echo ("<td>" . $user["name"] . "</td>");
                                         echo ("<td>" . $user["category"] . "</td>");
-                                        echo ('<td><a class="btn btn-primary" href="">Remove</a></td>');
+                                        echo ('<td><a class="btn btn-danger" href="">Remove</a></td>');
                                         echo ("</tr>");
                                         echo ('<tr class="expandable-body">');
                                         echo ("<td colspan='4'><p>" . $user["description"] . "</p></td> </tr>");

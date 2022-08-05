@@ -13,7 +13,7 @@ create table users (
 CREATE TABLE catalogs(
     catalogID int AUTO_INCREMENT PRIMARY KEY,
     name varchar(40),
-    category varchar(20),
+    category int,
     description text,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP
 );

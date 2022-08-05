@@ -81,26 +81,48 @@ $visitorcount = mysqli_num_rows($result);
                     <div class="navbar-nav mr-auto py-0">
                         <div class="dropdown show">
                             <a href="#" class="nav-item nav-link dropdown-toggle" role="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catergoies</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown">
-                                <div class="dropdown-header">FACE</div>
-                                <a href="#" class="dropdown-item">Cleaners&Toners</a>
-                                <a href="#" class="dropdown-item">Serums</a>
-                                <a href="#" class="dropdown-item">Day care</a>
-                                <a href="#" class="dropdown-item">Night care</a>
-                                <div class="dropdown-header">BODY</div>
-                                <a href="#" class="dropdown-item">Hand&Foot care</a>
-                                <a href="#" class="dropdown-item">Bath&Shower</a>
-                                <a href="#" class="dropdown-item">Body Firming</a>
-                                <a href="#" class="dropdown-item">Body Contouring</a>
-                                <div class="dropdown-header">SUNSCREEN</div>
-                                <a href="#" class="dropdown-item">Sun Protection</a>
-                                <a href="#" class="dropdown-item">After Sun</a>
-                                <div class="dropdown-header">HAIR</div>
-                                <div class="dropdown-header">MAKEUP</div>
-                                <div class="dropdown-header">PERFUMES</div>
+                            <div class="dropdown-menu" aria-labelledby="dropdown" style="margin-left:-300%;">
+                                <div class="d-flex">
+                                    <div>
+                                        <div class="dropdown-header">HAIR</div>
+                                        <a href="#" class="dropdown-item">Sun Protection</a>
+                                        <a href="#" class="dropdown-item">After Sun</a>
+                                    </div>
+                                    <div>
+                                        <div class="dropdown-header">MAKEUP</div>
+                                        <a href="#" class="dropdown-item">Sun Protection</a>
+                                        <a href="#" class="dropdown-item">After Sun</a>
+                                    </div>
+                                    <div>
+                                        <div class="dropdown-header">PERFUMES</div>
+                                        <a href="#" class="dropdown-item">Sun Protection</a>
+                                        <a href="#" class="dropdown-item">After Sun</a>
+                                    </div>
+                                    <div>
+                                        <div class="dropdown-header">FACE</div>
+                                        <a href="#" class="dropdown-item">Cleaners&Toners</a>
+                                        <a href="#" class="dropdown-item">Serums</a>
+                                        <a href="#" class="dropdown-item">Day care</a>
+                                        <a href="#" class="dropdown-item">Night care</a>
+                                    </div>
+                                    <div>
+                                        <div class="dropdown-header">BODY</div>
+                                        <a href="#" class="dropdown-item">Hand&Foot care</a>
+                                        <a href="#" class="dropdown-item">Bath&Shower</a>
+                                        <a href="#" class="dropdown-item">Body Firming</a>
+                                        <a href="#" class="dropdown-item">Body Contouring</a>
+                                    </div>
+                                    <div>
+                                        <div class="dropdown-header">SUNSCREEN</div>
+                                        <a href="#" class="dropdown-item">Sun Protection</a>
+                                        <a href="#" class="dropdown-item">After Sun</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <a href="contact.php" class="nav-item nav-link">Contact</a>
+                        <div>
+                            <a href="contact.php" class="nav-item nav-link">Contact</a>
+                        </div>
                         <div class="container-fluid">
                             <a href="cart.php" class="nav-item btn btn-primary ">Cart</a>
                         </div>

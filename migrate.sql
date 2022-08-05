@@ -46,7 +46,6 @@ CREATE TABLE comments(
     commentID int AUTO_INCREMENT PRIMARY KEY,
     name varchar(40),
     email varchar(100),
-    subject varchar(100),
     message text,
     productID int,
     visible smallint,

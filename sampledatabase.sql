@@ -124,7 +124,7 @@ VALUES
     );
 
 INSERT INTO
-    `stockroom` (`productID`, `stock`)
+    `stockroom` (`productID`, `quantity`)
 VALUES
     ('1', '30'),
     ('2', '44'),

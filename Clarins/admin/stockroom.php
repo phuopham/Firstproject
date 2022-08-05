@@ -2,11 +2,11 @@
 // header
 include("header.php");
 
-// get user data
+// get good data
 require_once("../dbconnect.php");
 $sql = "SELECT * from stockroom";
 $result = $conn->query($sql);
-$userlist = $result->fetch_all(MYSQLI_ASSOC);
+$goodstocks = $result->fetch_all(MYSQLI_ASSOC);
 
 ?>
 
@@ -17,7 +17,7 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>User list</h1>
+                    <h1>good list</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -44,7 +44,6 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                         <th>ID</th>
                                         <th>Product</th>
                                         <th>Quantity</th>
-                                        <th>Username</th>
                                         <th>Stock time</th>
                                         <th></th>
                                     </tr>
@@ -60,12 +59,12 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                             </td>
                                             <td>
                                                 <div class="form-group">
-                                                    <input class="form-control" type="textarea" name="description" placeholder="Description" require>
+                                                    <input class="form-control" type="textarea" name="quantity" placeholder="Quantity" require>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="form-group">
-                                                    <button class="btn btn-primary form-control">Add user</button>
+                                                    <button class="btn btn-primary form-control">Add good</button>
                                                 </div>
                                             </td>
                                         </form>
@@ -75,12 +74,13 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                     </tr>
 
                                     <?php
-                                    foreach ($userlist as $id => $user) {
+                                    foreach ($goodstocks as $id => $good) {
                                         echo ('<tr>');
                                         echo ("<td>" . ($id + 1) . "</td>");
-                                        echo ("<td>" . $user["name"] . "</td>");
-                                        echo ("<td>" . $user["description"] . "</td>");
-                                        echo ('<td><a class="btn btn-danger" href="">Remove</a></td>');
+                                        $result = $conn->query("SELECT name from products where productID ='" . $good["productID"] . "'");
+                                        echo ("<td>" . $result->fetch_column() . "</td>");
+                                        echo ("<td>" . $good["quantity"] . "</td>");
+                                        echo ("<td>" . $good["create_by"] . "</td>");
                                         echo ("</tr>");
                                     };
                                     ?>

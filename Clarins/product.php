@@ -22,7 +22,7 @@ include("header.php");
                             <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Quality Maintain</h5>
                             <p>Dolor nonumy sed eos sed lorem diam amet eos magna. Dolor kasd lorem duo stet kasd
                                 justo</p>
-                            <a href="" class="border-bottom border-secondary text-decoration-none text-secondary">Learn
+                            <a href="prd_detail.php" class="border-bottom border-secondary text-decoration-none text-secondary">Learn
                                 More</a>
                         </div>
                     </div>
@@ -34,7 +34,7 @@ include("header.php");
                             <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Individual Approach</h5>
                             <p>Dolor nonumy sed eos sed lorem diam amet eos magna. Dolor kasd lorem duo stet kasd
                                 justo</p>
-                            <a href="" class="border-bottom border-secondary text-decoration-none text-secondary">Learn
+                            <a href="prd_detail.php" class="border-bottom border-secondary text-decoration-none text-secondary">Learn
                                 More</a>
                         </div>
                     </div>
@@ -46,7 +46,7 @@ include("header.php");
                             <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Celebration Ice Cream</h5>
                             <p>Dolor nonumy sed eos sed lorem diam amet eos magna. Dolor kasd lorem duo stet kasd
                                 justo</p>
-                            <a href="" class="border-bottom border-secondary text-decoration-none text-secondary">Learn
+                            <a href="prd_detail.php" class="border-bottom border-secondary text-decoration-none text-secondary">Learn
                                 More</a>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ include("header.php");
                             <h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">Delivery To Any Point</h5>
                             <p>Dolor nonumy sed eos sed lorem diam amet eos magna. Dolor kasd lorem duo stet kasd
                                 justo</p>
-                            <a href="" class="border-bottom border-secondary text-decoration-none text-secondary">Learn
+                            <a href="prd_detail.php" class="border-bottom border-secondary text-decoration-none text-secondary">Learn
                                 More</a>
                         </div>
                     </div>
@@ -101,7 +101,7 @@ include("header.php");
                         <img class="rounded-circle w-100 h-100" src="img/product-1.jpg" style="object-fit: cover;">
                     </div>
                     <h5 class="font-weight-bold mb-4">Vanilla Ice Cream</h5>
-                    <a href="" class="btn btn-sm btn-secondary">Order Now</a>
+                    <a href="prd_detail.php" class="btn btn-sm btn-secondary">Order Now</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item third">
@@ -113,7 +113,7 @@ include("header.php");
                         <img class="rounded-circle w-100 h-100" src="img/product-1.jpg" style="object-fit: cover;">
                     </div>
                     <h5 class="font-weight-bold mb-4">Vanilla Ice Cream</h5>
-                    <a href="" class="btn btn-sm btn-secondary">Order Now</a>
+                    <a href="prd_detail.php" class="btn btn-sm btn-secondary">Order Now</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item fourth">
@@ -125,7 +125,7 @@ include("header.php");
                         <img class="rounded-circle w-100 h-100" src="img/product-1.jpg" style="object-fit: cover;">
                     </div>
                     <h5 class="font-weight-bold mb-4">Vanilla Ice Cream</h5>
-                    <a href="" class="btn btn-sm btn-secondary">Order Now</a>
+                    <a href="prd_detail.php" class="btn btn-sm btn-secondary">Order Now</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item first">
@@ -137,7 +137,7 @@ include("header.php");
                         <img class="rounded-circle w-100 h-100" src="img/product-1.jpg" style="object-fit: cover;">
                     </div>
                     <h5 class="font-weight-bold mb-4 ">Vanilla Ice Cream</h5>
-                    <a href="" class="btn btn-sm btn-secondary">Order Now</a>
+                    <a href="prd_detail.php" class="btn btn-sm btn-secondary">Order Now</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item sixth">
@@ -149,7 +149,7 @@ include("header.php");
                         <img class="rounded-circle w-100 h-100" src="img/product-1.jpg" style="object-fit: cover;">
                     </div>
                     <h5 class="font-weight-bold mb-4">Vanilla Ice Cream</h5>
-                    <a href="" class="btn btn-sm btn-secondary">Order Now</a>
+                    <a href="prd_detail.php" class="btn btn-sm btn-secondary">Order Now</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item second">
@@ -161,7 +161,7 @@ include("header.php");
                         <img class="rounded-circle w-100 h-100" src="img/product-1.jpg" style="object-fit: cover;">
                     </div>
                     <h5 class="font-weight-bold mb-4">Vanilla Ice Cream</h5>
-                    <a href="" class="btn btn-sm btn-secondary">Order Now</a>
+                    <a href="prd_detail.php" class="btn btn-sm btn-secondary">Order Now</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item third">
@@ -173,7 +173,7 @@ include("header.php");
                         <img class="rounded-circle w-100 h-100" src="img/product-1.jpg" style="object-fit: cover;">
                     </div>
                     <h5 class="font-weight-bold mb-4">Vanilla Ice Cream</h5>
-                    <a href="" class="btn btn-sm btn-secondary">Order Now</a>
+                    <a href="prd_detail.php" class="btn btn-sm btn-secondary">Order Now</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item second">
@@ -185,7 +185,7 @@ include("header.php");
                         <img class="rounded-circle w-100 h-100" src="img/product-1.jpg" style="object-fit: cover;">
                     </div>
                     <h5 class="font-weight-bold mb-4">Vanilla Ice Cream</h5>
-                    <a href="" class="btn btn-sm btn-secondary">Order Now</a>
+                    <a href="prd_detail.php" class="btn btn-sm btn-secondary">Order Now</a>
                 </div>
             </div>
         </div>

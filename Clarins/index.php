@@ -91,7 +91,7 @@ include("header.php");
                 <h3 class="font-weight-bold text-white mt-3 mb-4">"Love the texture"</h3>
                 <p class="text-white mb-4">I started using this a month ago, and I have seen great results.
                     I love the texture of the serum and I love the fact that its very smooth and light.</p>
-                <a href="product.php" class="btn btn-secondary py-3 px-5 mt-2">Order Now</a>
+                <a href="prd_detail.php" class="btn btn-secondary py-3 px-5 mt-2">Order Now</a>
             </div>
         </div>
     </div>

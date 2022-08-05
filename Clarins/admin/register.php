@@ -1,5 +1,5 @@
 <?php
-require_once('SQLconnect.php');
+require_once('../dbconnect.php');
 $ulen = 5;
 $pwlen = 5;
 //var_dump($_POST);

@@ -1,42 +1,27 @@
 <?php
-// USER VALIDATION start //
+require_once '../dbconnect.php';
 
-//USER VALIDATION end //
-?>
-
-<?php
-require_once 'dbconnect.php';
-
-function generateRandomString($length = 10) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];
-    }
-    return $randomString;
-}
-
-if(isset($_POST['submit'])){
-    $username = htmlspecialchars($_POST['username']) ;
-    $conn->real_escape_string($username);
-    $password = htmlspecialchars($_POST['password']) ;
-    $conn->real_escape_string($password);
-    $sql = "SELECT username from users where username = '$username' AND [password] = '$password'";
-    $result = $conn->query($sql);
-    if($result->num_rows > 0){
-        $newpass = generateRandomString();
-        $newpass_hash = sha1($newpass);
-        $sql = "UPDATE users SET password = '$newpass_hash' WHERE username = '$username' AND [password] = '$password'";
-        if($conn->query($sql) === TRUE){
-            echo "Your new password is: $newpass";
-        }else{
-            echo "<p style=\"color:red;\">Error: " . $sql . "<br>" . $conn->error . "</p>";
-        }
-    }else{
-        echo "<p style=\"color:red;\">Username or password is not exist</p>";
-    }
-}
+$ulen = 5;
+if ($_SERVER['REQUEST_METHOD'] == "POST") :
+  $username = htmlspecialchars($_POST['username']);
+  $email = htmlspecialchars($_POST['email']);
+  if (strlen($username) < $ulen) :  header("location:forgotpw.php?error");
+  endif;
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) :
+    header("location:forgotpw.php?error");
+  endif;
+  $sql = sprintf("select username from users where email = '%s'", $email);
+  $result = $conn->query($sql);
+  $uname = $result->fetch_assoc();
+  var_dump($uname);
+  if ($username == $uname['username']) :
+    session_start();
+    $_SESSION['username'] = $username;
+    header('location:setpw.php');
+  else :
+    header("location:forgotpw.php?error");
+  endif;
+endif;
 ?>
 
 <!DOCTYPE html>
@@ -69,11 +54,25 @@ if(isset($_POST['submit'])){
       </div>
       <div class="card">
         <div class="card-body login-card-body">
-          <p class="login-box-msg">You forgot your password? Here you can easily retrieve a new password.</p>
+          <p class="login-box-msg">You forgot your password? Here you can easily set a new password.</p>
 
-          <form action="recover-password.html" method="post">
+          <form action="forgotpw.php" method="post">
+            <?php
+            if (isset($_GET["error"])) {
+              echo ('<div class="border bg-warning">Username or email is not found</div>');
+            }
+            ?>
+
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="Email">
+              <input type="text" name="username" class="form-control" placeholder="Username" required>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="email" name="email" class="form-control" placeholder="Email">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-envelope"></span>
@@ -89,10 +88,7 @@ if(isset($_POST['submit'])){
           </form>
 
           <p class="mt-3 mb-1">
-            <a href="login.html">Login</a>
-          </p>
-          <p class="mb-0">
-            <a href="register.html" class="text-center">Register a new membership</a>
+            <a href="login.html">Back to Login</a>
           </p>
         </div>
         <!-- /.login-card-body -->

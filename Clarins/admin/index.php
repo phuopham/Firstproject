@@ -13,7 +13,7 @@ if (isset($_GET['success'])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in</title>
+  <title>Clarins | Log in</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
@@ -35,11 +35,21 @@ if (isset($_GET['success'])) {
       <!-- /.login-logo -->
       <div class="card">
         <div class="card-body login-card-body">
+          <?php
+          if (isset($_GET["pwsuccess"])) {
+            echo ('<div class="border bg-warning text-center">Your password was changed successfully!</div>');
+          }
+          ?>
           <p class="login-box-msg">Sign in to start your session</p>
-
           <form action="validate.php" method="post">
+            <?php
+            if (isset($_GET["error"])) {
+              echo ('<div class="border bg-warning">Username or password is incorrect</div>');
+            }
+            ?>
+
             <div class="input-group mb-3">
-              <input type="text" name="username" value="" class="form-control" placeholder="Username" required>
+              <input type="text" name="username" class="form-control" placeholder="Username or email" required>
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-envelope"></span>
@@ -47,7 +57,7 @@ if (isset($_GET['success'])) {
               </div>
             </div>
             <div class="input-group mb-3">
-              <input type="password" name="password" value="" class="form-control" placeholder="Password" required>
+              <input type="password" name="password" class="form-control" placeholder="Password" required>
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
@@ -66,7 +76,7 @@ if (isset($_GET['success'])) {
           </form>
 
           <p class="mb-1">
-            <a href="forgot-password.html">I forgot my password</a>
+            <a href="forgotpw.php">I forgot my password</a>
           </p>
         </div>
         <!-- /.login-card-body -->

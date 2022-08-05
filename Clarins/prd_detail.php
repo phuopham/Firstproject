@@ -50,8 +50,9 @@ include('header.php');
     </div>
     <div class="mb-3
      row">
-        <div class="col-md-2 d-none d-md-block text-right">
-            <img src="img/testimonial-1.jpg" class="rounded-circle">
+        <div class="col-md-1"></div>
+        <div class="col-md-1 d-none d-md-block text-right">
+            <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
         </div>
         <div class="col-md-9 border rounded" style=" background: lightgray;">
             <div>
@@ -64,8 +65,9 @@ include('header.php');
     </div>
     <div class="mb-3
      row">
-        <div class="col-md-2 d-none d-md-block text-right">
-            <img src="img/testimonial-1.jpg" class="rounded-circle">
+        <div class="col-md-1"></div>
+        <div class="col-md-1 d-none d-md-block text-right">
+            <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
         </div>
         <div class="col-md-9 border rounded" style=" background: lightgray;">
             <div>
@@ -78,8 +80,9 @@ include('header.php');
     </div>
     <div class="mb-3
      row">
-        <div class="col-md-2 d-none d-md-block text-right">
-            <img src="img/testimonial-1.jpg" class="rounded-circle">
+        <div class="col-md-1"></div>
+        <div class="col-md-1 d-none d-md-block text-right">
+            <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
         </div>
         <div class="col-md-9 border rounded" style=" background: lightgray;">
             <div>
@@ -92,8 +95,9 @@ include('header.php');
     </div>
     <div class="mb-3
      row">
-        <div class="col-md-2 d-none d-md-block text-right">
-            <img src="img/testimonial-1.jpg" class="rounded-circle">
+        <div class="col-md-1"></div>
+        <div class="col-md-1 d-none d-md-block text-right">
+            <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
         </div>
         <div class="col-md-9 border rounded" style=" background: lightgray;">
             <div>

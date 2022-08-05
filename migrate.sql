@@ -98,4 +98,4 @@ CREATE TABLE visitorcount(
     id int AUTO_INCREMENT PRIMARY KEY,
     ip varchar(30),
     view_at DATETIME DEFAULT CURRENT_TIMESTAMP
-);
+)

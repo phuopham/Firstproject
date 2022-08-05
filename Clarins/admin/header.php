@@ -1,12 +1,24 @@
 <?php
-
-// USER VALIDATION start //
-
-//USER VALIDATION end //
-
+// Validate session
 session_start();
-//for test
-$_SESSION["username"] = "Phuong";
+if (!isset($_SESSION['username'])) :
+    header('location:index.php');
+endif;
+$username = $_SESSION['username'];
+// validate session end
+// fetch data
+require_once('../dbconnect.php');
+$sql = sprintf("select username, email, phone from users where username = '%s'", $username);
+$result = $conn->query($sql);
+$elm = $result->fetch_array(MYSQLI_ASSOC);
+//fetch data end
+
+// logout start
+if (isset($_GET['logout'])) {
+    session_unset();
+    header('location:index.php');
+}
+// logout end
 
 ?>
 
@@ -60,7 +72,7 @@ $_SESSION["username"] = "Phuong";
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" role="button">
+                    <a class="nav-link" href="header.php?logout" role="button">
                         <p>Logout</p>
                     </a>
                 </li>

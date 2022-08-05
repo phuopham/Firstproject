@@ -1,35 +1,11 @@
 <?php
-
-// USER VALIDATION start //
-    require_once '../dbconnect.php';
-    session_start();
-    $errors = array();
-    if(isset($_POST['login'])){
-        $username = htmlspecialchars($_POST['username']);
-        $username = $conn->real_escape_string($username);
-        $password = htmlspecialchars($_POST['password']);
-        $password = $conn->real_escape_string($password);
-        $password = sha1($password);
-        if(empty($username)){
-            $errors['username'] = "Username is required";
-        }
-        if(empty($password)){
-            $errors['password'] = "Password is required";
-        }
-        $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
-        $result = $conn->query($sql);
-        var_dump($result->num_rows);
-        if($result->num_rows > 0){
-          echo "abc";
-          $_SESSION['username'] = $username;
-          header("main.php");
-        
-        }else{
-          echo "Username or password is incorrect";
-      }
-    }
-//USER VALIDATION end //
-
+session_start();
+if (isset($_SESSION["username"])) {
+  header('location:main.php');
+}
+if (isset($_GET['success'])) {
+  echo "Register successfully!";
+};
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +37,7 @@
         <div class="card-body login-card-body">
           <p class="login-box-msg">Sign in to start your session</p>
 
-          <form action="index.php" method="post">
+          <form action="validate.php" method="post">
             <div class="input-group mb-3">
               <input type="text" name="username" value="" class="form-control" placeholder="Username" required>
               <div class="input-group-append">
@@ -83,7 +59,7 @@
               </div>
               <!-- /.col -->
               <div class="col-4">
-                <button type="submit" name="login"  class="btn btn-primary btn-block">Sign In</button>
+                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
               </div>
               <!-- /.col -->
             </div>

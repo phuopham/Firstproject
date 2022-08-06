@@ -130,7 +130,7 @@ if (isset($_GET['logout'])) {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="contact.php" class="nav-link">
                                 <p>Note from customers</p>
                             </a>
                         </li>

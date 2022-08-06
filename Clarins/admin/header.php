@@ -92,14 +92,25 @@ if (isset($_GET['logout'])) {
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="../img/skin-care.png" class="img-circle elevation-2 bg-warning" alt="User Image">
+                    <div>
+                        <div class="image">
+                            <img src="../img/skin-care.png" class="img-circle elevation-2 bg-warning" alt="User Image">
+                        </div>
+                        <div class="info">
+                            <a href="#" class="d-block"><?php echo ($_SESSION["username"]) ?></a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="image text-white"> Key
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"><?php echo ($_SESSION["username"]) ?></a>
+                        <a href="setpw.php" class="d-block">
+                            Change password
+                        </a>
                     </div>
                 </div>
-
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">

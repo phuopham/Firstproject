@@ -50,15 +50,12 @@ include("header.php");
               <h6 class="card-title">Please take time to read our guide</h6>
 
               <p class="card-text">The guide document below is really helpful to get start using Admin page.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <a href="#" class="btn btn-primary">Go to guide</a>
             </div>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="card">
-            <div class="card-header">
-              <h5 class="m-0 text-right">Visitors</h5>
-            </div>
             <div class="card-body">
               <h2 class="text-center">Visitor count: <?php echo ($visitorcount) ?> </h2>
 

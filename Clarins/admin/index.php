@@ -3,9 +3,6 @@ session_start();
 if (isset($_SESSION["username"])) {
   header('location:main.php');
 }
-if (isset($_GET['success'])) {
-  echo "Register successfully!";
-};
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,6 +74,7 @@ if (isset($_GET['success'])) {
 
           <p class="mb-1">
             <a href="forgotpw.php">I forgot my password</a>
+            <a href="forgotpw.php">I'm new employee</a>
           </p>
         </div>
         <!-- /.login-card-body -->

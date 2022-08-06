@@ -54,7 +54,7 @@ endif;
       </div>
       <div class="card">
         <div class="card-body login-card-body">
-          <p class="login-box-msg">You forgot your password? Here you can easily set a new password.</p>
+          <p class="login-box-msg">Here you can easily set a new password.</p>
 
           <form action="forgotpw.php" method="post">
             <?php
@@ -88,7 +88,7 @@ endif;
           </form>
 
           <p class="mt-3 mb-1">
-            <a href="login.html">Back to Login</a>
+            <a href="index.php">Back to Login</a>
           </p>
         </div>
         <!-- /.login-card-body -->

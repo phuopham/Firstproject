@@ -7,6 +7,7 @@ require_once("../dbconnect.php");
 $sql = "SELECT * from users";
 $result = $conn->query($sql);
 $userlist = $result->fetch_all(MYSQLI_ASSOC);
+//get user data end
 
 ?>
 
@@ -50,7 +51,7 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <form action="">
+                                        <form action="adduser.php" method="post">
                                             <td></td>
                                             <td>
                                                 <input type="text" name="username" placeholder="Username" require>
@@ -73,7 +74,7 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                         echo ("<td>" . $user["username"] . "</td>");
                                         echo ("<td>" . $user["email"] . "</td>");
                                         echo ("<td>" . $user["phone"] . "</td>");
-                                        echo ('<td><a class="btn btn-danger" href="">Remove</a></td>');
+                                        echo ('<td><a class="btn btn-danger" href="adduser.php?remove=' . $user["username"] . '">Remove</a></td>');
                                         echo ("</tr>");
                                     };
                                     ?>
@@ -92,7 +93,17 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
         </div>
     </section>
 </div>
+
 <?php
+if (isset($_GET["success"])) {
+    echo ('<script>alert("New user added successfully!");</script>');
+}
+if (isset($_GET["error"])) {
+    echo ('<script>alert("Error! Please check the requirement!");</script>');
+}
+if (isset($_GET["rmsuccess"])) {
+    echo ('<script>alert("Remove user successfully");</script>');
+}
 //footer
 include("footer.php");
 ?>

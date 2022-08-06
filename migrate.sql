@@ -3,10 +3,10 @@ create database if not exists Clarins;
 use Clarins;
 
 create table users (
-    username varchar(32) unique primary key,
-    email varchar(100) unique,
+    username varchar(32) not null unique primary key,
+    email varchar(100) not null unique,
     phone int(11),
-    `password` varchar(40),
+    `password` varchar(40) not null,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 

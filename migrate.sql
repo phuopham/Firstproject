@@ -20,7 +20,7 @@ CREATE TABLE catalogs(
 
 CREATE TABLE brands(
     brandID int AUTO_INCREMENT PRIMARY KEY,
-    name varchar(40) not null,
+    name varchar(40) not null unique,
     description text,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP
 );

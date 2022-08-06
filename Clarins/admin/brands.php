@@ -1,13 +1,27 @@
 <?php
-// header
-include("header.php");
-
 // get user data
 require_once("../dbconnect.php");
 $sql = "SELECT * from brands";
 $result = $conn->query($sql);
-$userlist = $result->fetch_all(MYSQLI_ASSOC);
+$brandlist = $result->fetch_all(MYSQLI_ASSOC);
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") :
+    if (isset($_POST["name"])) {
+        $name = htmlspecialchars($_POST["name"]);
+        $sql = "SELECT name from brands where name = '" . $name . "'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) :
+            header('location:brands.php?error');
+        else :
+            $description = htmlspecialchars($_POST["description"]);
+            $sql = "INSERT into brands (`name`,`description`) values ( '" . $name . "', '" . $description . "'); ";
+            $result = $conn->query($sql);
+        endif;
+    }
+endif;
+
+// header
+include("header.php");
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -49,22 +63,16 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <form action="">
+                                        <form action="brands.php" method="post">
                                             <td></td>
                                             <td>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="name" placeholder="Name" require>
-                                                </div>
+                                                <input type="text" class="form-control" name="name" placeholder="Name" require>
                                             </td>
                                             <td>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="textarea" name="description" placeholder="Description" require>
-                                                </div>
+                                                <textarea class="form-control" name="description" placeholder="Description" require></textarea>
                                             </td>
                                             <td>
-                                                <div class="form-group">
-                                                    <button class="btn btn-primary form-control">Add user</button>
-                                                </div>
+                                                <button class="btn btn-primary form-control" type="submit">Add brand</button>
                                             </td>
                                         </form>
                                     </tr>
@@ -73,12 +81,12 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                     </tr>
 
                                     <?php
-                                    foreach ($userlist as $id => $user) {
+                                    foreach ($brandlist as $id => $brand) {
                                         echo ('<tr>');
                                         echo ("<td>" . ($id + 1) . "</td>");
-                                        echo ("<td>" . $user["name"] . "</td>");
-                                        echo ("<td>" . $user["description"] . "</td>");
-                                        echo ('<td><a class="btn btn-danger" href="">Remove</a></td>');
+                                        echo ("<td>" . $brand["name"] . "</td>");
+                                        echo ("<td>" . $brand["description"] . "</td>");
+                                        echo ('<td><a class="btn btn-danger" href="remove.php?brand=' . $brand["brandID"] . '">Remove</a></td>');
                                         echo ("</tr>");
                                     };
                                     ?>

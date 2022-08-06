@@ -87,7 +87,13 @@ $visitorcount = mysqli_num_rows($result);
                         };
                         ?>
                         ">About</a>
-                        <a href="product.php" class="nav-item nav-link">Products</a>
+                        <a href="product.php" class="nav-item nav-link
+                        <?php
+                        if ($page == "product") {
+                            echo ("active");
+                        };
+                        ?>
+                        ">Products</a>
                     </div>
                     <img src="img/skin-care.png" class="mx-5 d-none d-lg-block " style="max-width:8%;">
                     <div class="navbar-nav mr-auto py-0">
@@ -133,10 +139,20 @@ $visitorcount = mysqli_num_rows($result);
                             </div>
                         </div>
                         <div>
-                            <a href="contact.php" class="nav-item nav-link">Contact</a>
+                            <a href="contact.php" class="nav-item nav-link
+                            <?php if ($page == "contact") {
+                                echo ("active");
+                            }; ?>
+                            ">Contact</a>
                         </div>
                         <div class="container-fluid">
-                            <a href="cart.php" class="nav-item btn btn-primary ">Cart</a>
+                            <a href="cart.php" class="nav-item btn 
+                            <?php if ($page == "cart") :
+                                echo ("btn-secondary");
+                            else :
+                                echo ("btn-primary");
+                            endif;; ?>
+                            ">Cart</a>
                         </div>
 
                     </div>

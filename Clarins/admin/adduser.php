@@ -33,15 +33,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
 
 
 endif;
-
-if ($_SERVER["REQUEST_METHOD"] == "GET") :
-    $query = "SELECT username from users where username = '" . $_GET["remove"] . "'";
-    $result = $conn->query($query);
-    if ($result->num_rows < 1) :
-        header("location:users.php?error");
-    else :
-        $query = "DELETE FROM users WHERE `users`.`username` = '" . $_GET["remove"] . "'";
-        $conn->query($query);
-        header("location:users.php?rmsuccess");
-    endif;
-endif;

@@ -74,7 +74,7 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                         echo ("<td>" . $user["username"] . "</td>");
                                         echo ("<td>" . $user["email"] . "</td>");
                                         echo ("<td>" . $user["phone"] . "</td>");
-                                        echo ('<td><a class="btn btn-danger" href="adduser.php?remove=' . $user["username"] . '">Remove</a></td>');
+                                        echo ('<td><a class="btn btn-danger" href="remove.php?user=' . $user["username"] . '">Remove</a></td>');
                                         echo ("</tr>");
                                     };
                                     ?>

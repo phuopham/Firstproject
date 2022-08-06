@@ -1,5 +1,6 @@
 <?php
 require_once("dbconnect.php");
+$page = "cart";
 include("header.php");
 $items = [1, 2, 3];
 $total = 40;

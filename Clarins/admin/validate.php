@@ -1,4 +1,5 @@
 <?php
+require_once('../dbconnect.php');
 $ulen = 5;
 $pwlen = 5;
 if ($_POST['username'] == null) : header("location:index.php?error1");
@@ -8,7 +9,7 @@ if ($_POST['password'] == null) : header("location:index.php?error2");
 endif;
 $password = htmlspecialchars($_POST['password']);
 
-require_once('../dbconnect.php');
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") :
     if (strlen($username) < $ulen || strlen($password) < $pwlen) : header("location:index.php?error");
@@ -18,7 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     $password_hash = sha1($password);
     $query = sprintf("select username, password from users where username = '%s' or email = '%s'", $escape_tring_user, $escape_tring_user);
     $result = $conn->query($query);
-    $user = $result->fetch_array(MYSQLI_ASSOC);
+    // $user = $result->fetch_array(MYSQLI_ASSOC);
+    $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
     if ($password_hash == $user['password']) :
         session_start();

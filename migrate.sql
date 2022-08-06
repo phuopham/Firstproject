@@ -12,7 +12,7 @@ create table users (
 
 CREATE TABLE catalogs(
     catalogID int AUTO_INCREMENT PRIMARY KEY,
-    name varchar(40),
+    name varchar(40) not null,
     category int,
     description text,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP
@@ -20,7 +20,7 @@ CREATE TABLE catalogs(
 
 CREATE TABLE brands(
     brandID int AUTO_INCREMENT PRIMARY KEY,
-    name varchar(40),
+    name varchar(40) not null,
     description text,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP
 );
@@ -30,7 +30,7 @@ create table products (
     name varchar(100) NOT NULL,
     catalogID int,
     description text,
-    brandID int,
+    brandID int not null,
     sell_quantity int,
     price int not null,
     pic1 varchar(40) not null,
@@ -45,9 +45,9 @@ create table products (
 CREATE TABLE comments(
     commentID int AUTO_INCREMENT PRIMARY KEY,
     name varchar(40),
-    email varchar(100),
+    email varchar(100) not null,
     message text,
-    productID int,
+    productID int not null,
     visible smallint,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (productID) REFERENCES products(productID)
@@ -97,4 +97,15 @@ CREATE TABLE visitorcount(
     id int AUTO_INCREMENT PRIMARY KEY,
     ip varchar(30),
     view_at DATETIME DEFAULT CURRENT_TIMESTAMP
-)
+);
+
+INSERT INTO
+    users
+VALUES
+    (
+        "admin",
+        "admin@clarins.com",
+        01234567890,
+        sha1(12345),
+        now()
+    );

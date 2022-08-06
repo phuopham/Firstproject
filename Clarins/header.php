@@ -73,16 +73,28 @@ $visitorcount = mysqli_num_rows($result);
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="index.php" class="nav-item nav-link active">Home</a>
-                        <a href="about.php" class="nav-item nav-link">About</a>
+                        <a href="index.php" class="nav-item nav-link 
+                        <?php
+                        if ($page == "index") {
+                            echo ("active");
+                        };
+                        ?>
+                        ">Home</a>
+                        <a href="about.php" class="nav-item nav-link
+                        <?php
+                        if ($page == "about") {
+                            echo ("active");
+                        };
+                        ?>
+                        ">About</a>
                         <a href="product.php" class="nav-item nav-link">Products</a>
                     </div>
                     <img src="img/skin-care.png" class="mx-5 d-none d-lg-block " style="max-width:8%;">
                     <div class="navbar-nav mr-auto py-0">
                         <div class="dropdown show">
                             <a href="#" class="nav-item nav-link dropdown-toggle" role="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catergoies</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown" style="margin-left:-300%;">
-                                <div class="d-flex">
+                            <div class="dropdown-menu" aria-labelledby="dropdown" style="left:-400% !important;">
+                                <div class="d-lg-flex">
                                     <div>
                                         <div class="dropdown-header">HAIR</div>
                                         <a href="#" class="dropdown-item">Sun Protection</a>

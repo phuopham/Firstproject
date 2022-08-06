@@ -51,18 +51,18 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <form action="adduser.php" method="post">
+                                        <form action="adduser.php" class="form-group" method="post">
                                             <td></td>
                                             <td>
-                                                <input type="text" name="username" placeholder="Username" require>
+                                                <input class="form-control" type="text" name="username" placeholder="Username" require>
                                             </td>
                                             <td>
-                                                <input type="text" name="email" placeholder="Email" require>
+                                                <input type="text" class="form-control" name="email" placeholder="Email" require>
                                             </td>
                                             <td>
-                                                <input type="number" name="phone" placeholder="Phonenumber" require>
+                                                <input type="number" class="form-control" name="phone" placeholder="Phonenumber" require>
                                             </td>
-                                            <td><button class="btn btn-primary">Add user</button></td>
+                                            <td><button class="btn btn-primary form-control">Add user</button></td>
 
                                         </form>
                                     </tr>

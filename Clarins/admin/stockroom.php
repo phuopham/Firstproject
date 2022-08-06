@@ -53,19 +53,13 @@ $goodstocks = $result->fetch_all(MYSQLI_ASSOC);
                                         <form action="">
                                             <td></td>
                                             <td>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="name" placeholder="Name" require>
-                                                </div>
+                                                <input type="text" class="form-control" name="name" placeholder="Name" require>
                                             </td>
                                             <td>
-                                                <div class="form-group">
-                                                    <input class="form-control" type="textarea" name="quantity" placeholder="Quantity" require>
-                                                </div>
+                                                <input class="form-control" type="textarea" name="quantity" placeholder="Quantity" require>
                                             </td>
                                             <td>
-                                                <div class="form-group">
-                                                    <button class="btn btn-primary form-control">Add good</button>
-                                                </div>
+                                                <button class="btn btn-primary form-control">Add good</button>
                                             </td>
                                         </form>
                                     </tr>

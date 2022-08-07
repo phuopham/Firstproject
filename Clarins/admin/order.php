@@ -9,7 +9,7 @@ $result = $conn->query($sql);
 $userlist = $result->fetch_all(MYSQLI_ASSOC);
 $sql = "SELECT * from orders inner join user_order ON orders.ordernumber = user_order.ordernumber";
 $result = $conn->query($sql);
-$order = $result->fetch_all(MYSQLI_ASSOC);
+$orderlist = $result->fetch_all(MYSQLI_ASSOC);
 //get user data end
 
 ?>
@@ -50,45 +50,7 @@ $order = $result->fetch_all(MYSQLI_ASSOC);
                                         <th>Phone</th>
                                         <th>Address</th>
                                         <th>Pay Method</th>
-                                        <th>Create By</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    foreach ($userlist as $id => $user) {
-                                        echo ("<tr>");
-                                        echo ("<td>" . $user["name"] . "</td>");
-                                        echo ("<td>" . ($id + 1) . "</td>");
-                                        echo ("<td>" . $user["email"] . "</td>");
-                                        echo ("<td>" . $user["phone"] . "</td>");
-                                        echo ("<td>" . $user["address"] . "</td>");
-                                        echo ("<td>" . $user["paymethod"] . "</td>");
-                                        echo ("<td>" . $user["create_by"] . "</td>");
-                                        echo ("</tr>");
-                                    };
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
                                         <th>Order ID</th>
-                                        <th>Order Number</th>
                                         <th>Product ID</th>
                                         <th>Quantity</th>
                                         <th>Price</th>
@@ -97,14 +59,21 @@ $order = $result->fetch_all(MYSQLI_ASSOC);
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($order as $id => $user) {
+                                    foreach($userlist as $id => $user ){
                                         echo ("<tr>");
+                                        echo ("<td>" . $user["name"] . "</td>");
                                         echo ("<td>" . ($id + 1) . "</td>");
-                                        echo ("<td>" . ($id + 1) . "</td>");
-                                        echo ("<td>" . ($id + 1) . "</td>");
-                                        echo ("<td>" . $user["quantity"] . "</td>");
-                                        echo ("<td>" . $user["price"] . "</td>");
-                                        echo ("<td>" . $user["create_by"] . "</td>");
+                                        echo ("<td>" . $user["email"] . "</td>");
+                                        echo ("<td>" . $user["phone"] . "</td>");
+                                        echo ("<td>" . $user["address"] . "</td>");
+                                        echo ("<td>" . $user["paymethod"] . "</td>");
+                                    };
+                                    foreach($orderlist as $id_od => $order){
+                                        echo ("<td>" . ($id_od + 1) . "</td>");
+                                        echo ("<td>" . ($id_od + 1) . "</td>");
+                                        echo ("<td>" . $order["quantity"] . "</td>");
+                                        echo ("<td>" . $order["price"] . "</td>");
+                                        echo ("<td>" . $order["create_by"] . "</td>");
                                         echo ("</tr>");
                                     };
                                     ?>

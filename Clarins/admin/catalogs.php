@@ -9,6 +9,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     if (!isset($_POST["description"])) :
         header("location:catalogs.php?error");
     endif;
+    if (!is_int($_POST["category"])) :
+        header("location:catalogs.php?error");
+    endif;
+
     $name = htmlspecialchars($_POST["name"]);
     $description = htmlspecialchars($_POST["description"]);
     $category = $_POST["category"];
@@ -71,65 +75,57 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
                                         <form action="catalogs.php" method="post">
                                             <td></td>
                                             <td>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="name" placeholder="Name" required>
-                                                </div>
+                                                <input type="text" class="form-control" name="name" placeholder="Name" required>
                                             </td>
                                             <td>
-                                                <div class="form-group">
-                                                    <select class="form-control" name="category" required>
-                                                        <option value="1">Face</option>
-                                                        <option value="2">Body</option>
-                                                        <option value="3">Sunscreen</option>
-                                                        <option value="4">Body</option>
-                                                        <option value="5">Make-up</option>
-                                                        <option value="6">Perfumes</option>
-                                                    </select>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <button class="btn btn-primary form-control">Add catalog</button>
-                                                </div>
-                                            </td>
-                                    <tr>
-                                        <td colspan="4">
-                                            <div class="form-group">
-                                                <textarea class="form-control" name="description" placeholder="Description" required></textarea>
-                                            </div>
-
-                                        </td>
-                                    </tr>
-
-                                    </form>
-                                    </tr>
-
-                                    <?php
-                                    foreach ($catalogs as $id => $catalog) {
-                                        echo ('<tr data-widget="expandable-table" aria-expanded="false" tooltip title="click the row to show description">');
-                                        echo ("<td>" . ($id + 1) . "</td>");
-                                        echo ("<td>" . $catalog["name"] . "</td>");
-                                        echo ("<td>" . $catalog["category"] . "</td>");
-                                        echo ('<td><a class="btn btn-danger" href="remove.php?catalog=' . $catalog["catalogID"] . '">Remove</a></td>');
-                                        echo ("</tr>");
-                                        echo ('<tr class="expandable-body">');
-                                        echo ("<td colspan='4'><p>" . $catalog["description"] . "</p></td> </tr>");
-                                    };
-                                    ?>
-
-
-
-                                </tbody>
-                            </table>
-
+                                                <select class="form-control" name="category" required>
+                                                    <option value="1">Face</option>
+                                                    <option value="2">Body</option>
+                                                    <option value="3">Sunscreen</option>
+                                                    <option value="4">Body</option>
+                                                    <option value="5">Make-up</option>
+                                                    <option value="6">Perfumes</option>
+                                                </select>
                         </div>
-                        <!-- /.card-body -->
+                        </td>
+                        <td>
+                            <button class="btn btn-primary form-control">Add catalog</button>
+                        </td>
+                        <tr>
+                            <td colspan="4">
+                                <textarea class="form-control" name="description" placeholder="Description" required></textarea>
+                            </td>
+                        </tr>
+
+                        </form>
+                        </tr>
+
+                        <?php
+                        foreach ($catalogs as $id => $catalog) {
+                            echo ('<tr data-widget="expandable-table" aria-expanded="false" tooltip title="click the row to show description">');
+                            echo ("<td>" . ($id + 1) . "</td>");
+                            echo ("<td>" . $catalog["name"] . "</td>");
+                            echo ("<td>" . $catalog["category"] . "</td>");
+                            echo ('<td><a class="btn btn-danger" href="remove.php?catalog=' . $catalog["catalogID"] . '">Remove</a></td>');
+                            echo ("</tr>");
+                            echo ('<tr class="expandable-body">');
+                            echo ("<td colspan='4'><p>" . $catalog["description"] . "</p></td> </tr>");
+                        };
+                        ?>
+
+
+
+                        </tbody>
+                        </table>
+
                     </div>
-                    <!-- /.card -->
+                    <!-- /.card-body -->
                 </div>
+                <!-- /.card -->
             </div>
         </div>
-    </section>
+</div>
+</section>
 </div>
 <?php
 //footer

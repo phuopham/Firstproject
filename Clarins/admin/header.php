@@ -66,9 +66,9 @@ if (isset($_GET['logout'])) {
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                        <i class="fas fa-th-large"></i>
+                <li class="nav-item active">
+                    <a class="nav-link" href="setpw.php" role="button">
+                        <p>Change password</p>
                     </a>
                 </li>
                 <li class="nav-item active">
@@ -92,23 +92,11 @@ if (isset($_GET['logout'])) {
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div>
-                        <div class="image">
-                            <img src="../img/skin-care.png" class="img-circle elevation-2 bg-warning" alt="User Image">
-                        </div>
-                        <div class="info">
-                            <a href="#" class="d-block"><?php echo ($_SESSION["username"]) ?></a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image text-white"> Key
+                    <div class="image">
+                        <img src="../img/skin-care.png" class="img-circle elevation-2 bg-warning" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="setpw.php" class="d-block">
-                            Change password
-                        </a>
+                        <a href="#" class="d-block"><?php echo ($_SESSION["username"]) ?></a>
                     </div>
                 </div>
                 <!-- Sidebar Menu -->
@@ -141,7 +129,7 @@ if (isset($_GET['logout'])) {
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="products.php" class="nav-link">
                                 <p>Products</p>
                             </a>
                         </li>

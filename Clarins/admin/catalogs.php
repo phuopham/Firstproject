@@ -95,7 +95,7 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
                                     <tr>
                                         <td colspan="4">
                                             <div class="form-group">
-                                                <input class="form-control" type="textarea" name="description" placeholder="Description" required>
+                                                <textarea class="form-control" name="description" placeholder="Description" required></textarea>
                                             </div>
 
                                         </td>

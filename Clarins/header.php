@@ -1,5 +1,7 @@
 <?php
 require_once("dbconnect.php");
+
+//visitor count
 include("config.php");
 $sql = "SELECT * from visitorcount where IP = '" . $_SERVER['REMOTE_ADDR'] . "' and timestampdiff(hour, view_at, now()) <1";
 $result = $conn->query($sql);

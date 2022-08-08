@@ -1,4 +1,7 @@
 <?php
+
+
+
 $page = "product";
 include("header.php");
 ?>

@@ -27,7 +27,7 @@ CREATE TABLE brands(
 
 create table products (
     productID int(10) AUTO_INCREMENT PRIMARY KEY,
-    name varchar(100) NOT NULL,
+    name varchar(100) NOT NULL UNIQUE,
     catalogID int,
     description text,
     brandID int not null,
@@ -48,7 +48,7 @@ CREATE TABLE comments(
     email varchar(100) not null,
     message text,
     productID int not null,
-    visible smallint,
+    visible smallint default 0,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (productID) REFERENCES products(productID)
 );

@@ -3,25 +3,23 @@ require_once('../dbconnect.php');
 
 //add user
 
-// if ($_SERVER["REQUEST_METHOD"] == "POST") :
-//     if (!isset($_POST["name"])) :
-//         header("location:products.php?error");
-//     endif;
-//     if (!isset($_POST["description"])) :
-//         header("location:products.php?error");
-//     endif;
-//     $name = htmlspecialchars($_POST["name"]);
-//     $description = htmlspecialchars($_POST["description"]);
-//     $category = $_POST["category"];
-//     $sql = "INSERT into products(`name`,`category`,`description`) values ('$name', $category ,'$description')";
-//     $result = $conn->query($sql);
-//     if ($result->errno) {
-//         header("location:products.php?error");
-//     };
-//     header("location:products.php?success");
-// endif;
-
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") :
+    if (!isset($_POST["name"])) :
+        header("location:products.php?error");
+    endif;
+    $name = htmlspecialchars($_POST["name"]);
+    if (!isset($_POST["description"])) :
+        header("location:products.php?error");
+    endif;
+    $description = htmlspecialchars($_POST["description"]);
+    $category = $_POST["category"];
+    $sql = "INSERT into products(`name`,`category`,`description`) values ('$name', $category ,'$description')";
+    $result = $conn->query($sql);
+    if ($result->errno) {
+        header("location:products.php?error");
+    };
+    header("location:products.php?success");
+endif;
 
 // get product data
 $sql = "SELECT * from products";

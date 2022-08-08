@@ -1,5 +1,38 @@
 <?php
+// fetch product
+require_once("dbconnect.php");
+if ($_SERVER["REQUEST_METHOD"] == "GET") :
+    if (!isset($_GET['prod'])) :
+        header("location:product.php");
+    endif;
+    $sql = "SELECT * from products where productID = '" . $_GET['prod'] . "';";
+    $result = $conn->query($sql);
+    $product = $result->fetch_assoc();
+
+    // fetch catalog
+    $sql =  "SELECT name, category from catalogs where catalogID ='" . $product["catalogID"] . "';";
+    $result = $conn->query($sql);
+    $catalog = $result->fetch_assoc();
+
+    // fetch brand
+    $sql =  "SELECT name, description from brands where brandID ='" . $product["brandID"] . "';";
+    $result = $conn->query($sql);
+    $brand = $result->fetch_assoc();
+
+// fetch comment
+// $sql = "SELECT name, message where productID = '" . $product["productID"] . "' AND visible = 0 ORDER BY sell_quantity;";
+// $result = $conn->query($sql);
+// $comments = $result->fetch_all(MYSQLI_ASSOC);
+
+
+else :
+    header("location:product.php");
+endif;
+
+// header
+$page = "product";
 include('header.php');
+
 ?>
 <div class="container mt-5 mb-3
  pt-5 pb-5">
@@ -27,12 +60,11 @@ include('header.php');
         </div>
 
         <div class="col-md-7">
-            <p>HOME / PRODUCTS</p>
-            <h1>NAME PRODUCT</h1>
-            <h4>$9.00</h4>
+            <p class="text-uppercase">HOME / PRODUCTS / <?php echo ($catalog["category"] . " / " . $catalog["name"]) ?></p>
+            <h1 class="text-uppercase"><?php echo ($product["name"]) ?></h1>
+            <h4>$<?php echo ($product["price"]) ?></h4>
             <div>
-                <p style="height:150px;">I started using this a month ago, and I have seen great results.
-                    I love the texture of the serum and I love the fact that its very smooth and light.</p>
+                <p style="height:150px;"> <?php echo ($product["description"]); ?></p>
             </div>
             <form method="post">
                 <input class="form-control ml-4" type="number" name="quantity" value="1" min="0" style="max-width: 100px; text-align: center;">

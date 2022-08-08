@@ -2,17 +2,44 @@
 require_once("dbconnect.php");
 
 //visitor count
-include("config.php");
+
 $sql = "SELECT * from visitorcount where IP = '" . $_SERVER['REMOTE_ADDR'] . "' and timestampdiff(hour, view_at, now()) <1";
 $result = $conn->query($sql);
-//$output = $result->fetch_all();
 if (mysqli_num_rows($result) == 0) {
     $sql = "INSERT into visitorcount (ip) values ('" . $_SERVER['REMOTE_ADDR'] . "');";
     $result = $conn->query($sql);
 }
-
 $result = $conn->query("SELECT id from visitorcount");
 $visitorcount = mysqli_num_rows($result);
+
+// fetch catalog
+// face = 1
+$sql = "SELECT name from catalogs where category = 1";
+$result = $conn->query($sql);
+$face_list = $result->fetch_assoc();
+// body = 2
+$sql = "SELECT name from catalogs where category = 2";
+$result = $conn->query($sql);
+$body_list = $result->fetch_assoc();
+
+// t3 = 3
+$sql = "SELECT name from catalogs where category = 3";
+$result = $conn->query($sql);
+$t3_list = $result->fetch_assoc();
+// t4 = 4
+$sql = "SELECT name from catalogs where category = 4";
+$result = $conn->query($sql);
+$t4_list = $result->fetch_assoc();
+// t5 = 5
+$sql = "SELECT name from catalogs where category = 5";
+$result = $conn->query($sql);
+$t5_list = $result->fetch_assoc();
+// t5 = 6
+$sql = "SELECT name from catalogs where category = 6";
+$result = $conn->query($sql);
+$t5_list = $result->fetch_assoc();
+
+include("config.php");
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +116,7 @@ $visitorcount = mysqli_num_rows($result);
                         };
                         ?>
                         ">About</a>
-                        <a href="product.php" class="nav-item nav-link
+                        <a href="products.php" class="nav-item nav-link
                         <?php
                         if ($page == "product") {
                             echo ("active");

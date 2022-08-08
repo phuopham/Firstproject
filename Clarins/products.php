@@ -1,7 +1,9 @@
 <?php
-
-
-
+require_once("dbconnect.php");
+// top product sold
+$sql = "SELECT * FROM products ORDER BY sell_quantity DESC LIMIT 5";
+$result = $conn->query($sql);
+$topsells = $result->fetch_all(MYSQLI_ASSOC);
 $page = "product";
 include("header.php");
 ?>
@@ -18,7 +20,19 @@ include("header.php");
         <div class="row">
             <div class="col-12">
                 <div class="owl-carousel service-carousel">
-                    <div class="service-item">
+                    <?php
+                    foreach ($topsells as $id => $item) {
+                        echo ('<div class="service-item"><div class="service-img mx-auto">');
+                        echo ('<img class="rounded-circle w-100 h-100 bg-light p-3" src="' . $item["pic1"] . '" style="object-fit: cover;"></div>');
+                        echo ('<div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">');
+                        echo ('<h5 class="font-weight-semi-bold mt-5 mb-3 pt-5">' . $item["name"] . '</h5>');
+                        echo ('<p>' . substr($item["description"], 0, 100) . '</p>');
+                        echo ('<a href="detail.php?prod=' . $item["productID"] . '" class="btn btn-primary">Buy now</a>');
+                        echo ('</div></div>');
+                    }
+                    ?>
+
+                    <!-- <div class="service-item">
                         <div class="service-img mx-auto">
                             <img class="rounded-circle w-100 h-100 bg-light p-3" src="img/service-1.jpg" style="object-fit: cover;">
                         </div>
@@ -65,7 +79,7 @@ include("header.php");
                             <a href="prd_detail.php" class="border-bottom border-secondary text-decoration-none text-secondary">Learn
                                 More</a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

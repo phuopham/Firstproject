@@ -12,7 +12,7 @@ include("header.php");
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">SUSTAINABLE COMMITMENT</h4>
                         <h1 class="display-3 text-white mb-md-4">With A Wide Variety Of Products</h1>
-                        <a href="product.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Learn More</a>
+                        <a href="products.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@ include("header.php");
                     <div class="p-3" style="max-width: 900px;">
                         <h4 class="text-white text-uppercase mb-md-3">SUSTAINABLE COMMITMENT</h4>
                         <h1 class="display-3 text-white mb-md-4">Made From Natural Ingredients</h1>
-                        <a href="product.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Learn More</a>
+                        <a href="products.php" class="btn btn-primary py-md-3 px-md-5 mt-2">Learn More</a>
                     </div>
                 </div>
             </div>

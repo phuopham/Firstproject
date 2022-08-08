@@ -39,12 +39,12 @@
             </div>
             <div class="clock fixed-bottom rounded bg-primary ml-5 px-2" style="right:auto; opacity:70%;">
                 <div id="Date" class="text-align-left font-weight-bold text-white"></div>
-                <ul class="ultime row">
-                    <li class="idtime d-inline-block col  font-weight-bold text-white" id="hours"></li>
-                    <li class="idtime d-inline-block  font-weight-bold text-white" id="point">:</li>
-                    <li class="idtime d-inline-block col  font-weight-bold text-white" id="min"></li>
-                    <li class="idtime d-inline-block  font-weight-bold text-white" id="point">:</li>
-                    <li class="idtime d-inline-block col  font-weight-bold text-white" id="sec"></li>
+                <ul class="ultime px-0">
+                    <li class="idtime d-inline-block font-weight-bold text-white" id="hours"></li>
+                    <li class="idtime d-inline-block font-weight-bold text-white" id="point">:</li>
+                    <li class="idtime d-inline-block font-weight-bold text-white" id="min"></li>
+                    <li class="idtime d-inline-block font-weight-bold text-white" id="point">:</li>
+                    <li class="idtime d-inline-block font-weight-bold text-white" id="sec"></li>
                 </ul>
             </div>
         </div>

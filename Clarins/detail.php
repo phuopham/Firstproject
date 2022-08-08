@@ -39,21 +39,21 @@ include('header.php');
         <div class="col-md-5">
             <div class=" px-0" style="min-height: 500px;">
                 <div class="position-relative h-100">
-                    <img id="product-img" class="position-absolute w-100 h-100" src="img/about.jpg" style="object-fit: cover; max-width:370px;min-height:480px;">
+                    <img id="product-img" class="position-absolute w-100 h-100" src="<?php echo ($product["pic1"]) ?>" style="object-fit: cover; max-width:370px;min-height:480px;">
                 </div>
             </div>
             <div class="d-flex">
                 <div class="small-img-col col-3">
-                    <img src="img/about.jpg" width="100%" class="small-img">
+                    <img src="<?php echo ($product["pic1"]) ?>" width="100%" class="small-img">
                 </div>
                 <div class="small-img-col col-3">
-                    <img src="img/aboutus.jpg" width="100%" class="small-img">
+                    <img src="<?php echo ($product["pic2"]) ?>" width="100%" class="small-img">
                 </div>
                 <div class="small-img-col col-3">
-                    <img src="img/order.jpg" width="100%" class="small-img">
+                    <img src="<?php echo ($product["pic3"]) ?>" width="100%" class="small-img">
                 </div>
                 <div class="small-img-col col-3">
-                    <img src="img/product-2.jpg" width="100%" class="small-img">
+                    <img src="<?php echo ($product["pic4"]) ?>" width="100%" class="small-img">
                 </div>
             </div>
         </div>

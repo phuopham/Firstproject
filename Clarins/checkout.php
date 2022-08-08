@@ -1,10 +1,21 @@
-if ($_POST) {
-$name = $_POST['name'] ?? '';
-$id = intval($_POST['id'] ?? 0);
-$email = $_POST['email'] ?? '';
-$phone = $_POST['phone'] ?? '';
-$address = $_POST['address'] ?? '';
-// $paymethod = $_POST['paymethod'] ?? '';
-$sql = "INSERT INTO user_order (name,email,phone,address,paymethod) VALUES('$name','$email','$phone','$address')";
-$conn->query($sql);
+<?php
+require_once("dbconnect.php");
+// commit to database
+
+//
+
+$sql = "INSERT into user_order ('name', 'email','address') values ('....')";
+
+
+$products = json_decode($_COOKIE["Clarins"], true);
+foreach($product as $productID => $quantity){
+    $productID;
+    $quantity;
+    $conn->query  >>>> $price;
+
+    $sql = "INSERT into orders ........"
 }
+
+//check out complete
+setcookie('Clarins', "", time() - 864);
+header("location:index.php");

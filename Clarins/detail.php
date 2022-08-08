@@ -147,7 +147,7 @@ include('header.php');
             <div class="col-lg-9">
                 <div class="contact-form rounded p-5">
                     <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate" method="post">
+                    <form name="sentFeedback" id="commentForm" novalidate="novalidate" method="POST">
                         <div class="form-row">
                             <div class="col-sm-4 control-group">
                                 <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
@@ -163,7 +163,7 @@ include('header.php');
                             <p class="help-block text-danger"></p>
                         </div>
                         <div>
-                            <button class="btn btn-primary btn-block py-3 px-5" type="submit" id="sendMessageButton">Send Feedback</button>
+                            <button class="btn btn-primary btn-block py-3 px-5" type="submit" id="sendFeedbackButton">Send Feedback</button>
                         </div>
                     </form>
                 </div>

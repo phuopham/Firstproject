@@ -113,7 +113,7 @@ if (isset($_GET['logout'])) {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="order.php" class="nav-link">
                                 <p>Orders</p>
                             </a>
                         </li>
@@ -123,7 +123,7 @@ if (isset($_GET['logout'])) {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="comment.php" class="nav-link">
                                 <p>Comments</p>
                             </a>
                         </li>

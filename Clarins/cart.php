@@ -11,9 +11,17 @@ foreach ($items as $key => $item) {
     //var_dump($result);
     //echo ("</pre>");
 };
-
+if ($_POST) {
+    $name = $_POST['name'] ?? '';
+    $id = intval($_POST['id'] ?? 0);
+    $email = $_POST['email'] ?? '';
+    $phone = $_POST['phone'] ?? '';
+    $address = $_POST['address'] ?? '';
+    $paymethod = $_POST['paymethod'] ?? '';
+    $sql = "INSERT INTO user_order (name,email,phone,address,paymethod) VALUES('$name','$email','$phone','$address','$paymethod')";
+    $conn->query($sql);
+}
 ?>
-
 <!-- Cart Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
@@ -71,7 +79,7 @@ foreach ($items as $key => $item) {
 <div class="modal fade" id="Checkout" tabindex="-1" role="dialog" aria-labelledby="CheckoutTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form name="checkout" id="Checkout">
+            <form name="checkout" id="Checkout" method="post">
                 <div class="modal-header">
                     <h5 class="modal-title m-auto">Fill in to continue</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -81,21 +89,21 @@ foreach ($items as $key => $item) {
                 <div class="modal-body">
                     <div class="form-row">
                         <div class="col-sm-6 control-group">
-                            <input type="text" class="form-control p-4" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                            <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="col-sm-6 control-group">
-                            <input type="email" class="form-control p-4" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                            <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="control-group">
-                        <input type="text" class="form-control p-4" id="Address" placeholder="Address" required="required" data-validation-required-message="Please enter an address" />
+                        <input type="text" class="form-control p-4" id="address" name="address" placeholder="Address" required="required" data-validation-required-message="Please enter an address" />
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-row">
                         <div class="col-sm-6 control-group">
-                            <input type="number" class="form-control p-4" id="phone" placeholder="Your Phone" required="required" data-validation-required-message="Please enter your phone" />
+                            <input type="number" class="form-control p-4" id="phone" name="phone" placeholder="Your Phone" required="required" data-validation-required-message="Please enter your phone" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="col-sm-6 control-group d-flex justify-content-center pb-3">
@@ -106,14 +114,14 @@ foreach ($items as $key => $item) {
                     </div>
 
                     <div class="control-group">
-                        <textarea class="form-control p-4" rows="6" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                        <textarea class="form-control p-4" rows="6" id="paymethod" name="paymethod" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
                         <p class="help-block text-danger"></p>
                     </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Proceed</button>
+                    <button type="submit" class="btn btn-primary" id="orderButton">Proceed</button>
                 </div>
             </form>
         </div>

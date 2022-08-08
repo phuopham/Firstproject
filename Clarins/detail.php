@@ -34,8 +34,7 @@ $page = "product";
 include('header.php');
 
 ?>
-<div class="container mt-5 mb-3
- pt-5 pb-5">
+<div class="container my-5">
     <div class="row">
         <div class="col-md-5">
             <div class=" px-0" style="min-height: 500px;">
@@ -73,15 +72,14 @@ include('header.php');
         </div>
     </div>
 </div>
-<div class="container border rounded" style="padding-bottom:50px; background:lavenderblush; padding-top:20px; ">
+<div class="container border rounded pb-5" style=" background:lavenderblush;">
     <div class="row justify-content-center pt-5">
         <div class="col-lg-6">
             <h1 class=" position-relative mb-3
             ">Comments</h1>
         </div>
     </div>
-    <div class="mb-3
-     row">
+    <div class="mb-3 row">
         <div class="col-md-1"></div>
         <div class="col-md-1 d-none d-md-block text-right">
             <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
@@ -95,8 +93,7 @@ include('header.php');
             </div>
         </div>
     </div>
-    <div class="mb-3
-     row">
+    <div class="mb-3 row">
         <div class="col-md-1"></div>
         <div class="col-md-1 d-none d-md-block text-right">
             <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
@@ -110,8 +107,7 @@ include('header.php');
             </div>
         </div>
     </div>
-    <div class="mb-3
-     row">
+    <div class="mb-3 row">
         <div class="col-md-1"></div>
         <div class="col-md-1 d-none d-md-block text-right">
             <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
@@ -141,13 +137,14 @@ include('header.php');
         </div>
     </div>
 </div>
-<div class="container-fluid py-5">
-    <div class="container py-5">
+<div class="container-fluid pb-5">
+    <div class="container pb-5">
         <div class="row justify-content-center">
-            <div class="col-lg-9">
-                <div class="contact-form rounded p-5">
+            <div class="col-lg-9 p-2">
+                <div class="contact-form rounded p-sm-3">
                     <div id="success"></div>
-                    <form name="sentFeedback" id="commentForm" novalidate="novalidate" method="POST">
+                    <form name="sentFeedback" id="commentForm" method="POST">
+                        <input class="d-none" type="number" value="<?php echo ($product["productID"]) ?>">
                         <div class="form-row">
                             <div class="col-sm-4 control-group">
                                 <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />

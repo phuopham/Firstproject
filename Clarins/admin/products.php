@@ -26,7 +26,7 @@ $sql = "SELECT * from products";
 $result = $conn->query($sql);
 $products = $result->fetch_all(MYSQLI_ASSOC);
 
-//get catalogs data
+// get catalogs data
 $sql = "SELECT catalogID, name from catalogs";
 $result = $conn->query($sql);
 $catalogs = $result->fetch_all(MYSQLI_ASSOC);
@@ -100,7 +100,7 @@ include("header.php");
                                             </td>
                                     <tr>
                                         <td colspan="6">
-                                            <input class="form-control" type="textarea" name="description" placeholder="Description" required>
+                                            <textarea class="form-control" type="textarea" name="description" placeholder="Description" required></textarea>
                                         </td>
                                     </tr>
 
@@ -120,14 +120,11 @@ include("header.php");
                                         echo ('<tr class="expandable-body">');
                                         echo ("<td colspan='6'>");
                                         echo ('<div><div class="container-fluid"><div class="row">');
-                                        echo ('<div class="col-2">
-
-                                                <img class="img-fluid" src="../' . $product["pic1"] . '" alt="">
-                                            </div>');
-                                        echo ('<div class="col-2">
-                                                <img class="img-fluid" src="../' . $product["pic1"] . '" alt="">
-                                            </div>');
-                                        echo ('<div class="col-8"><p>' . $product["description"] . '</p></div></div></div></div>');
+                                        echo ('<div class="col-3"><div class="m-2"><img class="img-fluid" src="../' . $product["pic1"] . '" alt=""></div>');
+                                        echo ('<div class="m-2"><img class="img-fluid" src="../' . $product["pic3"] . '" alt=""></div></div>');
+                                        echo ('<div class="col-3"><div class="m-2"><img class="img-fluid" src="../' . $product["pic2"] . '" alt=""></div>');
+                                        echo ('<div class="m-2"><img class="img-fluid" src="../' . $product["pic4"] . '" alt=""></div></div>');
+                                        echo ('<div class="col-6"><p>' . $product["description"] . '</p></div></div></div></div>');
                                         // echo ("<td colspan='2'><p>" . $product["pic1"] . "</p></td>");
                                         // echo ("<td colspan='4'><p>" . $product["description"] . "</p></td>");
                                         echo ("</td></tr>");

@@ -37,14 +37,14 @@
                 <p class="m-0">&copy; <a href="#">Domain</a>. All Rights Reserved. Designed by NHP</a>
                 </p>
             </div>
-            <div class="clock fixed-bottom" style="right:auto; margin-left:5%;">
-                <div id="Date" class="text-align-left"></div>
+            <div class="clock fixed-bottom rounded bg-primary ml-5 px-2" style="right:auto; opacity:70%;">
+                <div id="Date" class="text-align-left font-weight-bold text-white"></div>
                 <ul class="ultime row">
-                    <li class="idtime col" id="hours" style="display:block;"></li>
-                    <li class="idtime " id="point" style="display:block;">:</li>
-                    <li class="idtime col" id="min" style="display:block;"></li>
-                    <li class="idtime " id="point" style="display:block;">:</li>
-                    <li class="idtime col" id="sec" style="display:block;"></li>
+                    <li class="idtime d-inline-block col  font-weight-bold text-white" id="hours"></li>
+                    <li class="idtime d-inline-block  font-weight-bold text-white" id="point">:</li>
+                    <li class="idtime d-inline-block col  font-weight-bold text-white" id="min"></li>
+                    <li class="idtime d-inline-block  font-weight-bold text-white" id="point">:</li>
+                    <li class="idtime d-inline-block col  font-weight-bold text-white" id="sec"></li>
                 </ul>
             </div>
         </div>

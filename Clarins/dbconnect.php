@@ -13,5 +13,4 @@ function output($output)
     echo ("<pre>");
     echo (var_dump($output));
     echo ("</pre>");
-    die();
 }

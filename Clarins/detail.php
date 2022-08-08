@@ -65,9 +65,10 @@ include('header.php');
             <div>
                 <p style="height:150px;"> <?php echo ($product["description"]); ?></p>
             </div>
-            <form method="post">
+            <form action="cartcookie.php" method="get">
+                <input type="number" hidden name="product" value="<?php echo ($product["productID"]); ?>">
                 <input class="form-control ml-4" type="number" name="quantity" value="1" min="0" style="max-width: 100px; text-align: center;">
-                <div><button class="btn btn-secondary py-3 px-5 mt-2" name="cart">Add To Cart</button></div>
+                <div><button class="btn btn-secondary py-3 px-5 mt-2">Add To Cart</button></div>
             </form>
         </div>
     </div>

@@ -1,26 +1,14 @@
 <?php
 require_once("dbconnect.php");
+$total = 0;
+if (!isset($_COOKIE["Clarins"])) :
+    $empty = true;
+else :
+    $empty = false;
+    $items = json_decode($_COOKIE["Clarins"], true);
+endif;
 $page = "cart";
 include("header.php");
-$items = [1, 2, 3];
-$total = 40;
-foreach ($items as $key => $item) {
-    $sql = "SELECT * from products where productid = $item";
-    $result = $conn->query($sql);
-    //echo ("<pre>");
-    //var_dump($result);
-    //echo ("</pre>");
-};
-if ($_POST) {
-    $name = $_POST['name'] ?? '';
-    $id = intval($_POST['id'] ?? 0);
-    $email = $_POST['email'] ?? '';
-    $phone = $_POST['phone'] ?? '';
-    $address = $_POST['address'] ?? '';
-    $paymethod = $_POST['paymethod'] ?? '';
-    $sql = "INSERT INTO user_order (name,email,phone,address,paymethod) VALUES('$name','$email','$phone','$address','$paymethod')";
-    $conn->query($sql);
-}
 ?>
 <!-- Cart Start -->
 <div class="container-fluid py-5">
@@ -40,21 +28,29 @@ if ($_POST) {
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($items as $key => $item) {
-                            echo ("<tr>");
-                            echo ("<td>$key</td>");
-                            echo ('<td class="p-1" style="width:50px;"><img class="rounded w-100 h-100" src="img/product-1.jpg"></td>');
-                            echo ("<td>$item</td>");
-                            echo ("<td>$item</td>");
-                            echo ("<td>$item</td>");
-                            echo ("</tr>");
-                        };
+                        if ($empty) :
+                            echo ("<tr><td colspan=5> You have nothing to check out!!! </td></tr>");
+                        else :
+                            foreach ($items as $key => $item) {
+                                echo ("<tr>");
+                                echo ("<td>$key</td>");
+                                $sql = "SELECT name, price, pic1 from products where productid = " . $key;
+                                $result = $conn->query($sql);
+                                $product = $result->fetch_assoc();
+                                echo ('<td class="p-1" style="width:50px;"><img class="rounded w-100 h-100" src="' . $product["pic1"] . '"></td>');
+                                echo ("<td>" . $product["name"] . "</td>");
+                                echo ("<td>$item</td>");
+                                echo ("<td>" . $product["price"] . "</td>");
+                                echo ("</tr>");
+                                $total += ($item * $product["price"]);
+                            }
+                        endif;;
                         ?>
                         <tr>
                             <th></th>
                             <th></th>
                             <th></th>
-                            <th></th>
+                            <th>Total</th>
                             <th><?php echo ($total) ?></th>
                         </tr>
                     </tbody>

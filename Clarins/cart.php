@@ -9,6 +9,7 @@ else :
 endif;
 $page = "cart";
 include("header.php");
+include('checkout.php');
 ?>
 <!-- Cart Start -->
 <div class="container-fluid py-5">

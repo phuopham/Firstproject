@@ -61,11 +61,11 @@ $orderlist = $result->fetch_all(MYSQLI_ASSOC);
                                     <?php
                                     foreach($orderlist as $id => $order){
                                         echo ("<tr>");
-                                        echo ("<td>" . $user["name"] . "</td>");
-                                        echo ("<td>" . ($id + 1) . "</td>");
-                                        echo ("<td>" . $user["email"] . "</td>");
-                                        echo ("<td>" . $user["phone"] . "</td>");
-                                        echo ("<td>" . $user["address"] . "</td>");
+                                        echo ("<td>" . $order["name"] . "</td>");
+                                        echo ("<td>" . $order["ordernumber"] . "</td>");
+                                        echo ("<td>" . $order["email"] . "</td>");
+                                        echo ("<td>" . $order["phone"] . "</td>");
+                                        echo ("<td>" . $order["address"] . "</td>");
                                         echo ("<td>" . ($id + 1) . "</td>");
                                         echo ("<td>" . $order["quantity"] . "</td>");
                                         echo ("<td>" . $order["price"] . "</td>");

@@ -39,13 +39,16 @@
             </div>
             <div class="clock fixed-bottom rounded bg-primary ml-5 px-2" style="right:auto; opacity:70%;">
                 <div id="Date" class="text-align-left font-weight-bold text-white"></div>
-                <ul class="ultime px-0">
+                <ul class="ultime px-0 my-0">
                     <li class="idtime d-inline-block font-weight-bold text-white" id="hours"></li>
                     <li class="idtime d-inline-block font-weight-bold text-white" id="point">:</li>
                     <li class="idtime d-inline-block font-weight-bold text-white" id="min"></li>
                     <li class="idtime d-inline-block font-weight-bold text-white" id="point">:</li>
                     <li class="idtime d-inline-block font-weight-bold text-white" id="sec"></li>
                 </ul>
+                <div class="toggle-btn" style="display:none;">
+                    <i class="fas fa-angle-up"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -76,6 +79,11 @@
 <!-- clock -->
 
 <script>
+    $('.clock').on('click', () => {
+        $('#Date').toggle();
+        $('.ultime').toggle();
+        $('.toggle-btn').toggle();
+    })
     $(document).ready(function() {
 
         // Create two variable with the names of the months and days in an array

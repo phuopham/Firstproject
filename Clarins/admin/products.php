@@ -1,24 +1,42 @@
 <?php
 require_once('../dbconnect.php');
 
-//add user
+//add product
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") :
     if (!isset($_POST["name"])) :
-        header("location:products.php?error");
+        header("location:products.php?error1");
     endif;
     $name = htmlspecialchars($_POST["name"]);
-    if (!isset($_POST["description"])) :
+
+    if (!isset($_POST["brand"])) :
         header("location:products.php?error");
     endif;
+    $brand = htmlspecialchars($_POST["brand"]);
+    if (!isset($_POST["catalogID"])) :
+        header("location:products.php?error2");
+    endif;
+    $catalog = htmlspecialchars($_POST["catalogID"]);
+
+    if (!isset($_POST["description"])) :
+        header("location:products.php?error3");
+    endif;
     $description = htmlspecialchars($_POST["description"]);
-    $category = $_POST["category"];
-    $sql = "INSERT into products(`name`,`category`,`description`) values ('$name', $category ,'$description')";
+
+    if (!isset($_POST["price"])) :
+        header("location:products.php?error4");
+    endif;
+    $price = htmlspecialchars($_POST["price"]);
+
+    $sql = "INSERT into products(`name`,`brandID`,`catalogID`,`price`,`description`) values ('$name','$brand', $catalog , $price, '$description')";
     $result = $conn->query($sql);
-    if ($result->errno) {
-        header("location:products.php?error");
-    };
-    header("location:products.php?success");
+    // if ($result->errno) {
+    //     header("location:products.php?error5");
+    // };
+    $sql = "SELECT productID from products where name='$name' and catalogID = $catalog and price = $price";
+    $result = $conn->query($sql);
+    $productID = $result->fetch_column(0);
+    header("location:addpic.php?prod=" . $productID);
 endif;
 
 // get product data
@@ -30,6 +48,11 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
 $sql = "SELECT catalogID, name from catalogs";
 $result = $conn->query($sql);
 $catalogs = $result->fetch_all(MYSQLI_ASSOC);
+
+//get brands data
+$sql = "SELECT brandID, name from brands";
+$result = $conn->query($sql);
+$brands = $result->fetch_all(MYSQLI_ASSOC);
 
 // header
 include("header.php");
@@ -81,10 +104,16 @@ include("header.php");
                                                 <input type="text" class="form-control" name="name" placeholder="Name" required>
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control" name="brand" placeholder="Brand" required>
+                                                <select class="form-control" name="brand" required>
+                                                    <?php
+                                                    foreach ($brands as $id => $brands) {
+                                                        echo ("<option value='" . $brands['brandID'] . "'>" . $brands['name'] . "</option>");
+                                                    }
+                                                    ?>
+                                                </select>
                                             </td>
                                             <td>
-                                                <select class="form-control" name="catalogID" required>
+                                                <select class="form-control" name="catalogID">
                                                     <?php
                                                     foreach ($catalogs as $id => $catalog) {
                                                         echo ("<option value='" . $catalog['catalogID'] . "'>" . $catalog['name'] . "</option>");

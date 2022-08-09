@@ -33,7 +33,7 @@ create table products (
     brandID int not null,
     sell_quantity int,
     price int not null,
-    pic1 varchar(40) not null,
+    pic1 varchar(40),
     pic2 varchar(40),
     pic3 varchar(40),
     pic4 varchar(40),
@@ -90,7 +90,6 @@ CREATE TABLE orders(
     price int,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (ordernumber) REFERENCES user_order(ordernumber),
-    FOREIGN KEY (productID) REFERENCES products(productID)
 );
 
 CREATE TABLE visitorcount(

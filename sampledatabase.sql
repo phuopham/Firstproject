@@ -210,10 +210,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         1,
         0,
-        "/img/product-1.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
      (
         "Dior Forever",
@@ -221,10 +221,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         1,
         0,
-        "/img/product-1.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
      (
         "Dior Forever Perfect Mousse",
@@ -232,10 +232,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         1,
         0,
-        "/img/product-1.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
      (
         "Dior La Carte Cadeau",
@@ -243,10 +243,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         1,
         0,
-        "/img/product-1.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
      (
         "Dior Forever Skin Glow",
@@ -254,10 +254,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         1,
         0,
-        "/img/product-1.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
      (
         "Dior Forever Undercover",
@@ -265,10 +265,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         1,
         0,
-        "/img/product-1.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "YSL Shower gel",
@@ -276,10 +276,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         3,
         30,
-        "/img/product-2.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "YSL Mascara",
@@ -287,10 +287,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         3,
         30,
-        "/img/product-2.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "YSL Eyeliner",
@@ -298,10 +298,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         3,
         30,
-        "/img/product-2.jpg",
-        null,
-        null,
-        null
+       "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "YSL Eyeshadow",
@@ -309,10 +309,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         3,
         30,
-        "/img/product-2.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "YSL Eyebrow",
@@ -320,10 +320,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         3,
         30,
-        "/img/product-2.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "YSL Hydration",
@@ -331,10 +331,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         3,
         30,
-        "/img/product-2.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Chanel Hair dye purple",
@@ -342,10 +342,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         3,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Chanel Chance",
@@ -353,10 +353,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         3,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Chanel Coco",
@@ -364,10 +364,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         3,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Chanel Allure",
@@ -375,10 +375,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         3,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Chanel Cristalle",
@@ -386,10 +386,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         3,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Chanel Antaeus",
@@ -397,10 +397,10 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         3,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Lancome Miracle",
@@ -408,10 +408,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         5,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Lancome Absolue",
@@ -419,10 +419,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         5,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Lancome Lipstick",
@@ -430,10 +430,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         5,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Lancome Eyeliner",
@@ -441,10 +441,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         5,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Lancome Mascara",
@@ -452,10 +452,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         5,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Lancome Foundation",
@@ -463,10 +463,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         5,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "MAC Lipstick",
@@ -474,10 +474,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         4,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "MAC Eyeliner",
@@ -485,10 +485,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         4,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "MAC Mascara",
@@ -496,10 +496,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         4,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "MAC Eyebrow",
@@ -507,10 +507,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         4,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "MAC Eyeshadow",
@@ -518,10 +518,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         4,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "MAC Cleanser",
@@ -529,10 +529,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         4,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Nature Republic Vitapair C Foam Cleanser",
@@ -540,10 +540,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         7,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Nature Republic Smoothing & Moisture Aloe Vera Foam Cleanser",
@@ -551,10 +551,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         7,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Nature Republic Good Skin",
@@ -562,10 +562,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         7,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Nature Republic Vitapair C Mask Sheet",
@@ -573,10 +573,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         7,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Nature Republic Real Nature Mask Sheet",
@@ -584,10 +584,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         7,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Nature Republic Daily Sun Block",
@@ -595,10 +595,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         7,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         " L'Oreal Lipstick",
@@ -606,10 +606,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         12,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         " L'Oreal Lip Liner",
@@ -617,10 +617,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         12,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         " L'Oreal Dry Skin",
@@ -628,10 +628,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         12,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         " L'Oreal Fine Lines & Wrinkles",
@@ -639,10 +639,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         12,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         " L'Oreal Bonding",
@@ -650,10 +650,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         12,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         " L'Oreal Color Treated Hair",
@@ -661,10 +661,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         12,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Clinique Moisturizing Gel",
@@ -672,10 +672,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         15,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Clinique Smart Repair ",
@@ -683,10 +683,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         15,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Clinique Eye Cream ",
@@ -694,10 +694,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         15,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Clinique Cleansing Balm ",
@@ -705,10 +705,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         15,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Clinique Face Protector ",
@@ -716,10 +716,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         15,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     ),
     (
         "Clinique Sunscreen Fluid ",
@@ -727,10 +727,10 @@ VALUES
         "Invidunt lorem justo sanctus clita.",
         15,
         30,
-        "/img/product-4.jpg",
-        null,
-        null,
-        null
+        "img/product-1.jpg",
+        "img/product-10.jpg",
+        "img/product-16.webp",
+        "img/product-20.webp"
     );
 
 INSERT INTO

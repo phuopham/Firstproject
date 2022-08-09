@@ -24,11 +24,21 @@ if (isset($_FILES['image'])) {
         $result = $conn->query($sql);
         $prd = $result->fetch_array(MYSQLI_ASSOC);
         if (!isset($product["pic1"])) :
-            $sql = "INSERT INTO products(`pic1`) values ('img/$file_name');";
+            $sql = "UPDATE products SET pic1='img/$file_name')";
         else :
             if (!isset($product["pic2"])) :
+                $sql = "UPDATE products SET pic2='img/$file_name')";
+            else :
+                if (!isset($product["pic3"])) :
+                    $sql = "UPDATE products SET pic3='img/$file_name')";
+                else :
+                    if (!isset($product["pic4"])) :
+                        $sql = "UPDATE products SET pic4='img/$file_name')";
+                    else :
+                        header("location:product.php?error");
+                    endif;
+                endif;
             endif;
-
         endif;
         header("location:addpic.php");
     } else {

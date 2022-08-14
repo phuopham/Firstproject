@@ -4,7 +4,8 @@ include("header.php");
 
 // get user data
 require_once("../dbconnect.php");
-$sql = "SELECT * from comments";
+$sql = "SELECT * from comments inner join products 
+ON comments.productID = products.productID ";
 $result = $conn->query($sql);
 $userlist = $result->fetch_all(MYSQLI_ASSOC);
 //get user data end
@@ -59,7 +60,7 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                         echo ("<td>" . $user["name"] . "</td>");
                                         echo ("<td>" . $user["email"] . "</td>");
                                         echo ("<td>" . $user["message"] . "</td>");
-                                        echo ("<td>" . ($id + 1) . "</td>");
+                                        echo ("<td>" . $user["productID"] . "</td>");
                                         echo ("<td>" . $user["visible"] . "</td>");
                                         echo ("<td>" . $user["create_by"] . "</td>");
                                         echo ("</tr>");

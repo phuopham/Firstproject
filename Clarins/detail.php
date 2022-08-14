@@ -3,7 +3,7 @@
 require_once("dbconnect.php");
 if ($_SERVER["REQUEST_METHOD"] == "GET") :
     if (!isset($_GET['prod'])) :
-        header("location:product.php");
+        header("location:products.php");
     endif;
     $sql = "SELECT * from products where productID = '" . $_GET['prod'] . "';";
     $result = $conn->query($sql);
@@ -26,9 +26,19 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") :
 
 
 else :
-    header("location:product.php");
+    header("location:products.php");
 endif;
-
+if ($_POST) {
+    $sql = "SELECT * from products where productID = '" . $_GET['prod'] . "';";
+    $result = $conn->query($sql);
+    $product = $result->fetch_assoc();
+    $id=$product['productID'] ?? '';
+    $name = $_POST['name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $message = $_POST['message'] ?? '';
+    $sql = "INSERT INTO comments (name,email,message,productID) VALUES('$name','$email','$message','$id')";
+    $conn->query($sql);
+}
 // header
 $page = "product";
 include('header.php');

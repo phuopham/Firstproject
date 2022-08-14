@@ -24,7 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") :
 // $result = $conn->query($sql);
 // $comments = $result->fetch_all(MYSQLI_ASSOC);
 
-
+    $sql = "SELECT name, message from comments where productID = '" . $product["productID"] . "' ";
+    // AND visible = 0 ORDER BY sell_quantity;
+    $result = $conn->query($sql);
+    $comments = $result->fetch_all(MYSQLI_ASSOC);
 else :
     header("location:products.php");
 endif;
@@ -90,63 +93,22 @@ include('header.php');
             ">Comments</h1>
         </div>
     </div>
-    <div class="mb-3 row">
-        <div class="col-md-1"></div>
-        <div class="col-md-1 d-none d-md-block text-right">
-            <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
-        </div>
-        <div class="col-md-9 border rounded" style=" background: lightgray;">
-            <div>
-                <h5>Ngan</h5>
+    <?php foreach ($comments as $id => $comment) {?>
+        <div class="mb-3 row">
+            <div class="col-md-1"></div>
+            <div class="col-md-1 d-none d-md-block text-right">
+                <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
             </div>
-            <div>
-                <p>I love the texture of the serum and I love the fact that its very smooth and light.</p>
-            </div>
-        </div>
-    </div>
-    <div class="mb-3 row">
-        <div class="col-md-1"></div>
-        <div class="col-md-1 d-none d-md-block text-right">
-            <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
-        </div>
-        <div class="col-md-9 border rounded" style=" background: lightgray;">
-            <div>
-                <h5>Hieu</h5>
-            </div>
-            <div>
-                <p>I love the texture of the serum and I love the fact that its very smooth and light.</p>
+            <div class="col-md-9 border rounded" style=" background: lightgray;">
+                <div>
+                    <h5><?php echo($comment['name']) ?></h5>
+                </div>
+                <div>
+                    <p><?php echo($comment['message']) ?></p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="mb-3 row">
-        <div class="col-md-1"></div>
-        <div class="col-md-1 d-none d-md-block text-right">
-            <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
-        </div>
-        <div class="col-md-9 border rounded" style=" background: lightgray;">
-            <div>
-                <h5>Phuong</h5>
-            </div>
-            <div>
-                <p>I love the texture of the serum and I love the fact that its very smooth and light.</p>
-            </div>
-        </div>
-    </div>
-    <div class="mb-3
-     row">
-        <div class="col-md-1"></div>
-        <div class="col-md-1 d-none d-md-block text-right">
-            <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
-        </div>
-        <div class="col-md-9 border rounded" style=" background: lightgray;">
-            <div>
-                <h5>An</h5>
-            </div>
-            <div>
-                <p>I love the texture of the serum and I love the fact that its very smooth and light.</p>
-            </div>
-        </div>
-    </div>
+    <?php } ?>
 </div>
 <div class="container-fluid pb-5">
     <div class="container pb-5">

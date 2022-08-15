@@ -9,7 +9,7 @@ else :
 endif;
 $page = "cart";
 include("header.php");
-include('checkout.php');
+
 ?>
 <!-- Cart Start -->
 <div class="container-fluid py-5">
@@ -76,7 +76,7 @@ include('checkout.php');
 <div class="modal fade" id="Checkout" tabindex="-1" role="dialog" aria-labelledby="CheckoutTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form name="checkout" id="Checkout" method="post">
+            <form name="checkout" id="Checkout" action="checkout.php" method="post">
                 <div class="modal-header">
                     <h5 class="modal-title m-auto">Fill in to continue</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">

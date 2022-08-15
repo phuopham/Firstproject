@@ -107,4 +107,11 @@ VALUES
         01234567890,
         sha1(12345),
         now()
+    ),
+    (
+        "customer",
+        "customer@clarins.com",
+        null,
+        sha1(12345),
+        now()
     );

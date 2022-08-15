@@ -78,9 +78,9 @@ include("config.php");
                 <div class="col-4">
 
                 </div>
-                <div class="col-4 px-2 text-center">
+                <div class="col-4 px-2">
                     <a href="index.php" class="navbar-brand px-5 py-0 m-0">
-                        <h1 class="d-block text-white m-0"><span class="text-secondary">C</span>LARINS</h1>
+                        <h1 class="d-block text-white m-0 "><span class="text-secondary">C</span>LARINS</h1>
                     </a>
                 </div>
                 <div class="col-md-4 text-center text-lg-right">
@@ -95,28 +95,28 @@ include("config.php");
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
-            <nav class="col-12 navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
 
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="col-12 collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto py-0 col-4" style=" padding-left: 1.4%;padding-right: 0;text-align: center;">
-                        <a href="index.php"  class="col nav-item nav-link 
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="index.php" class="nav-item nav-link 
                         <?php
                         if ($page == "index") {
                             echo ("active");
                         };
                         ?>
                         ">Home</a>
-                        <a href="about.php" class="col nav-item nav-link
+                        <a href="about.php" class="nav-item nav-link
                         <?php
                         if ($page == "about") {
                             echo ("active");
                         };
                         ?>
                         ">About</a>
-                        <a href="products.php" class="col nav-item nav-link
+                        <a href="products.php" class="nav-item nav-link
                         <?php
                         if ($page == "product") {
                             echo ("active");
@@ -124,9 +124,9 @@ include("config.php");
                         ?>
                         ">Products</a>
                     </div>
-                    <img src="img/skin-care.png" class="col-2 mx-3 d-none d-lg-block " style="max-width:11%;">
-                    <div class="col-4 navbar-nav mr-auto py-0">
-                        <div class="dropdown show col-xs-3">
+                    <img src="img/skin-care.png" class="mx-5 d-none d-lg-block " style="max-width:8%;">
+                    <div class="navbar-nav mr-auto py-0">
+                        <div class="dropdown show">
                             <a href="#" class="nav-item nav-link dropdown-toggle" role="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catergoies</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown" style="left:-400% !important;">
                                 <div class="d-lg-flex">
@@ -167,14 +167,14 @@ include("config.php");
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-4">
+                        <div>
                             <a href="contact.php" class="nav-item nav-link
                             <?php if ($page == "contact") {
                                 echo ("active");
                             }; ?>
                             ">Contact</a>
                         </div>
-                        <div class="container-fluid col">
+                        <div class="container-fluid">
                             <a href="cart.php" class="nav-item btn 
                             <?php if ($page == "cart") :
                                 echo ("btn-secondary");

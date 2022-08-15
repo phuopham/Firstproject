@@ -36,8 +36,8 @@ include("header.php");
                         <ul class="list-inline mb-4 pb-2" id="portfolio-flters">
                             <li class="btn btn-sm btn-outline-primary m-1 active" data-filter="*">All</li>
                             <?php
-                            foreach($brands as $id => $brand){
-                                echo('<li class="btn btn-sm btn-outline-primary m-1 active" data-filter="*">All</li>')
+                            foreach ($brands as $id => $brand) {
+                                echo ('<li class="btn btn-sm btn-outline-primary m-1 active" data-filter="*">All</li>');
                             } ?>
                             <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Cleanser</li>
                             <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Lipstick</li>

@@ -37,15 +37,12 @@
         //check out complete, cleanup cookie
         unset($_COOKIE['Clarins']);
         setcookie('Clarins', '', time() - 3600);
-
+        //display message
         include("header.php");
         echo ('<div class="container text-center py-5 px-0">');
         echo ("Thank you for puschasing our product!");
         echo ('</div>');
         include("footer.php");
     }
-
-
-
 
     ?>

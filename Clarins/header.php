@@ -100,7 +100,7 @@ include("config.php");
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="col-12 collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto py-0 col-4" style=" padding-left: 1.4%;padding-right: 0;text-align: center;">
+                    <div class="navbar-nav ml-lg-auto py-0 col-4 ">
                         <a href="index.php" class="col nav-item nav-link 
                         <?php
                         if ($page == "index") {
@@ -123,11 +123,11 @@ include("config.php");
                         ?>
                         ">Products</a>
                     </div>
-                    <img src="img/skin-care.png" class="col-2 mx-3 d-none d-lg-block " style="max-width:11%;">
-                    <div class="col-4 navbar-nav mr-auto py-0">
+                    <img src="img/skin-care.png" class="p-0 col-2 mx-xl-3 d-none d-lg-block " style="max-width:8%;">
+                    <div class="col-lg-4 navbar-nav mr-auto py-0">
                         <div class="dropdown show col-xs-3">
                             <a href="#" class="nav-item nav-link dropdown-toggle" role="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catergoies</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown" style="left:-400% !important;">
+                            <div class="dropdown-menu" aria-labelledby="dropdown" style="left:-420% !important;">
                                 <div class="d-lg-flex">
                                     <div>
                                         <div class="dropdown-header">HAIR</div>

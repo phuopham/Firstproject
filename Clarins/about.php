@@ -44,7 +44,7 @@ include("header.php");
                             </div>
                         </div>
                         <div style="display:flex; flex-wrap:wrap;">
-                            <div class="col-4">
+                            <div class="col-md-4">
                                 <div class="text-center text-sm-left border-right mb-3 mb-sm-5">
                                     <h5 class="font-weight-bold mb-3">Get In Touch</h5>
                                     <h5 class=" mb-3">Visit one of our agency locations or contact us today</h5>
@@ -66,7 +66,7 @@ include("header.php");
                                     <p class="mb-0">Sunday: Closed</p>
                                 </div>
                             </div>
-                            <div class="col-8 text-center text-sm-right">
+                            <div class="col-md-8 text-center text-sm-right">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.924278651594!2d105.81684051396614!3d21.035715592918905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab145bf89bd7%3A0xd94a869b494c04b6!2zMjg1IMSQ4buZaSBD4bqlbiwgVsSpbmggUGjDuiwgQmEgxJDDrG5oLCBIw6AgTuG7mWkgMTAwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1653971874345!5m2!1svi!2s" style="border: 0;max-width: 100%;border: 0;width: -webkit-fill-available;height: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                                 </iframe>
                             </div>
@@ -104,7 +104,7 @@ include("header.php");
                     <h4 class="fa fa-check-square card-body bg-light rounded" style=" margin-top: 2%;align-items: center;letter-spacing:1px;margin-bottom: 2%;">A wide catalog that offers skincare solutions</h4>
                 </div>
             </div>
-            
+
         </div>
 
         <!-- Promotion Start -->

@@ -7,6 +7,7 @@ create table users (
     email varchar(100) not null unique,
     phone int(11),
     `password` varchar(40) not null,
+    type smallint,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 

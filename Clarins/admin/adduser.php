@@ -23,11 +23,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
         header("location:users.php?error");
     endif;
 
+    if ($_POST["type"] > 2 && $_POST["type"] < 0) {
+        header("location:users.php?error");
+    }
+
     $c_user = mysqli_escape_string($conn, $username);
     $c_email = mysqli_escape_string($conn, $email);
     $password_hash = sha1($password);
 
-    $query = sprintf("INSERT INTO `users` (`username`, `password`, `email`, `phone`) VALUES ('%s','%s','%s', '%d')", $c_user, $password_hash, $c_email, $phone);
+    $query = sprintf("INSERT INTO `users` (`username`, `password`, `email`, `phone`, `type`) VALUES ('%s','%s','%s', %d, %d)", $c_user, $password_hash, $c_email, $phone, $_POST["type"]);
     $conn->query($query);
     header("location:users.php?success");
 

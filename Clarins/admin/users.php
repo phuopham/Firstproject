@@ -44,8 +44,9 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                     <tr>
                                         <th>ID</th>
                                         <th>User</th>
-                                        <th>email</th>
-                                        <th>phone</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>User type</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -62,6 +63,13 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                             <td>
                                                 <input type="number" class="form-control" name="phone" placeholder="Phonenumber" require>
                                             </td>
+                                            <td>
+                                                <select name="type" id="">
+                                                    <option value="0">User</option>
+                                                    <option value="1">Operator</option>
+                                                    <option value="2">Administrator</option>
+                                                </select>
+                                            </td>
                                             <td><button class="btn btn-primary form-control">Add user</button></td>
 
                                         </form>
@@ -74,6 +82,8 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                         echo ("<td>" . $user["username"] . "</td>");
                                         echo ("<td>" . $user["email"] . "</td>");
                                         echo ("<td>" . $user["phone"] . "</td>");
+                                        $type = ($user["type"] == 0) ? "User" : (($user["type"] == 1) ? "Operator" : "Admin");
+                                        echo ("<td>" . $type . "</td>");
                                         echo ('<td><a class="btn btn-danger" href="remove.php?user=' . $user["username"] . '">Remove</a></td>');
                                         echo ("</tr>");
                                     };

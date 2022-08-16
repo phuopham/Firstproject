@@ -49,6 +49,7 @@ CREATE TABLE comments(
     message text,
     productID int not null,
     visible smallint default 0,
+    avatar smallint default 0,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (productID) REFERENCES products(productID)
 );

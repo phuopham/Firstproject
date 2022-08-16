@@ -28,7 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     endif;
     $price = htmlspecialchars($_POST["price"]);
 
-    $sql = "INSERT into products(`name`,`brandID`,`catalogID`,`price`,`description`) values ('$name','$brand', $catalog , $price, '$description')";
+    $discount = $_POST["discount"];
+
+    $sql = "INSERT into products(`name`,`brandID`,`catalogID`,`price`,`description`, `discount`) values ('$name','$brand', $catalog , $price, '$description', $discount)";
     $result = $conn->query($sql);
     // if ($result->errno) {
     //     header("location:products.php?error5");
@@ -94,6 +96,7 @@ include("header.php");
                                         <th>Brand</th>
                                         <th>Catalog</th>
                                         <th>Price</th>
+                                        <th>Discount</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -125,6 +128,9 @@ include("header.php");
                                                 <input type="number" class="form-control" name="price" placeholder="Price" required>
                                             </td>
                                             <td>
+                                                <input type="number" class="form-control" name="discount" placeholder="Discount"> %
+                                            </td>
+                                            <td>
                                                 <button class="btn btn-primary form-control">Add product</button>
                                             </td>
                                     <tr>
@@ -144,6 +150,7 @@ include("header.php");
                                         echo ("<td>" . $product["brandID"] . "</td>");
                                         echo ("<td>" . $product["catalogID"] . "</td>");
                                         echo ("<td>" . $product["price"] . "</td>");
+                                        echo ("<td>" . $product["discount"] . "</td>");
                                         echo ('<td><a class="btn btn-danger" href="remove.php?product=' . $product["productID"] . '">Remove</a></td>');
                                         echo ("</tr>");
                                         echo ('<tr class="expandable-body">');

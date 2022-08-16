@@ -19,10 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") :
     $result = $conn->query($sql);
     $brand = $result->fetch_assoc();
 
-// fetch comment
-// $sql = "SELECT name, message where productID = '" . $product["productID"] . "' AND visible = 0 ORDER BY sell_quantity;";
-// $result = $conn->query($sql);
-// $comments = $result->fetch_all(MYSQLI_ASSOC);
+    // fetch comment
+    // $sql = "SELECT name, message where productID = '" . $product["productID"] . "' AND visible = 0 ORDER BY sell_quantity;";
+    // $result = $conn->query($sql);
+    // $comments = $result->fetch_all(MYSQLI_ASSOC);
 
     $sql = "SELECT name, message from comments where productID = '" . $product["productID"] . "' ";
     // AND visible = 0 ORDER BY sell_quantity;
@@ -35,7 +35,7 @@ if ($_POST) {
     $sql = "SELECT * from products where productID = '" . $_GET['prod'] . "';";
     $result = $conn->query($sql);
     $product = $result->fetch_assoc();
-    $id=$product['productID'] ?? '';
+    $id = $product['productID'] ?? '';
     $name = $_POST['name'] ?? '';
     $email = $_POST['email'] ?? '';
     $message = $_POST['message'] ?? '';
@@ -93,7 +93,7 @@ include('header.php');
             ">Comments</h1>
         </div>
     </div>
-    <?php foreach ($comments as $id => $comment) {?>
+    <?php foreach ($comments as $id => $comment) { ?>
         <div class="mb-3 row">
             <div class="col-md-1"></div>
             <div class="col-md-1 d-none d-md-block text-right">
@@ -101,10 +101,10 @@ include('header.php');
             </div>
             <div class="col-md-9 border rounded" style=" background: lightgray;">
                 <div>
-                    <h5><?php echo($comment['name']) ?></h5>
+                    <h5><?php echo ($comment['name']) ?></h5>
                 </div>
                 <div>
-                    <p><?php echo($comment['message']) ?></p>
+                    <p><?php echo ($comment['message']) ?></p>
                 </div>
             </div>
         </div>

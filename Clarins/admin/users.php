@@ -65,7 +65,7 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                             </td>
                                             <td>
                                                 <select name="type" id="">
-                                                    <option value="0">User</option>
+                                                    <option value="0">Agent</option>
                                                     <option value="1">Operator</option>
                                                     <option value="2">Administrator</option>
                                                 </select>

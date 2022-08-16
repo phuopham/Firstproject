@@ -127,7 +127,7 @@ include("config.php");
                     <div class="col-lg-4 navbar-nav mr-auto py-0">
                         <div class="dropdown show col-xs-3">
                             <a href="#" class="nav-item nav-link dropdown-toggle" role="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catergoies</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown" style="left:-420% !important;">
+                            <div class="dropdown-menu" aria-labelledby="dropdown" style="left:-410% !important;">
                                 <div class="d-lg-flex">
                                     <div>
                                         <div class="dropdown-header">HAIR</div>

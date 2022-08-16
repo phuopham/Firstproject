@@ -64,7 +64,6 @@ include("config.php");
 
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -102,7 +101,7 @@ include("config.php");
                 </button>
                 <div class="col-12 collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0 col-4" style=" padding-left: 1.4%;padding-right: 0;text-align: center;">
-                        <a href="index.php"  class="col nav-item nav-link 
+                        <a href="index.php" class="col nav-item nav-link 
                         <?php
                         if ($page == "index") {
                             echo ("active");

@@ -1,5 +1,5 @@
 <!-- Footer Start -->
-<div class="container-fluid footer bg-light py-5" >
+<div class="container-fluid footer bg-light py-5">
     <div class="container text-center py-5">
         <div class="row">
             <div class="col-12 mb-4">
@@ -40,6 +40,8 @@
             <div class="clock fixed-bottom rounded bg-primary ml-5 px-2" style="right:auto; opacity:70%;">
                 <div id="Date" class="text-align-left font-weight-bold text-white"></div>
                 <ul class="ultime px-0 my-0">
+                    <li class="geo d-inline-block font-weight-bold text-white"></li>
+                    <li class="d-inline-block font-weight-bold text-white">-</li>
                     <li class="idtime d-inline-block font-weight-bold text-white" id="hours"></li>
                     <li class="idtime d-inline-block font-weight-bold text-white" id="point">:</li>
                     <li class="idtime d-inline-block font-weight-bold text-white" id="min"></li>
@@ -67,7 +69,6 @@
 <script src="lib/waypoints/waypoints.min.js"></script>
 <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 <script src="lib/isotope/isotope.pkgd.min.js"></script>
-<script src="lib/lightbox/js/lightbox.min.js"></script>
 
 <!-- Contact Javascript File -->
 <script src="mail/jqBootstrapValidation.min.js"></script>
@@ -75,7 +76,7 @@
 
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
-
+<script src="js/geo.js"></script>
 <!-- clock -->
 
 <script>

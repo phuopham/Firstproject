@@ -34,6 +34,7 @@ create table products (
     brandID int not null,
     sell_quantity int,
     price int not null,
+    discount int,
     pic1 varchar(40),
     pic2 varchar(40),
     pic3 varchar(40),

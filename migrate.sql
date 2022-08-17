@@ -92,7 +92,7 @@ CREATE TABLE orders(
     quantity int,
     price int,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (ordernumber) REFERENCES user_order(ordernumber),
+    FOREIGN KEY (ordernumber) REFERENCES user_order(ordernumber)
 );
 
 CREATE TABLE visitorcount(
@@ -106,15 +106,25 @@ INSERT INTO
 VALUES
     (
         "admin",
-        "admin@clarins.com",
+        "clarin-administrator@clarins.com",
         01234567890,
         sha1(12345),
+        2,
         now()
     ),
     (
-        "customer",
-        "customer@clarins.com",
+        "agent",
+        "customerservice@clarins.com",
         null,
         sha1(12345),
+        1,
+        now()
+    ),
+    (
+        "operator",
+        "manager@clarins.com",
+        null,
+        sha1(12345),
+        0,
         now()
     );

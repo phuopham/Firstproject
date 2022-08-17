@@ -82,7 +82,7 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                         echo ("<td>" . $user["username"] . "</td>");
                                         echo ("<td>" . $user["email"] . "</td>");
                                         echo ("<td>" . $user["phone"] . "</td>");
-                                        $type = ($user["type"] == 0) ? "User" : (($user["type"] == 1) ? "Operator" : "Admin");
+                                        $type = ($user["type"] == 0) ? "Agent" : (($user["type"] == 1) ? "Operator" : "Administrator");
                                         echo ("<td>" . $type . "</td>");
                                         echo ('<td><a class="btn btn-danger" href="remove.php?user=' . $user["username"] . '">Remove</a></td>');
                                         echo ("</tr>");

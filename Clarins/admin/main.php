@@ -1,16 +1,17 @@
 <?php
 require_once("../dbconnect.php");
 // customer count//
-$sql = "SELECT * from visitorcount where IP = '" . $_SERVER['REMOTE_ADDR'] . "' and timestampdiff(hour, view_at, now()) <1";
-$result = $conn->query($sql);
-//$output = $result->fetch_all();
-if (mysqli_num_rows($result) == 0) {
-  $sql = "INSERT into visitorcount (ip) values ('" . $_SERVER['REMOTE_ADDR'] . "');";
-  $result = $conn->query($sql);
-};
 $result = $conn->query("SELECT id from visitorcount");
 $visitorcount = mysqli_num_rows($result);
 //customer count end//
+
+//order counts
+$result = $conn->query("SELECT ordernumber from user_order");
+$total_order = mysqli_num_rows($result);
+
+// total comments
+$result = $conn->query("SELECT commentID from comments");
+$total_comment = mysqli_num_rows($result);
 
 //header
 include("header.php");
@@ -39,6 +40,71 @@ include("header.php");
   <!-- Main content -->
   <div class="content">
     <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3 col-6">
+          <!-- visitor count -->
+          <div class="small-box bg-primary">
+            <div class="inner">
+              <h3><?php echo ($visitorcount) ?></h3>
+
+              <p>Unique Visitors</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-chart-pie"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6">
+          <!-- total order -->
+          <div class="small-box bg-primary">
+            <div class="inner">
+              <h3><?php echo ($total_order) ?></h3>
+
+              <p>Total Orders</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <a href="order.php" class="small-box-footer">
+              More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6">
+          <!-- total comments -->
+          <div class="small-box bg-primary">
+            <div class="inner">
+              <h3><?php echo ($total_comment) ?></h3>
+
+              <p>Total comments</p>
+            </div>
+            <div class="icon">
+              <i class="far fa-comments"></i>
+            </div>
+            <a href="comment.php" class="small-box-footer">
+              More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-6">
+          <!-- total products sell this month -->
+          <div class="small-box bg-primary">
+            <div class="inner">
+              <h3>Total product sell this month</h3>
+
+              <p>Total product sell this month</p>
+            </div>
+            <div class="icon">
+              <i class="far fa-comments"></i>
+            </div>
+            <a href="order.php" class="small-box-footer">
+              More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
       <div class="row">
         <!-- /.col-md-6 -->
         <div class="col-lg-6">

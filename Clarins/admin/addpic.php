@@ -24,23 +24,25 @@ if (isset($_FILES['image'])) {
         $result = $conn->query($sql);
         $prd = $result->fetch_array(MYSQLI_ASSOC);
         if (!isset($product["pic1"])) :
-            $sql = "UPDATE products SET pic1='img/$file_name')";
+            $sql = "UPDATE products SET pic1='img/$file_name' WHERE products.productID =" . $_POST["productID"];
         else :
             if (!isset($product["pic2"])) :
-                $sql = "UPDATE products SET pic2='img/$file_name')";
+                $sql = "UPDATE products SET pic1='img/$file_name' WHERE products.productID =" . $_POST["productID"];
             else :
                 if (!isset($product["pic3"])) :
-                    $sql = "UPDATE products SET pic3='img/$file_name')";
+                    $sql = "UPDATE products SET pic1='img/$file_name' WHERE products.productID =" . $_POST["productID"];
                 else :
                     if (!isset($product["pic4"])) :
-                        $sql = "UPDATE products SET pic4='img/$file_name')";
+                        $sql = "UPDATE products SET pic1='img/$file_name' WHERE products.productID =" . $_POST["productID"];
                     else :
                         header("location:product.php?error");
                     endif;
                 endif;
             endif;
         endif;
-        header("location:addpic.php");
+        $result = $conn->query($sql);
+
+        header("location:addpic.php?prod=" . $_POST["productID"]);
     } else {
         print_r($errors);
     }
@@ -74,6 +76,7 @@ include("header.php");
         <div class="container-fluid">
             <div>
                 <form action="" class="row" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="productID" value="<?php echo ($_GET["prod"]); ?>">
                     <div class="form-group col-7">
                         <input type="file" name="image" class="form-control-file" />
                     </div>

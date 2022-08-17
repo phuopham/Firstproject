@@ -28,9 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     endif;
     $price = htmlspecialchars($_POST["price"]);
 
-    $discount = $_POST["discount"];
+    $discount = $_POST["discount"] == null ? "0" : $_POST["discount"];
 
-    $sql = "INSERT into products(`name`,`brandID`,`catalogID`,`price`,`description`, `discount`) values ('$name','$brand', $catalog , $price, '$description', $discount)";
+    $sql = "INSERT into products(`name`,`brandID`,`catalogID`,`price`,`description`, `discount`) values ('$name',$brand, $catalog , $price, '$description', $discount)";
     $result = $conn->query($sql);
     // if ($result->errno) {
     //     header("location:products.php?error5");

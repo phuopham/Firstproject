@@ -32,7 +32,7 @@ create table products (
     catalogID int,
     description text,
     brandID int not null,
-    sell_quantity int,
+    sell_quantity int default 0,
     price int not null,
     discount int,
     pic1 varchar(40),

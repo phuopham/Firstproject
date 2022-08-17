@@ -5,7 +5,7 @@ require_once('../dbconnect.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") :
     if (!isset($_POST["name"])) :
         header("location:catalogs.php?error");
-    endif;
+    endif;    
     if (!isset($_POST["description"])) :
         header("location:catalogs.php?error");
     endif;
@@ -99,7 +99,15 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
 
                         </form>
                         </tr>
-
+                        <?php
+                            if (isset($_GET["error"])) {
+                            echo ('<div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                            Username already matches your existing name!
+                            </div>');
+                            }
+                        ?>
                         <?php
                         foreach ($catalogs as $id => $catalog) {
                             echo ('<tr data-widget="expandable-table" aria-expanded="false" tooltip title="click the row to show description">');

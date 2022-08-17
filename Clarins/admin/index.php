@@ -41,7 +41,25 @@ if (isset($_SESSION["username"])) {
           <form action="validate.php" method="post">
             <?php
             if (isset($_GET["error"])) {
-              echo ('<div class="border bg-warning">Username or password is incorrect</div>');
+              echo ('<div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+              Username or password is incorrect!
+            </div>');
+            }
+            if (isset($_GET["error1"])) {
+              echo ('<div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+              Please enter your Username!
+            </div>');
+            }
+            if (isset($_GET["error2"])) {
+              echo ('<div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+              Please enter your Password!
+            </div>');
             }
             ?>
 

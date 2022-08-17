@@ -6,6 +6,9 @@ $result = $conn->query($sql);
 $brandlist = $result->fetch_all(MYSQLI_ASSOC);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") :
+    if ($_POST['name'] != "") :
+    else: header("location:brands.php?error1");
+    endif;
     if (isset($_POST["name"])) {
         $name = htmlspecialchars($_POST["name"]);
         $sql = "SELECT name from brands where name = '" . $name . "'";
@@ -77,8 +80,23 @@ include("header.php");
                                             </td>
                                         </form>
                                     </tr>
-
-
+                                    <?php
+                                    if (isset($_GET["error"])) {
+                                        echo ('<div class="alert alert-danger alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                                        Username already matches your existing name!
+                                      </div>');
+                                      }
+                                      if (isset($_GET["error1"])) {
+                                        echo ('<div class="alert alert-danger alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                                        You forget entering your name!
+                                      </div>');
+                                      }
+                                    ?>
+                                    
                                     </tr>
 
                                     <?php

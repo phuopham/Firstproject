@@ -43,7 +43,7 @@ include("header.php");
       <div class="row">
         <div class="col-lg-3 col-6">
           <!-- visitor count -->
-          <div class="small-box bg-gradient-primary">
+          <div class="small-box bg-gradient-info">
             <div class="inner">
               <h3><?php echo ($visitorcount) ?></h3>
 
@@ -56,7 +56,7 @@ include("header.php");
         </div>
         <div class="col-lg-3 col-6">
           <!-- total order -->
-          <div class="small-box bg-gradient-primary">
+          <div class="small-box bg-gradient-info">
             <div class="inner">
               <h3><?php echo ($total_order) ?></h3>
 
@@ -72,7 +72,7 @@ include("header.php");
         </div>
         <div class="col-lg-3 col-6">
           <!-- total comments -->
-          <div class="small-box bg-gradient-primary">
+          <div class="small-box bg-gradient-info">
             <div class="inner">
               <h3><?php echo ($total_comment) ?></h3>
 
@@ -89,7 +89,7 @@ include("header.php");
 
         <div class="col-lg-3 col-6">
           <!-- total products sell this month -->
-          <div class="small-box bg-gradient-primary">
+          <div class="small-box bg-gradient-info">
             <div class="inner">
               <h3>Total product sell this month</h3>
 

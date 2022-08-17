@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
             $description = htmlspecialchars($_POST["description"]);
             $sql = "INSERT into brands (`name`,`description`) values ( '" . $name . "', '" . $description . "'); ";
             $result = $conn->query($sql);
+            header("location:brands.php?success");
         endif;
     }
 endif;

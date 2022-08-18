@@ -5,7 +5,7 @@ $sql = "SELECT * FROM products ORDER BY sell_quantity DESC LIMIT 5";
 $result = $conn->query($sql);
 $topsells = $result->fetch_all(MYSQLI_ASSOC);
 //all product
-$sql = "SELECT * FROM products ORDER BY price";
+$sql = "SELECT products.`productID`, products.`name`, products.`catalogID`, products.`description`, products.`brandID`, products.`sell_quantity`, products.`price`, products.`discount`, products.`pic1`, products.`pic2`, products.`pic3`, products.`pic4`, products.`create_by`, catalogs.category FROM `products` JOIN catalogs WHERE products.catalogID = catalogs.catalogID ORDER BY discount desc LIMIT 50;";
 $result = $conn->query($sql);
 $allproducts = $result->fetch_all(MYSQLI_ASSOC);
 // //discount
@@ -33,7 +33,7 @@ include("header.php");
                 <div class="row portfolio-container">
                     <?php foreach ($discounts as $id => $discount) {
                         $pricedc = $discount["price"] - ($discount["price"] * ($discount["discount"] / 100));
-                        echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item second">');
+                        echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item">');
                         echo ('<div class="product-item d-flex flex-column align-items-center text-center bg-light rounded py-5 px-3">');
                         echo ('<div class="bg-primary mt-n5 py-3" style="width: 80px;">');
                         echo ('<h4 class="font-weight-bold text-white mb-0"> $' . $discount["price"] . '</h4>');
@@ -102,19 +102,19 @@ include("header.php");
             <div class="container py-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-5">
-                        <h1 class="section-title position-relative text-center mb-5 text-white">All products</h1>
+                        <h1 class="section-title position-relative text-center mb-5 text-white">Top 50 products</h1>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 text-center">
                         <ul class="list-inline mb-4 pb-2" id="portfolio-flters">
                             <li class="btn btn-sm btn-outline-primary m-1 active" data-filter="*">All</li>
-                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Hair</li>
-                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Makeup</li>
-                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">Perfumes</li>
-                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".fourth">Face</li>
-                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".fifth">Body</li>
-                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".sixth">Suncream</li>
+                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".cat1">Hair</li>
+                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".cat2">Makeup</li>
+                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".cat3">Perfumes</li>
+                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".cat4">Face</li>
+                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".cat5">Body</li>
+                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".cat6">Suncream</li>
                         </ul>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ include("header.php");
                     <?php foreach ($allproducts as $id => $allproduct) {
                         $pricedc = $allproduct["price"] - ($allproduct["price"] * ($allproduct["discount"] / 100));
                         if ($allproduct["discount"] > 0 && $allproduct["discount"] < 100) {
-                            echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item second">');
+                            echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item cat' . $allproduct["category"] . '">');
                             echo ('<div class="product-item d-flex flex-column align-items-center text-center bg-light rounded py-5 px-3">');
                             echo ('<div class="bg-primary mt-n5 py-3" style="width: 80px;">');
                             echo ('<h4 class="font-weight-bold text-danger mb-0">$' . $pricedc . '</h4>');
@@ -136,7 +136,7 @@ include("header.php");
                             echo ('</div>');
                             echo ('</div>');
                         } else {
-                            echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item second">');
+                            echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item cat' . $allproduct["category"] . '">');
                             echo ('<div class="product-item d-flex flex-column align-items-center text-center bg-light rounded py-5 px-3">');
                             echo ('<div class="bg-primary mt-n5 py-3" style="width: 80px;">');
                             echo ('<h4 class="font-weight-bold text-white mb-0">$' . $allproduct["price"] . '</h4>');
@@ -154,7 +154,69 @@ include("header.php");
             </div>
         </div>
 
-        <!-- Products Start -->
+        <!-- Products End -->
+        <!-- catalogs -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <h1 class="section-title position-relative text-center mb-5 text-white">Cannot find your favorite product?</h1>
+                    <h4 class="text-center text-white">You can search by catalog:</h4>
+                </div>
+            </div>
+            <div class="d-md-flex row bg-secondary pb-3">
+                <div class="col-md-4 pt-3">
+                    <div class="text-white rounded-pill bg-primary text-center p-3 w-100 mb-2">HAIR</div>
+                    <?php
+                    foreach ($hair_list as $id => $item) {
+                        echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                    }
+                    ?>
+                </div>
+                <div class="col-md-4 pt-3">
+                    <div class="text-white rounded-pill bg-primary text-center p-3 w-100 mb-2">MAKEUP</div>
+                    <?php
+                    foreach ($makeup_list as $id => $item) {
+                        echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                    }
+                    ?>
+                </div>
+                <div class="col-md-4 pt-3">
+                    <div class="text-white rounded-pill bg-primary text-center p-3 w-100 mb-2">PERFUMES</div>
+                    <?php
+                    foreach ($perfumes_list as $id => $item) {
+                        echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                    }
+                    ?>
+                </div>
+                <div class="col-md-4 pt-3">
+                    <div class="text-white rounded-pill bg-primary text-center p-3 w-100 mb-2">FACE</div>
+                    <?php
+                    foreach ($face_list as $id => $item) {
+                        echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                    }
+                    ?>
+                </div>
+                <div class="col-md-4 pt-3">
+                    <div class="text-white rounded-pill bg-primary text-center p-3 w-100 mb-2">BODY</div>
+                    <?php
+                    foreach ($body_list as $id => $item) {
+                        echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                    }
+                    ?>
+                </div>
+                <div class="col-md-4 pt-3">
+                    <div class="text-white rounded-pill bg-primary text-center p-3 w-100 mb-2">SUNCREAM</div>
+                    <?php
+                    foreach ($suncream_list as $id => $item) {
+                        echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <!-- catalogs -->
+
     </div>
 </div>
 

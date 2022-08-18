@@ -34,10 +34,10 @@ $face_list = $result->fetch_all(MYSQLI_ASSOC);
 $sql = "SELECT name, catalogID from catalogs where category = 5";
 $result = $conn->query($sql);
 $body_list = $result->fetch_all(MYSQLI_ASSOC);
-// sunscream = 6
+//  suncream = 6
 $sql = "SELECT name, catalogID from catalogs where category = 6";
 $result = $conn->query($sql);
-$sunscream_list = $result->fetch_all(MYSQLI_ASSOC);
+$suncream_list = $result->fetch_all(MYSQLI_ASSOC);
 
 include("config.php");
 ?>
@@ -170,9 +170,9 @@ include("config.php");
                                         ?>
                                     </div>
                                     <div>
-                                        <div class="dropdown-header">SUNSCREAM</div>
+                                        <div class="dropdown-header">SUNCREAM</div>
                                         <?php
-                                        foreach ($sunscream_list as $id => $item) {
+                                        foreach ($suncream_list as $id => $item) {
                                             echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
                                         }
                                         ?>

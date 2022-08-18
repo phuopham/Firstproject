@@ -35,10 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     // if ($result->errno) {
     //     header("location:products.php?error5");
     // };
-    $sql = "SELECT productID from products where name='$name' and catalogID = $catalog and price = $price";
-    $result = $conn->query($sql);
-    $productID = $result->fetch_column(0);
-    header("location:addpic.php?prod=" . $productID);
+    // $sql = "SELECT productID from products where name='$name' and catalogID = $catalog and price = $price";
+    // $result = $conn->query($sql);
+    // $productID = $result->fetch_column(0);
+    // header("location:addpic.php?prod=" . $productID);
 endif;
 
 // get product data
@@ -97,6 +97,7 @@ include("header.php");
                                         <th>Catalog</th>
                                         <th>Price</th>
                                         <th>Discount</th>
+                                        <th>Price After Discount</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -130,6 +131,7 @@ include("header.php");
                                             <td>
                                                 <input type="number" class="form-control" name="discount" placeholder="Discount"> %
                                             </td>
+                                            <td></td>
                                             <td>
                                                 <button class="btn btn-primary form-control">Add product</button>
                                             </td>
@@ -144,6 +146,7 @@ include("header.php");
 
                                     <?php
                                     foreach ($products as $id => $product) {
+                                        $pricedc = $product["price"]-($product["price"]*($product["discount"]/100));
                                         echo ('<tr data-widget="expandable-table" aria-expanded="false" tooltip title="click the row to show description">');
                                         echo ("<td>" . ($id + 1) . "</td>");
                                         echo ("<td>" . $product["name"] . "</td>");
@@ -151,6 +154,7 @@ include("header.php");
                                         echo ("<td>" . $product["catalogID"] . "</td>");
                                         echo ("<td>" . $product["price"] . "</td>");
                                         echo ("<td>" . $product["discount"] . "</td>");
+                                        echo('<td>'. $pricedc.  '</td>');
                                         echo ('<td><a class="btn btn-danger" href="remove.php?product=' . $product["productID"] . '">Remove</a></td>');
                                         echo ("</tr>");
                                         echo ('<tr class="expandable-body">');

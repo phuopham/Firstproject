@@ -7,6 +7,7 @@ else :
     $empty = false;
     $items = json_decode($_COOKIE["Clarins"], true);
 endif;
+
 $page = "cart";
 include("header.php");
 
@@ -38,15 +39,16 @@ include("header.php");
                                     foreach ($items as $key => $item) {
                                         echo ("<tr>");
                                         echo ("<td>$key</td>");
-                                        $sql = "SELECT name, price, pic1 from products where productid = " . $key;
+                                        $sql = "SELECT name, price, pic1,discount from products where productid = " . $key;
                                         $result = $conn->query($sql);
                                         $product = $result->fetch_assoc();
+                                        $pricedc = $product["price"]-($product["price"]*($product["discount"]/100));
                                         echo ('<td class="p-1" style="width:50px;"><img class="rounded w-100 h-100" src="' . $product["pic1"] . '"></td>');
                                         echo ("<td>" . $product["name"] . "</td>");
                                         echo ("<td>$item</td>");
-                                        echo ("<td>" . $product["price"] . "</td>");
+                                        echo ("<td>$" . $pricedc . "</td>");
                                         echo ("</tr>");
-                                        $total += ($item * $product["price"]);
+                                        $total += ($item * $pricedc );
                                     }
                                 endif;;
                                 ?>
@@ -55,7 +57,7 @@ include("header.php");
                                     <th></th>
                                     <th></th>
                                     <th>Total</th>
-                                    <th><?php echo ($total) ?></th>
+                                    <th>$<?php echo ($total) ?></th>
                                 </tr>
                             </tbody>
                         </table>

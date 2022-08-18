@@ -8,7 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") :
     $sql = "SELECT * from products where productID = '" . $_GET['prod'] . "';";
     $result = $conn->query($sql);
     $product = $result->fetch_assoc();
-
+    // $sql = "INSERT INTO comments (name,email,message,productID) VALUES('$name','$email','$message','".$_GET['prod']."')";
+    // $conn->query($sql);
     // fetch catalog
     $sql =  "SELECT name, category from catalogs where catalogID ='" . $product["catalogID"] . "';";
     $result = $conn->query($sql);
@@ -18,30 +19,39 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") :
     $sql =  "SELECT name, description from brands where brandID ='" . $product["brandID"] . "';";
     $result = $conn->query($sql);
     $brand = $result->fetch_assoc();
+    // if ($_POST) {
+    //     $products = json_decode($_COOKIE["Clarins"], true);
+    //     $id=$_GET['prod'] ?? '';
+    //     $name = $_POST['name'] ?? '';
+    //     $email = $_POST['email'] ?? '';
+    //     $message = $_POST['message'] ?? '';
+    //     $sql = "INSERT INTO comments (name,email,message,productID) VALUES('$name','$email','$message','$id')";
+    //     $conn->query($sql);
+        
+    // }
+// fetch comment
+$sql = "SELECT name, message from comments where productID = '" . $product["productID"] . "' ";
+// AND visible = 0 ORDER BY sell_quantity;
+ $result = $conn->query($sql);
+ $comments = $result->fetch_all(MYSQLI_ASSOC);
 
-    // fetch comment
-    // $sql = "SELECT name, message where productID = '" . $product["productID"] . "' AND visible = 0 ORDER BY sell_quantity;";
-    // $result = $conn->query($sql);
-    // $comments = $result->fetch_all(MYSQLI_ASSOC);
 
-    $sql = "SELECT name, message from comments where productID = '" . $product["productID"] . "' ";
-    // AND visible = 0 ORDER BY sell_quantity;
-    $result = $conn->query($sql);
-    $comments = $result->fetch_all(MYSQLI_ASSOC);
-else :
+else:
     header("location:products.php");
 endif;
 if ($_POST) {
-    $sql = "SELECT * from products where productID = '" . $_GET['prod'] . "';";
-    $result = $conn->query($sql);
-    $product = $result->fetch_assoc();
-    $id = $product['productID'] ?? '';
-    $name = $_POST['name'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $message = $_POST['message'] ?? '';
-    $sql = "INSERT INTO comments (name,email,message,productID) VALUES('$name','$email','$message','$id')";
-    $conn->query($sql);
-}
+        $sql = "SELECT * from products where productID = '" . $_GET['prod'] . "';";
+        $result = $conn->query($sql);
+        $product = $result->fetch_assoc();
+        $id=$product['productID'] ?? '';
+        $name = $_POST['name'] ?? '';
+        $email = $_POST['email'] ?? '';
+        $message = $_POST['message'] ?? '';
+        $sql = "INSERT INTO comments (name,email,message,productID) VALUES('$name','$email','$message','$id')";
+        $conn->query($sql);
+        
+    };
+$pricedc = $product["price"]-($product["price"]*($product["discount"]/100));
 // header
 $page = "product";
 include('header.php');
@@ -72,9 +82,9 @@ include('header.php');
         </div>
 
         <div class="col-md-7">
-            <p class="text-uppercase">HOME / PRODUCTS / <?php echo ($catalog["category"] . " / " . $catalog["name"]) ?></p>
+            <p class="text-uppercase">HOME / PRODUCTS / <?php echo ($catalog["category"] . " / " . $catalog["name"]); ?></p>
             <h1 class="text-uppercase"><?php echo ($product["name"]) ?></h1>
-            <h4>$<?php echo ($product["price"]) ?></h4>
+            <h4>$<?php echo($pricedc); ?></h4>
             <div>
                 <p style="height:150px;"> <?php echo ($product["description"]); ?></p>
             </div>
@@ -89,11 +99,10 @@ include('header.php');
 <div class="container border rounded pb-5" style=" background:lavenderblush;">
     <div class="row justify-content-center pt-5">
         <div class="col-lg-6">
-            <h1 class=" position-relative mb-3
-            ">Comments</h1>
+            <h1 class=" position-relative mb-3">Comments</h1>
         </div>
     </div>
-    <?php foreach ($comments as $id => $comment) { ?>
+    <?php foreach ($comments as $id => $comment) {?>
         <div class="mb-3 row">
             <div class="col-md-1"></div>
             <div class="col-md-1 d-none d-md-block text-right">
@@ -101,14 +110,57 @@ include('header.php');
             </div>
             <div class="col-md-9 border rounded" style=" background: lightgray;">
                 <div>
-                    <h5><?php echo ($comment['name']) ?></h5>
+                    <h5><?php echo($comment['name']) ?></h5>
                 </div>
                 <div>
-                    <p><?php echo ($comment['message']) ?></p>
+                    <p><?php echo($comment['message']) ?></p>
                 </div>
             </div>
         </div>
     <?php } ?>
+    <!-- <div class="mb-3 row">
+        <div class="col-md-1"></div>
+        <div class="col-md-1 d-none d-md-block text-right">
+            <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
+        </div>
+        <div class="col-md-9 border rounded" style=" background: lightgray;">
+            <div>
+                <h5>Hieu</h5>
+            </div>
+            <div>
+                <p>I love the texture of the serum and I love the fact that its very smooth and light.</p>
+            </div>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-md-1"></div>
+        <div class="col-md-1 d-none d-md-block text-right">
+            <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
+        </div>
+        <div class="col-md-9 border rounded" style=" background: lightgray;">
+            <div>
+                <h5>Phuong</h5>
+            </div>
+            <div>
+                <p>I love the texture of the serum and I love the fact that its very smooth and light.</p>
+            </div>
+        </div>
+    </div>
+    <div class="mb-3
+     row">
+        <div class="col-md-1"></div>
+        <div class="col-md-1 d-none d-md-block text-right">
+            <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
+        </div>
+        <div class="col-md-9 border rounded" style=" background: lightgray;">
+            <div>
+                <h5>An</h5>
+            </div>
+            <div>
+                <p>I love the texture of the serum and I love the fact that its very smooth and light.</p>
+            </div>
+        </div> -->
+    <!-- </div> -->
 </div>
 <div class="container-fluid pb-5">
     <div class="container pb-5">

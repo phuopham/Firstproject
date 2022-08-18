@@ -14,30 +14,30 @@ $visitorcount = mysqli_num_rows($result);
 
 // fetch catalog
 // face = 1
-$sql = "SELECT name from catalogs where category = 1";
+$sql = "SELECT name, catalogID from catalogs where category = 1";
 $result = $conn->query($sql);
-$face_list = $result->fetch_assoc();
+$hair_list = $result->fetch_all(MYSQLI_ASSOC);
 // body = 2
-$sql = "SELECT name from catalogs where category = 2";
+$sql = "SELECT name, catalogID from catalogs where category = 2";
 $result = $conn->query($sql);
-$body_list = $result->fetch_assoc();
+$makeup_list = $result->fetch_all(MYSQLI_ASSOC);
 
-// t3 = 3
-$sql = "SELECT name from catalogs where category = 3";
+// parfumes = 3
+$sql = "SELECT name, catalogID from catalogs where category = 3";
 $result = $conn->query($sql);
-$t3_list = $result->fetch_assoc();
-// t4 = 4
-$sql = "SELECT name from catalogs where category = 4";
+$perfumes_list = $result->fetch_all(MYSQLI_ASSOC);
+// face = 4
+$sql = "SELECT name, catalogID from catalogs where category = 4";
 $result = $conn->query($sql);
-$t4_list = $result->fetch_assoc();
-// t5 = 5
-$sql = "SELECT name from catalogs where category = 5";
+$face_list = $result->fetch_all(MYSQLI_ASSOC);
+// body = 5
+$sql = "SELECT name, catalogID from catalogs where category = 5";
 $result = $conn->query($sql);
-$t5_list = $result->fetch_assoc();
-// t5 = 6
-$sql = "SELECT name from catalogs where category = 6";
+$body_list = $result->fetch_all(MYSQLI_ASSOC);
+// sunscream = 6
+$sql = "SELECT name, catalogID from catalogs where category = 6";
 $result = $conn->query($sql);
-$t5_list = $result->fetch_assoc();
+$sunscream_list = $result->fetch_all(MYSQLI_ASSOC);
 
 include("config.php");
 ?>
@@ -127,41 +127,55 @@ include("config.php");
                     <div class="col-lg-4 navbar-nav mr-auto py-0">
                         <div class="dropdown show col-xs-3">
                             <a href="#" class="nav-item nav-link dropdown-toggle" role="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catergoies</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown" style="left:-410% !important;">
+                            <div class="dropdown-menu" aria-labelledby="dropdown" style="left:-400% !important">
                                 <div class="d-lg-flex">
                                     <div>
                                         <div class="dropdown-header">HAIR</div>
-                                        <a href="#" class="dropdown-item">Sun Protection</a>
-                                        <a href="#" class="dropdown-item">After Sun</a>
+                                        <?php
+                                        foreach ($hair_list as $id => $item) {
+                                            echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                                        }
+                                        ?>
                                     </div>
                                     <div>
                                         <div class="dropdown-header">MAKEUP</div>
-                                        <a href="#" class="dropdown-item">Sun Protection</a>
-                                        <a href="#" class="dropdown-item">After Sun</a>
+                                        <?php
+                                        foreach ($makeup_list as $id => $item) {
+                                            echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                                        }
+                                        ?>
                                     </div>
                                     <div>
                                         <div class="dropdown-header">PERFUMES</div>
-                                        <a href="#" class="dropdown-item">Sun Protection</a>
-                                        <a href="#" class="dropdown-item">After Sun</a>
+                                        <?php
+                                        foreach ($perfumes_list as $id => $item) {
+                                            echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                                        }
+                                        ?>
                                     </div>
                                     <div>
                                         <div class="dropdown-header">FACE</div>
-                                        <a href="#" class="dropdown-item">Cleaners&Toners</a>
-                                        <a href="#" class="dropdown-item">Serums</a>
-                                        <a href="#" class="dropdown-item">Day care</a>
-                                        <a href="#" class="dropdown-item">Night care</a>
+                                        <?php
+                                        foreach ($face_list as $id => $item) {
+                                            echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                                        }
+                                        ?>
                                     </div>
                                     <div>
                                         <div class="dropdown-header">BODY</div>
-                                        <a href="#" class="dropdown-item">Hand&Foot care</a>
-                                        <a href="#" class="dropdown-item">Bath&Shower</a>
-                                        <a href="#" class="dropdown-item">Body Firming</a>
-                                        <a href="#" class="dropdown-item">Body Contouring</a>
+                                        <?php
+                                        foreach ($body_list as $id => $item) {
+                                            echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                                        }
+                                        ?>
                                     </div>
                                     <div>
-                                        <div class="dropdown-header">SUNSCREEN</div>
-                                        <a href="#" class="dropdown-item">Sun Protection</a>
-                                        <a href="#" class="dropdown-item">After Sun</a>
+                                        <div class="dropdown-header">SUNSCREAM</div>
+                                        <?php
+                                        foreach ($sunscream_list as $id => $item) {
+                                            echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>

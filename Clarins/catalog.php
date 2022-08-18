@@ -6,16 +6,18 @@ if (isset($_GET["catalog"])) {
     $result = $conn->query($sql);
     $products = $result->fetch_all(MYSQLI_ASSOC);
 } else {
-    header("location:index.php");
+    header("location:products.php");
 }
 
 // get all brandID related
 $sql = "SELECT brandID FROM products where catalogID =" . $_GET["catalog"] . " GROUP BY brandID ";
 $result = $conn->query($sql);
 $brands = $result->fetch_all(MYSQLI_ASSOC);
-output($brands);
 
-
+//get catalog name
+$sql = "SELECT name from catalogs where catalogID =" . $products[0]["catalogID"];
+$result = $conn->query($sql);
+$catalog = $result->fetch_assoc();
 //header
 include("header.php");
 ?>
@@ -28,7 +30,7 @@ include("header.php");
             <div class="container py-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-5">
-                        <h1 class="section-title position-relative text-center mb-5 text-white">All products</h1>
+                        <h1 class="section-title position-relative text-center mb-5 text-white"><?php echo ($catalog["name"]) ?> catalog</h1>
                     </div>
                 </div>
                 <div class="row">

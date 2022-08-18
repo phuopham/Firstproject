@@ -5,7 +5,7 @@ require_once('../dbconnect.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") :
     if (!isset($_POST["name"])) :
         header("location:catalogs.php?error");
-    endif;    
+    endif;
     if (!isset($_POST["description"])) :
         header("location:catalogs.php?error");
     endif;
@@ -79,12 +79,12 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
                                             </td>
                                             <td>
                                                 <select class="form-control" name="category" required>
-                                                    <option value="1">Face</option>
-                                                    <option value="2">Body</option>
-                                                    <option value="3">Sunscreen</option>
-                                                    <option value="4">Body</option>
-                                                    <option value="5">Make-up</option>
-                                                    <option value="6">Perfumes</option>
+                                                    <option value="1">Hair</option>
+                                                    <option value="2">Makeup</option>
+                                                    <option value="3">Parfurms</option>
+                                                    <option value="4">Face</option>
+                                                    <option value="5">Body</option>
+                                                    <option value="6">Sunscreen</option>
                                                 </select>
                         </div>
                         </td>
@@ -100,13 +100,13 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
                         </form>
                         </tr>
                         <?php
-                            if (isset($_GET["error"])) {
+                        if (isset($_GET["error"])) {
                             echo ('<div class="alert alert-danger alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             <h5><i class="icon fas fa-ban"></i> Alert!</h5>
                             Username already matches your existing name!
                             </div>');
-                            }
+                        }
                         ?>
                         <?php
                         foreach ($catalogs as $id => $catalog) {

@@ -31,7 +31,7 @@ $username = $_SESSION['username'];
 
 <body>
 
-  <body class="login-page" style="min-height: 496.8px;">
+  <body class="login-page" style="min-height: 496.8px; background-image: url('../img/natural.jpg'); background-repeat:repeat-x; background-position:bottom; background-color: #ff999a">
     <div class="login-box">
       <div class="login-logo">
         <a href="../../index2.html"><b>Admin</b> Clarins</a>

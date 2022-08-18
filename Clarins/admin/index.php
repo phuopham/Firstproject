@@ -24,10 +24,12 @@ if (isset($_SESSION["username"])) {
 
 <body>
 
-  <body class="login-page" style="min-height: 496.8px;">
+  <body class="login-page" style="min-height: 500px ; background-image: url('../img/natural.jpg'); background-repeat:repeat-x; background-position:bottom; background-color: #ff999a">
     <div class="login-box">
       <div class="login-logo">
-        <a href="../../index2.html"><b>Admin</b> Clarins</a>
+        <a href="../index.php" style="color:white">
+          <h1>Admin <b>Clarins</b></h1>
+        </a>
       </div>
       <!-- /.login-logo -->
       <div class="card">
@@ -91,8 +93,9 @@ if (isset($_SESSION["username"])) {
           </form>
 
           <p class="mb-1">
-            <a href="forgotpw.php">I forgot my password</a>
             <a href="forgotpw.php">I'm new employee</a>
+            <br>
+            <a href="forgotpw.php">I forgot my password</a>
           </p>
         </div>
         <!-- /.login-card-body -->

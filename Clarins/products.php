@@ -121,34 +121,23 @@ include("header.php");
                 <div class="row portfolio-container">
                     <?php foreach ($allproducts as $id => $allproduct) {
                         $pricedc = $allproduct["price"] - ($allproduct["price"] * ($allproduct["discount"] / 100));
+                        echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item cat' . $allproduct["category"] . '">');
+                        echo ('<div class="product-item d-flex flex-column align-items-center text-center bg-light rounded py-5 px-3">');
+                        echo ('<div class="bg-primary mt-n5 py-3" style="width: 80px;">');
+                        echo ('<h4 class="font-weight-bold text-danger mb-0">$' . $pricedc . '</h4>');
+                        echo ("</div>");
+                        echo ('<div class="position-relative bg-primary rounded-circle mt-n3 mb-4 p-3" style="width: 150px; height: 150px;">');
+                        echo ('<img class="rounded-circle w-100 h-100" src="' . $allproduct['pic1'] . '" style="object-fit: cover;">');
+                        echo ('</div>');
+                        echo ('<h5 class="font-weight-semi-bold text-danger" style="height:1em;">');
                         if ($allproduct["discount"] > 0 && $allproduct["discount"] < 100) {
-                            echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item cat' . $allproduct["category"] . '">');
-                            echo ('<div class="product-item d-flex flex-column align-items-center text-center bg-light rounded py-5 px-3">');
-                            echo ('<div class="bg-primary mt-n5 py-3" style="width: 80px;">');
-                            echo ('<h4 class="font-weight-bold text-danger mb-0">$' . $pricedc . '</h4>');
-                            echo ("</div>");
-                            echo ('<div class="position-relative bg-primary rounded-circle mt-n3 mb-4 p-3" style="width: 150px; height: 150px;">');
-                            echo ('<img class="rounded-circle w-100 h-100" src="' . $allproduct['pic1'] . '" style="object-fit: cover;">');
-                            echo ('</div>');
-                            echo ('<h5 class="font-weight-semi-bold text-danger">EVENT DISCOUNT!!!</h5>');
-                            echo ('<h5 class="font-weight-bold mb-4">' . $allproduct["name"] . '</h5>');
-                            echo ('<a href="detail.php?prod=' . $allproduct["productID"] . '" class="btn btn-sm btn-secondary" style="z-index:2;">Order Now</a>');
-                            echo ('</div>');
-                            echo ('</div>');
-                        } else {
-                            echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item cat' . $allproduct["category"] . '">');
-                            echo ('<div class="product-item d-flex flex-column align-items-center text-center bg-light rounded py-5 px-3">');
-                            echo ('<div class="bg-primary mt-n5 py-3" style="width: 80px;">');
-                            echo ('<h4 class="font-weight-bold text-white mb-0">$' . $allproduct["price"] . '</h4>');
-                            echo ("</div>");
-                            echo ('<div class="position-relative bg-primary rounded-circle mt-n3 mb-5 p-3" style="width: 150px; height: 150px;">');
-                            echo ('<img class="rounded-circle w-100 h-100" src="' . $allproduct['pic1'] . '" style="object-fit: cover;">');
-                            echo ('</div>');
-                            echo ('<h5 class="font-weight-bold mb-4 mt-4">' . $allproduct["name"] . '</h5>');
-                            echo ('<a href="detail.php?prod=' . $allproduct["productID"] . '" class="btn btn-sm btn-secondary" style="z-index:2;">Order Now</a>');
-                            echo ('</div>');
-                            echo ('</div>');
+                            echo ("EVENT DISCOUNT!!!");
                         }
+                        echo ('</h5>');
+                        echo ('<h5 class="font-weight-bold mb-4">' . $allproduct["name"] . '</h5>');
+                        echo ('<a href="detail.php?prod=' . $allproduct["productID"] . '" class="btn btn-sm btn-secondary" style="z-index:2;">Order Now</a>');
+                        echo ('</div>');
+                        echo ('</div>');
                     } ?>
                 </div>
             </div>

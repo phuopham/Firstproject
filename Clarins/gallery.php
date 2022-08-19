@@ -20,56 +20,100 @@ include("header.php");
                     <li class="btn btn-sm btn-outline-primary m-1" data-filter=".fourth">Powder</li>
                     <li class="btn btn-sm btn-outline-primary m-1" data-filter=".fifth">Eyeliner</li>
                     <li class="btn btn-sm btn-outline-primary m-1" data-filter=".sixth">Remover</li>
+                    <li class="btn btn-sm btn-outline-primary m-1" data-filter=".seventh">Foundation</li>
+                    <li class="btn btn-sm btn-outline-primary m-1" data-filter=".eighth">Eyeshadow</li>
                 </ul>
             </div>
         </div>
         <div class="row m-0 portfolio-container">
             <div class="col-lg-4 col-md-6 p-0 portfolio-item second">
                 <div class="position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="img/aboutus.jpg" alt="">
-                    <a class="portfolio-btn" style="opacity:0.5;">
-                        <!-- <i class="fa fa-plus text-primary" style="font-size: 60px; "></i> -->
-                    </a>
+                    <img class="img-fluid w-100" src="img/product-14.jpg" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 p-0 portfolio-item third">
                 <div class="position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="img/gallery2.png" alt="">
-                    <a class="portfolio-btn" href="img/gallery2.png">
-                        <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                    </a>
+                    <img class="img-fluid w-100" src="img/product-80.webp" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 p-0 portfolio-item fifth">
                 <div class="position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="img/gallery3.webp" alt="">
-                    <a class="portfolio-btn" href="img/gallery3.webp">
-                        <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                    </a>
+                    <img class="img-fluid w-100" src="img/product-31.png" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 p-0 portfolio-item first">
                 <div class="position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="img/gallery4.jpg" alt="">
-                    <a class="portfolio-btn" href="img/gallery4.jpg">
-                        <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                    </a>
+                    <img class="img-fluid w-100" src="img/product-21.webp" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 p-0 portfolio-item fourth">
                 <div class="position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="img/gallery5.webp" alt="">
-                    <a class="portfolio-btn" href="img/gallery5.webp">
-                        <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                    </a>
+                    <img class="img-fluid w-100" src="img/product-6.webp" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 p-0 portfolio-item sixth">
                 <div class="position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="img/gallery6.webp" alt="">
-                    <a class="portfolio-btn" href="img/gallery6.webp">
-                        <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                    </a>
+                    <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 p-0 portfolio-item second">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="img/product-15.jpg" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 p-0 portfolio-item seventh">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="img/product-23.jpg" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 p-0 portfolio-item first">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="img/product-19.jpg" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 p-0 portfolio-item third">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="img/product-81.png" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 p-0 portfolio-item seventh">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="img/product-25.webp" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 p-0 portfolio-item eighth">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="img/product-50.jpg" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 p-0 portfolio-item eighth">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="img/product-47.jpg" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 p-0 portfolio-item sixth">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="img/product-82.png" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 p-0 portfolio-item fourth">
+                <div class="position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="img/product-42.jpg" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;"></a>
                 </div>
             </div>
         </div>

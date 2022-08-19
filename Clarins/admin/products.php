@@ -7,6 +7,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     if (!isset($_POST["name"])) :
         header("location:products.php?error1");
     endif;
+    if (empty($_POST['name'])) {
+        header("location:brands.php?error1");
+        exit;
+    };
     $name = htmlspecialchars($_POST["name"]);
 
     if (!isset($_POST["brand"])) :
@@ -69,6 +73,17 @@ include("header.php");
                 <div class="col-sm-6">
                     <h1>products</h1>
                 </div>
+
+                <?php
+                if (isset($_GET["error1"])) {
+                    echo ('<div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                    You forget entering your name!
+                  </div>');
+                }
+                ?>
+
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="main.php">Home</a></li>
@@ -105,7 +120,7 @@ include("header.php");
                                         <form action="products.php" method="post">
                                             <td></td>
                                             <td>
-                                                <input type="text" class="form-control" name="name" placeholder="Name" required>
+                                                <input type="text" class="form-control" name="name" placeholder="Name">
                                             </td>
                                             <td>
                                                 <select class="form-control" name="brand" required>

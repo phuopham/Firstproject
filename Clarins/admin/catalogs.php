@@ -6,6 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     if (!isset($_POST["name"])) :
         header("location:catalogs.php?error");
     endif;
+    if (empty($_POST['name'])) {
+        header("location:brands.php?error1");
+        exit;
+    };
     if (!isset($_POST["description"])) :
         header("location:catalogs.php?error");
     endif;
@@ -52,6 +56,17 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
         </div><!-- /.container-fluid -->
     </section>
 
+    <!--Null-->
+    <?php
+    if (isset($_GET["error1"])) {
+    echo ('<div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+    You forget entering your name!
+    </div>');
+    }
+    ?>
+
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -75,7 +90,7 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
                                         <form action="catalogs.php" method="post">
                                             <td></td>
                                             <td>
-                                                <input type="text" class="form-control" name="name" placeholder="Name" required>
+                                                <input type="text" class="form-control" name="name" placeholder="Name">
                                             </td>
                                             <td>
                                                 <select class="form-control" name="category" required>

@@ -6,9 +6,11 @@ $result = $conn->query($sql);
 $brandlist = $result->fetch_all(MYSQLI_ASSOC);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") :
-    if ($_POST['name'] != "") :
-    else : header("location:brands.php?error1");
-    endif;
+    if (empty($_POST['name'])) {
+        header("location:brands.php?error1");
+        exit;
+    };
+
     if (isset($_POST["name"])) {
         $name = htmlspecialchars($_POST["name"]);
         $sql = "SELECT name from brands where name = '" . $name . "'";
@@ -70,10 +72,10 @@ include("header.php");
                                         <form action="brands.php" method="post">
                                             <td></td>
                                             <td>
-                                                <input type="text" class="form-control" name="name" placeholder="Name" require>
+                                                <input type="text" class="form-control" name="name" placeholder="Name" >
                                             </td>
                                             <td>
-                                                <textarea class="form-control" name="description" placeholder="Description" require></textarea>
+                                                <textarea class="form-control" name="description" placeholder="Description" ></textarea>
                                             </td>
                                             <td>
                                                 <button class="btn btn-primary form-control" type="submit">Add brand</button>

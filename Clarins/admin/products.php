@@ -35,10 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     // if ($result->errno) {
     //     header("location:products.php?error5");
     // };
-    // $sql = "SELECT productID from products where name='$name' and catalogID = $catalog and price = $price";
-    // $result = $conn->query($sql);
-    // $productID = $result->fetch_column(0);
-    // header("location:addpic.php?prod=" . $productID);
+    $sql = "SELECT productID from products where name='$name' and catalogID = $catalog and price = $price";
+    $result = $conn->query($sql);
+    $productID = $result->fetch_column(0);
+    header("location:addpic.php?prod=" . $productID);
 endif;
 
 // get product data
@@ -136,7 +136,7 @@ include("header.php");
                                                 <button class="btn btn-primary form-control">Add product</button>
                                             </td>
                                     <tr>
-                                        <td colspan="6">
+                                        <td colspan="8">
                                             <textarea class="form-control" type="textarea" name="description" placeholder="Description" required></textarea>
                                         </td>
                                     </tr>
@@ -146,7 +146,7 @@ include("header.php");
 
                                     <?php
                                     foreach ($products as $id => $product) {
-                                        $pricedc = $product["price"]-($product["price"]*($product["discount"]/100));
+                                        $pricedc = $product["price"] - ($product["price"] * ($product["discount"] / 100));
                                         echo ('<tr data-widget="expandable-table" aria-expanded="false" tooltip title="click the row to show description">');
                                         echo ("<td>" . ($id + 1) . "</td>");
                                         echo ("<td>" . $product["name"] . "</td>");
@@ -154,7 +154,7 @@ include("header.php");
                                         echo ("<td>" . $product["catalogID"] . "</td>");
                                         echo ("<td>" . $product["price"] . "</td>");
                                         echo ("<td>" . $product["discount"] . "</td>");
-                                        echo('<td>'. $pricedc.  '</td>');
+                                        echo ('<td>' . $pricedc .  '</td>');
                                         echo ('<td><a class="btn btn-danger" href="remove.php?product=' . $product["productID"] . '">Remove</a></td>');
                                         echo ("</tr>");
                                         echo ('<tr class="expandable-body">');
@@ -167,7 +167,8 @@ include("header.php");
                                         echo ('<div class="col-6"><p>' . $product["description"] . '</p></div></div></div></div>');
                                         // echo ("<td colspan='2'><p>" . $product["pic1"] . "</p></td>");
                                         // echo ("<td colspan='4'><p>" . $product["description"] . "</p></td>");
-                                        echo ("</td></tr>");
+                                        echo ('</td><td colspan="2" ><div class="d-flex justify-content-center"><a href="addpic.php?prod=' . $product["productID"] . '" class="btn btn-primary">Add/Change picture</a></div></td>');
+                                        echo ("</tr>");
                                     };
                                     ?>
 

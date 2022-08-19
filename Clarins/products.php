@@ -161,6 +161,7 @@ include("header.php");
                     }
                     ?>
                 </div>
+
                 <div class="col-md-4 pt-3">
                     <div class="text-white rounded-pill bg-primary text-center p-3 w-100 mb-2">MAKEUP</div>
                     <?php

@@ -1,94 +1,6 @@
 use Clarins;
 
 INSERT INTO
-    users
-VALUES
-    (
-        "admin",
-        "admin@clarins.com",
-        01234567890,
-        sha1(12345),
-        now()
-    ),
-    (
-        "user1",
-        "user1@clarins.com",
-        012345767899,
-        sha1(12345),
-        now()
-    ),
-    (
-        "user2",
-        "user2@clarins.com",
-        012345767899,
-        sha1(123457),
-        now()
-    ),
-    (
-        "user3",
-        "user3@clarins.com",
-        012345767899,
-        sha1(123458),
-        now()
-    ),
-    (
-        "user4",
-        "user4@clarins.com",
-        012345767899,
-        sha1(123455),
-        now()
-    ),
-    (
-        "user5",
-        "user5@clarins.com",
-        012345767899,
-        sha1(123453),
-        now()
-    ),
-    (
-        "user6",
-        "user6@clarins.com",
-        012345767899,
-        sha1(102345),
-        now()
-    ),
-    (
-        "user7",
-        "user7@clarins.com",
-        012345767899,
-        sha1(123345),
-        now()
-    ),
-    (
-        "user8",
-        "user8@clarins.com",
-        012345767899,
-        sha1(162345),
-        now()
-    ),
-    (
-        "user9",
-        "user9@clarins.com",
-        012345767899,
-        sha1(192345),
-        now()
-    ),
-    (
-        "user10",
-        "user10@clarins.com",
-        012345767899,
-        sha1(162745),
-        now()
-    ),
-    (
-        "user11"
-        "user11@clarins.com",
-        01234567896,
-        sha1(163356),
-        now()
-    );
-
-INSERT INTO
     catalogs (name, category, description)
 VALUES
     (
@@ -177,19 +89,22 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo."
     );
 
-INSERT INTO 
+INSERT INTO
     brands (name, description)
 VALUES
     ("Dior", "Since 1880"),
     ("Chanel", "Since 1933"),
     ("YSL", "Cool and active"),
-    ("Gucci","Luxirious"),
-    ("Nature Republic","From Korea"),
-    ("MAC","Makeup Art Cosmetics"),
-    ("Neutrogena","Since 1930"),
-    ("Nars","Famous Brand from France"),
-    ("Clinique","Brand from the USA"),
-    ("Estee Lauder", "Sell in more than 150 countries");
+    ("Gucci", "Luxirious"),
+    ("Nature Republic", "From Korea"),
+    ("MAC", "Makeup Art Cosmetics"),
+    ("Neutrogena", "Since 1930"),
+    ("Nars", "Famous Brand from France"),
+    ("Clinique", "Brand from the USA"),
+    (
+        "Estee Lauder",
+        "Sell in more than 150 countries"
+    );
 
 INSERT INTO
     products (
@@ -215,7 +130,7 @@ VALUES
         "img/product-16.webp",
         "img/product-20.webp"
     ),
-     (
+    (
         "Dior Forever",
         1,
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
@@ -226,7 +141,7 @@ VALUES
         "img/product-16.webp",
         "img/product-20.webp"
     ),
-     (
+    (
         "Dior Forever Perfect Mousse",
         1,
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
@@ -237,7 +152,7 @@ VALUES
         "img/product-16.webp",
         "img/product-20.webp"
     ),
-     (
+    (
         "Dior La Carte Cadeau",
         1,
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
@@ -248,7 +163,7 @@ VALUES
         "img/product-16.webp",
         "img/product-20.webp"
     ),
-     (
+    (
         "Dior Forever Skin Glow",
         2,
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
@@ -259,7 +174,7 @@ VALUES
         "img/product-16.webp",
         "img/product-20.webp"
     ),
-     (
+    (
         "Dior Forever Undercover",
         1,
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
@@ -298,7 +213,7 @@ VALUES
         "Invidunt lorem justo sanctus clita. Erat lorem labore ea, justo dolor lorem ipsum ut sed eos, ipsum et dolor kasd sit ea justo.",
         3,
         30,
-       "img/product-1.jpg",
+        "img/product-1.jpg",
         "img/product-10.jpg",
         "img/product-16.webp",
         "img/product-20.webp"
@@ -744,28 +659,50 @@ VALUES
 
 INSERT INTO
     contact (
-        'name', 
-        'email', 
-        'subject', 
-        'message', 
+        'name',
+        'email',
+        'subject',
+        'message',
     )
 VALUES
-    ("Taylor Swift","supergirl@gmail.com","Instagram","very good"),
-    ("Captain America","badboy01@gmail.com","Twitter","excellent"),
-    ("IronMan","genius@gmail.com","Facebook","good");
+    (
+        "Taylor Swift",
+        "supergirl@gmail.com",
+        "Instagram",
+        "very good"
+    ),
+    (
+        "Captain America",
+        "badboy01@gmail.com",
+        "Twitter",
+        "excellent"
+    ),
+    ("IronMan", "genius@gmail.com", "Facebook", "good");
 
 INSERT INTO
     user_order (name, email, phone, address, paymethod)
 VALUES
-    ("John","0326mes@gmail.com",'0123456789',"25 Washinton","visa"),
-    ("Naruto","anime@gmail.com",'02345678901',"16 Tokyo","credit card");
+    (
+        "John",
+        "0326mes@gmail.com",
+        '0123456789',
+        "25 Washinton",
+        "visa"
+    ),
+    (
+        "Naruto",
+        "anime@gmail.com",
+        '02345678901',
+        "16 Tokyo",
+        "credit card"
+    );
 
 INSERT INTO
     orders (ordernumber, productID, quantity, price)
 VALUES
-    ('1','1','3','30'),
-    ('1','3','2','35'),
-    ('2','3','4','40');
+    ('1', '1', '3', '30'),
+    ('1', '3', '2', '35'),
+    ('2', '3', '4', '40');
 
 INSERT INTO
     visitorcount(ip)

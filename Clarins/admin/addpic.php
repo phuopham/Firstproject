@@ -6,7 +6,7 @@ if (isset($_FILES['image'])) {
     $file_size = $_FILES['image']['size'];
     $file_tmp = $_FILES['image']['tmp_name'];
     $file_type = $_FILES['image']['type'];
-    $file_ext = strtolower(end(explode('.', $_FILES['image']['name'])));
+    $file_ext = strtolower(end(explode('.', $file_name)));
 
     $extensions = array("jpeg", "jpg", "png");
 
@@ -20,20 +20,21 @@ if (isset($_FILES['image'])) {
 
     if (empty($errors) == true) {
         move_uploaded_file($file_tmp, "../img/" . $file_name);
-        $sql = "SELECT pic1, pic2, pic3, pic4 from products";
+        $sql = "SELECT pic1, pic2, pic3, pic4 from products where productID =" . $_GET["prod"];
         $result = $conn->query($sql);
         $prd = $result->fetch_array(MYSQLI_ASSOC);
-        if (!isset($product["pic1"])) :
+        $sql = "";
+        if (!isset($prd["pic1"])) :
             $sql = "UPDATE products SET pic1='img/$file_name' WHERE products.productID =" . $_POST["productID"];
         else :
-            if (!isset($product["pic2"])) :
-                $sql = "UPDATE products SET pic1='img/$file_name' WHERE products.productID =" . $_POST["productID"];
+            if (!isset($prd["pic2"])) :
+                $sql = "UPDATE products SET pic2='img/$file_name' WHERE products.productID =" . $_POST["productID"];
             else :
-                if (!isset($product["pic3"])) :
-                    $sql = "UPDATE products SET pic1='img/$file_name' WHERE products.productID =" . $_POST["productID"];
+                if (!isset($prd["pic3"])) :
+                    $sql = "UPDATE products SET pic3='img/$file_name' WHERE products.productID =" . $_POST["productID"];
                 else :
-                    if (!isset($product["pic4"])) :
-                        $sql = "UPDATE products SET pic1='img/$file_name' WHERE products.productID =" . $_POST["productID"];
+                    if (!isset($prd["pic4"])) :
+                        $sql = "UPDATE products SET pic4='img/$file_name' WHERE products.productID =" . $_POST["productID"];
                     else :
                         header("location:product.php?error");
                     endif;
@@ -56,7 +57,12 @@ include("header.php");
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Add image to product ...</h1>
+                    <h1>Add image to product
+                        <?php
+                        $sql = "SELECT name from products where productID = " . $_GET["prod"];
+                        $result = $conn->query($sql);
+                        echo ($result->fetch_column());
+                        ?></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -76,7 +82,7 @@ include("header.php");
         <div class="container-fluid">
             <div>
                 <form action="" class="row" method="POST" enctype="multipart/form-data">
-                    <input type="text" name="productID" value="<?php echo ($_GET["prod"]); ?>">
+                    <input type="text" name="productID" value="<?php echo ($_GET["prod"]); ?>" class="d-none">
                     <div class="form-group col-7">
                         <input type="file" name="image" class="form-control-file" />
                     </div>

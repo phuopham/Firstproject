@@ -108,6 +108,7 @@ include("config.php");
                         };
                         ?>
                         ">Home</a>
+                        <a href="gallery.php" class="col nav-item nav-link text-lg-center"><i class=" fas fa-map-marker-alt"></i></a>
                         <a href="about.php" class="col nav-item nav-link
                         <?php
                         if ($page == "about") {

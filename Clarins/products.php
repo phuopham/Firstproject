@@ -129,7 +129,7 @@ include("header.php");
                         echo ('<div class="position-relative bg-primary rounded-circle mt-n3 mb-4 p-3" style="width: 150px; height: 150px;">');
                         echo ('<img class="rounded-circle w-100 h-100" src="' . $allproduct['pic1'] . '" style="object-fit: cover;">');
                         echo ('</div>');
-                        echo ('<h5 class="font-weight-semi-bold text-danger" style="height:1em;">');
+                        echo ('<h5 class="font-weight-semi-bold text-danger" style="height:2em;">');
                         if ($allproduct["discount"] > 0 && $allproduct["discount"] < 100) {
                             echo ("EVENT DISCOUNT!!!");
                         }

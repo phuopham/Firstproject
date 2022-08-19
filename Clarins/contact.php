@@ -18,7 +18,7 @@ if ($_POST) {
         <!-- Our store start -->
         <section style="margin-top:-5%;">
             <div class="container-fluid footer bg-light py-5">
-                <div class="container text-center py-5">
+                <div class="container text-center py-5 mt-5">
                     <div>
                         <div class="row justify-content-center">
                             <div class="col-lg-6">

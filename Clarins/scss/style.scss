@@ -317,16 +317,16 @@ h6,
     background: $primary  !important;
 }
 
-.portfolio-item::after {
-    position: absolute;
-    content: "";
-    top: 30px;
-    right: 30px;
-    bottom: 30px;
-    left: 30px;
-    border: 2px solid $light;
-    z-index: 1;
-}
+// .portfolio-item::after {
+//     position: absolute;
+//     content: "";
+//     top: 30px;
+//     right: 30px;
+//     bottom: 30px;
+//     left: 30px;
+//     border: 2px solid $light;
+//     z-index: 1;
+// }
 
 .portfolio-item .portfolio-btn {
     position: absolute;

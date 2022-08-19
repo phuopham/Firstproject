@@ -26,9 +26,9 @@ include("header.php");
         <div class="row m-0 portfolio-container">
             <div class="col-lg-4 col-md-6 p-0 portfolio-item second">
                 <div class="position-relative overflow-hidden">
-                    <img class="img-fluid w-100" src="img/gallery1.jpg" alt="">
-                    <a class="portfolio-btn" href="img/gallery1.jpg">
-                        <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
+                    <img class="img-fluid w-100" src="img/aboutus.jpg" alt="">
+                    <a class="portfolio-btn" style="opacity:0.5;">
+                        <!-- <i class="fa fa-plus text-primary" style="font-size: 60px; "></i> -->
                     </a>
                 </div>
             </div>

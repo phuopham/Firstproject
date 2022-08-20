@@ -1,12 +1,15 @@
 <?php
 require_once("dbconnect.php");
 $total = 0;
+// product cookie
 if (!isset($_COOKIE["Clarins"])) :
     $empty = true;
 else :
     $empty = false;
     $items = json_decode($_COOKIE["Clarins"], true);
 endif;
+// remember me info
+$remember = json_decode($_COOKIE["user"], true);
 
 $page = "cart";
 include("header.php");
@@ -42,13 +45,13 @@ include("header.php");
                                         $sql = "SELECT name, price, pic1,discount from products where productid = " . $key;
                                         $result = $conn->query($sql);
                                         $product = $result->fetch_assoc();
-                                        $pricedc = $product["price"]-($product["price"]*($product["discount"]/100));
+                                        $pricedc = $product["price"] - ($product["price"] * ($product["discount"] / 100));
                                         echo ('<td class="p-1" style="width:50px;"><img class="rounded w-100 h-100" src="' . $product["pic1"] . '"></td>');
                                         echo ("<td>" . $product["name"] . "</td>");
                                         echo ("<td>$item</td>");
                                         echo ("<td>$" . $pricedc . "</td>");
                                         echo ("</tr>");
-                                        $total += ($item * $pricedc );
+                                        $total += ($item * $pricedc);
                                     }
                                 endif;;
                                 ?>
@@ -91,32 +94,32 @@ include("header.php");
                         <div class="modal-body">
                             <div class="form-row">
                                 <div class="col-sm-6 control-group">
-                                    <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                    <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name" value="<?php echo ($remember["name"] ?? "") ?>" required="required" data-validation-required-message="Please enter your name" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="col-sm-6 control-group">
-                                    <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                    <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email" value="<?php echo ($remember["email"] ?? "") ?>" required="required" data-validation-required-message="Please enter your email" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control p-4" id="address" name="address" placeholder="Address" required="required" data-validation-required-message="Please enter an address" />
+                                <input type="text" class="form-control p-4" id="address" name="address" placeholder="Address" value="<?php echo ($remember["address"] ?? "") ?>" required="required" data-validation-required-message="Please enter an address" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-row">
                                 <div class="col-sm-6 control-group">
-                                    <input type="number" class="form-control p-4" id="phone" name="phone" placeholder="Your Phone" required="required" data-validation-required-message="Please enter your phone" />
+                                    <input type="number" class="form-control p-4" id="phone" name="phone" placeholder="Your Phone" value="<?php echo ($remember["phone"] ?? "") ?>" required="required" data-validation-required-message="Please enter your phone" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="col-sm-6 control-group d-flex justify-content-center pb-3">
-                                    <input type="checkbox" class="align-self-center form-control p-4" id="rememberme" style="display:inline-block; width:50px;" />
+                                    <input type="checkbox" class="align-self-center form-control p-4" id="rememberme" name="rememberme" style="display:inline-block; width:50px;" />
                                     <label for="rememberme" class="align-self-center mb-0">Remember me</label>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
 
                             <div class="control-group">
-                                <textarea class="form-control p-4" rows="6" id="paymethod" name="paymethod" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <textarea class="form-control p-4" rows="6" id="paymethod" name="paymethod" placeholder="Message" data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
 

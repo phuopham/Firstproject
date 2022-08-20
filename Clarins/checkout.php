@@ -30,13 +30,25 @@
             $sql = "INSERT into orders(ordernumber,productID,quantity,price) VALUES('$order_number','$id','$quantity','$price')";
             $conn->query($sql);
 
-            //Inset to stockroom to reduce quantity
+            //Insert to stockroom to reduce quantity
             $sql = "INSERT into stockroom(productID,quantity) values ('$id',-$quantity)";
             $conn->query($sql);
+            //insert to products to increase the sell quantity
+
+
+            //
         }
         //check out complete, cleanup cookie
         unset($_COOKIE['Clarins']);
         setcookie('Clarins', '', time() - 3600);
+        if (isset($_POST["rememberme"])) {
+            $rememberme = [];
+            $rememberme["name"] = $_POST["name"];
+            $rememberme["email"] = $_POST["email"];
+            $rememberme["address"] = $_POST["address"];
+            $rememberme["phone"] = $_POST["phone"];
+            setcookie('user', json_encode($rememberme), time() + 3600 * 24 * 30);
+        }
         //display message
         include("header.php");
         echo ('<div class="container text-center py-5 px-0">');

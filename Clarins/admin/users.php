@@ -84,18 +84,37 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                         echo ("<td>" . $user["phone"] . "</td>");
                                         $type = ($user["type"] == 0) ? "Agent" : (($user["type"] == 1) ? "Operator" : "Administrator");
                                         echo ("<td>" . $type . "</td>");
-                                        echo ('<td><a class="btn btn-danger" href="remove.php?user=' . $user["username"] . '">Remove</a></td>');
+                                        echo ('<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" onclick="submit(event)" user="' . $user["username"] . '">Delete</button></td>');
                                         echo ("</tr>");
                                     };
                                     ?>
-
-
-
                                 </tbody>
                             </table>
 
                         </div>
                         <!-- /.card-body -->
+                        <!-- .modal -->
+                        <div class="modal fade" id="deleteModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-warning">
+                                        <h4 class="modal-title">Caution!</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>You cannot revert this action. Are you sure?</p>
+                                    </div>
+                                    <div class="modal-footer justify-content-between">
+
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
                     </div>
                     <!-- /.card -->
                 </div>
@@ -103,6 +122,16 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
         </div>
     </section>
 </div>
+
+<script>
+    function submit(e) {
+        console.log("alo");
+        var text = e.currentTarget.getAttribute("user");
+        text = '<button type="button" class="btn btn-default" data-dismiss="modal">No</button><a class="btn btn-danger" href="remove.php?user=' + text + '">Yes</a>';
+        console.log(text);
+        $(".modal-footer").html(text);
+    };
+</script>
 
 <?php
 if (isset($_GET["success"])) {

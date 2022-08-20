@@ -1,4 +1,5 @@
 <?php
+$page = "gallery";
 include("header.php");
 ?>
 

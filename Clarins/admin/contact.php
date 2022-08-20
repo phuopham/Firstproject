@@ -18,12 +18,12 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>User list</h1>
+                    <h1>Note from customer</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Users</li>
+                        <li class="breadcrumb-item active">Contact</li>
                     </ol>
                 </div>
             </div>

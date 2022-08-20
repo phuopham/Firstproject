@@ -100,7 +100,7 @@ include("config.php");
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="col-12 collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <div class="navbar-nav ml-lg-auto py-0 col-4 ">
+                    <div class="navbar-nav ml-lg-auto py-0 col-5 ">
                         <a href="index.php" class="col nav-item nav-link 
                         <?php
                         if ($page == "index") {
@@ -114,7 +114,9 @@ include("config.php");
                             echo ("active");
                         };
                         ?>
-                        "><i class=" fas fa-images"></i></a>
+                        "><i class=" fas fa-images d-none d-lg-inline"></i>
+                            <span class="d-lg-none">Gallery</span>
+                        </a>
                         <!--<a href="gallery.php" class="col nav-item nav-link text-lg-center"><i class=" fas fa-map-marker-alt"></i></a>-->
                         <a href="about.php" class="col nav-item nav-link
                         <?php
@@ -132,7 +134,7 @@ include("config.php");
                         ">Products</a>
                     </div>
                     <img src="img/skin-care.png" class="p-0 col-2 mx-xl-3 d-none d-lg-block " style="max-width:8%;">
-                    <div class="col-lg-4 navbar-nav mr-auto py-0">
+                    <div class="col-lg-5 navbar-nav mr-auto py-0">
                         <div class="dropdown show col-xs-3">
                             <a href="#" class="nav-item nav-link dropdown-toggle" role="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catergoies</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown" style="left:-400% !important">

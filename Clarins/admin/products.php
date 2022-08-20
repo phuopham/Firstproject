@@ -106,7 +106,7 @@ include("header.php");
                             <table class="table table-hover table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>product ID</th>
+                                        <th>ID</th>
                                         <th>Name</th>
                                         <th>Brand</th>
                                         <th>Catalog</th>
@@ -162,11 +162,18 @@ include("header.php");
                                     <?php
                                     foreach ($products as $id => $product) {
                                         $pricedc = $product["price"] - ($product["price"] * ($product["discount"] / 100));
+                                        $sql = "SELECT name from brands where brandID=" . $product["brandID"];
+                                        $result = $conn->query($sql);
+                                        $brand = $result->fetch_column();
+                                        $sql = "SELECT name from catalogs where catalogID=" . $product["catalogID"];
+                                        $result = $conn->query($sql);
+                                        $catalog = $result->fetch_column();
+
                                         echo ('<tr data-widget="expandable-table" aria-expanded="false" tooltip title="click the row to show description">');
-                                        echo ("<td>" . ($id + 1) . "</td>");
+                                        echo ("<td>" . $product["productID"] . "</td>");
                                         echo ("<td>" . $product["name"] . "</td>");
-                                        echo ("<td>" . $product["brandID"] . "</td>");
-                                        echo ("<td>" . $product["catalogID"] . "</td>");
+                                        echo ("<td>" . $brand . "</td>");
+                                        echo ("<td>" . $catalog . "</td>");
                                         echo ("<td>" . $product["price"] . "</td>");
                                         echo ("<td>" . $product["discount"] . "</td>");
                                         echo ('<td>' . $pricedc .  '</td>');

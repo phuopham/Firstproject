@@ -1,4 +1,5 @@
 <?php
+$priv = [1,2];
 require_once('../dbconnect.php');
 
 //add catalog
@@ -59,7 +60,7 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
     <!--Null-->
     <?php
     if (isset($_GET["error1"])) {
-    echo ('<div class="alert alert-danger alert-dismissible">
+        echo ('<div class="alert alert-danger alert-dismissible">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <h5><i class="icon fas fa-ban"></i> Alert!</h5>
     You forget entering your name!

@@ -1,4 +1,5 @@
 <?php
+$priv = [1, 2];
 // get user data
 require_once("../dbconnect.php");
 $sql = "SELECT * from brands";

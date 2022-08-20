@@ -1,6 +1,5 @@
 <?php
-// header
-include("header.php");
+$priv = [0,1,2];
 
 // get user data
 require_once("../dbconnect.php");
@@ -9,6 +8,8 @@ $result = $conn->query($sql);
 $userlist = $result->fetch_all(MYSQLI_ASSOC);
 //get user data end
 
+// header
+include("header.php");
 ?>
 
 <!-- Content Wrapper. Contains page content -->

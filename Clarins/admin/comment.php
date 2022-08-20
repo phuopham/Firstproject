@@ -1,4 +1,5 @@
 <?php
+$priv = [0, 1, 2];
 require_once("../dbconnect.php");
 // vision change
 if (isset($_GET["vision"])) :

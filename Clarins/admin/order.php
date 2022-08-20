@@ -1,12 +1,10 @@
 <?php
-// header
-include("header.php");
+$priv = [0,1,2];
+
 
 // get user data
 require_once("../dbconnect.php");
-// $sql = "SELECT * from user_order";
-// $result = $conn->query($sql);
-// $userlist = $result->fetch_all(MYSQLI_ASSOC);
+
 $sql = "SELECT user_order.name, user_order.ordernumber, user_order.email,user_order.phone,user_order.address, 
 orders.productID, orders.quantity,orders.price,orders.create_by  from orders inner join user_order 
 ON orders.ordernumber = user_order.ordernumber";
@@ -14,6 +12,8 @@ $result = $conn->query($sql);
 $orderlist = $result->fetch_all(MYSQLI_ASSOC);
 //get user data end
 
+// header
+include("header.php");
 ?>
 
 <!-- Content Wrapper. Contains page content -->

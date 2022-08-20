@@ -1,4 +1,5 @@
 <?php
+$priv = 2;
 require_once('../dbconnect.php');
 $ulen = 5;
 $pwlen = 5;

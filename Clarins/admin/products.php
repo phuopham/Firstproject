@@ -1,4 +1,5 @@
 <?php
+$priv = [1,2];
 require_once('../dbconnect.php');
 
 //add product

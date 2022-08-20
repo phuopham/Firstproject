@@ -1,4 +1,6 @@
 <?php
+
+
 // Validate session
 session_start();
 if (!isset($_SESSION['username'])) :
@@ -6,12 +8,6 @@ if (!isset($_SESSION['username'])) :
 endif;
 $username = $_SESSION['username'];
 // validate session end
-// fetch data
-require_once('../dbconnect.php');
-$sql = sprintf("select username, email, phone from users where username = '%s'", $username);
-$result = $conn->query($sql);
-$elm = $result->fetch_array(MYSQLI_ASSOC);
-//fetch data end
 
 // logout start
 if (isset($_GET['logout'])) {
@@ -19,6 +15,16 @@ if (isset($_GET['logout'])) {
     header('location:index.php');
 }
 // logout end
+// fetch data
+require_once('../dbconnect.php');
+$sql = sprintf("select username, email, phone, type from users where username = '%s'", $username);
+$result = $conn->query($sql);
+$elm = $result->fetch_array(MYSQLI_ASSOC);
+//fetch data end
+//test privilege
+if (!in_array($elm["type"], $priv)) {
+    header("location:main.php");
+}
 
 ?>
 
@@ -103,11 +109,6 @@ if (isset($_GET['logout'])) {
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <a href="users.php" class="nav-link">
-                                <p>Manage users</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="stockroom.php" class="nav-link">
                                 <p>Stockroom</p>
                             </a>
@@ -127,23 +128,36 @@ if (isset($_GET['logout'])) {
                                 <p>Comments</p>
                             </a>
                         </li>
-
-                        <li class="nav-item">
-                            <a href="products.php" class="nav-link">
-                                <p>Products</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="catalogs.php" class="nav-link">
-                                <p>Catalogs</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="brands.php" class="nav-link">
-                                <p>Brands</p>
-                            </a>
-                        </li>
-
+                        <?php
+                        if ($elm["type"] == '2') :
+                        ?>
+                            <li class="nav-item">
+                                <a href="users.php" class="nav-link">
+                                    <p>Manage users</p>
+                                </a>
+                            </li>
+                        <?php
+                        endif;
+                        if ($elm["type"] == '1' || $elm["type"] == '2') :
+                        ?>
+                            <li class="nav-item">
+                                <a href="products.php" class="nav-link">
+                                    <p>Products</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="catalogs.php" class="nav-link">
+                                    <p>Catalogs</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="brands.php" class="nav-link">
+                                    <p>Brands</p>
+                                </a>
+                            </li>
+                        <?php
+                        endif;
+                        ?>
 
                     </ul>
                 </nav>

@@ -1,5 +1,5 @@
 <?php
-
+$priv = 1;
 require_once("../dbconnect.php");
 
 // insert stockroom

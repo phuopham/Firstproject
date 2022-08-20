@@ -1,6 +1,6 @@
 <?php
-// header
-include("header.php");
+$priv = [0, 1, 2];
+
 
 // get good data
 require_once("../dbconnect.php");
@@ -8,10 +8,9 @@ $sql = "SELECT * from stockroom";
 $result = $conn->query($sql);
 $goodstocks = $result->fetch_all(MYSQLI_ASSOC);
 
-// insert stockroom
 
-
-
+// header
+include("header.php");
 ?>
 
 <!-- Content Wrapper. Contains page content -->

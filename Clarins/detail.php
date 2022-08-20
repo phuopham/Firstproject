@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") :
 
     // }
     // fetch comment
-    $sql = "SELECT name, message from comments where productID = '" . $product["productID"] . "' ";
+    $sql = "SELECT name, message, visible from comments where productID = '" . $product["productID"] . "' ";
     // AND visible = 0 ORDER BY sell_quantity;
     $result = $conn->query($sql);
     $comments = $result->fetch_all(MYSQLI_ASSOC);
@@ -102,22 +102,25 @@ include('header.php');
             <h1 class=" position-relative mb-3">Comments</h1>
         </div>
     </div>
-    <?php foreach ($comments as $id => $comment) { ?>
-        <div class="mb-3 row">
-            <div class="col-md-1"></div>
-            <div class="col-md-1 d-none d-md-block text-right">
-                <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
-            </div>
-            <div class="col-md-9 border rounded" style=" background: lightgray;">
-                <div>
-                    <h5><?php echo ($comment['name']) ?></h5>
+    <?php foreach ($comments as $id => $comment) {
+        if ($comment["visible"] == '0') {
+    ?>
+            <div class="mb-3 row">
+                <div class="col-md-1"></div>
+                <div class="col-md-1 d-none d-md-block text-right">
+                    <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
                 </div>
-                <div>
-                    <p><?php echo ($comment['message']) ?></p>
+                <div class="col-md-9 border rounded" style=" background: lightgray;">
+                    <div>
+                        <h5><?php echo ($comment['name']) ?></h5>
+                    </div>
+                    <div>
+                        <p><?php echo ($comment['message']) ?></p>
+                    </div>
                 </div>
             </div>
-        </div>
-    <?php } ?>
+    <?php }
+    } ?>
 
 </div>
 <div class="container-fluid pb-5">

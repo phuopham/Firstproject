@@ -1,14 +1,29 @@
 <?php
-// header
-include("header.php");
+require_once("../dbconnect.php");
+// vision change
+if (isset($_GET["vision"])) :
+    $sql = "SELECT commentID, visible from comments where commentID = " . $_GET["vision"];
+    $result = $conn->query($sql);
+    if ($result->num_rows == 0) {
+        header("location: comment.php?error");
+    } else {
+        $com = $result->fetch_array(MYSQLI_ASSOC);
+        $sql = "UPDATE comments SET visible =" . ($com["visible"] == 0 ? 1 : 0) . " WHERE commentID = " . $_GET["vision"];
+        $conn->query($sql);
+        header("location: comment.php?success");
+    }
+endif;
 
 // get user data
-require_once("../dbconnect.php");
+
 $sql = "SELECT * from comments inner join products 
 ON comments.productID = products.productID ";
 $result = $conn->query($sql);
 $userlist = $result->fetch_all(MYSQLI_ASSOC);
 //get user data end
+
+// header
+include("header.php");
 
 ?>
 
@@ -61,7 +76,7 @@ $userlist = $result->fetch_all(MYSQLI_ASSOC);
                                         echo ("<td>" . $user["email"] . "</td>");
                                         echo ("<td>" . $user["message"] . "</td>");
                                         echo ("<td>" . $user["productID"] . "</td>");
-                                        echo ("<td>" . $user["visible"] . "</td>");
+                                        echo ('<td><a href="comment.php?vision=' . $user["commentID"] . '" class="btn ' . ($user["visible"] == '0' ? 'btn-primary"><i class="fas fa-eye"></i>' : 'btn-danger"><i class="fas fa-eye-slash"></i>') . '</a></td>');
                                         echo ("<td>" . $user["create_by"] . "</td>");
                                         echo ("</tr>");
                                     };

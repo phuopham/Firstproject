@@ -1,17 +1,26 @@
 <?php
-// header
-include("header.php");
 
-// get good data
 require_once("../dbconnect.php");
-$sql = "SELECT * from stockroom";
-$result = $conn->query($sql);
-$goodstocks = $result->fetch_all(MYSQLI_ASSOC);
 
 // insert stockroom
+if ($_POST) :
+    output($_POST);
+    $sql = "INSERT INTO stockroom(productID, quantity, username) VALUES (" . $_POST["productID"] . "," . $_POST["quantity"] . ",'" . $_POST["username"] . "')";
+    $result = $conn->query($sql);
+    header("location:stockroom.php?success");
+endif;
 
+// get good data
+if (isset($_GET["prod"])) :
+    $sql = "SELECT * from stockroom WHERE productID=" . $_GET["prod"];
+    $result = $conn->query($sql);
+    $goodstocks = $result->fetch_all(MYSQLI_ASSOC);
+else :
+    header("location:stockroom.php");
+endif;
 
-
+// header
+include("header.php");
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -45,8 +54,7 @@ $goodstocks = $result->fetch_all(MYSQLI_ASSOC);
                             <table class="table table-hover text-wrap">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Product</th>
+                                        <th>ProductID</th>
                                         <th>Quantity</th>
                                         <th>Username</th>
                                         <th>Stock time</th>
@@ -54,6 +62,26 @@ $goodstocks = $result->fetch_all(MYSQLI_ASSOC);
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <tr>
+                                        <form action="addstockroom.php" method="post">
+                                            <td>
+                                                <input type="text" class="form-control d-none" name="productID" value="<?php echo ($_GET["prod"]) ?>">
+                                            </td>
+                                            <td>
+                                                <input class="form-control" type="number" name="quantity" placeholder="Quantity" required>
+                                            </td>
+                                            <td>
+                                                <input class="form-control d-none" type="text" name="username" value="<?php echo ($_SESSION["username"]) ?>">
+                                            </td>
+                                            <td>
+                                                <button type="submit" class="btn btn-primary form-control">Add good</button>
+                                            </td>
+                                        </form>
+                                    </tr>
+
+
+                                    </tr>
+
                                     <?php
                                     foreach ($goodstocks as $id => $good) {
                                         if (!empty($good["username"])) :

@@ -61,9 +61,7 @@ CREATE TABLE stockroom(
     productID int,
     username varchar (32),
     quantity int DEFAULT 0,
-    create_by DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (productID) REFERENCES products(productID),
-    FOREIGN KEY (username) REFERENCES users(username)
+    create_by DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 create table contact(

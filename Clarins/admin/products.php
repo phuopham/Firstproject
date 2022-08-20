@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
 
     $discount = $_POST["discount"] == null ? "0" : $_POST["discount"];
 
-    $sql = "INSERT into products(`name`,`brandID`,`catalogID`,`price`,`description`, `discount`) values ('$name',$brand, $catalog , $price, '$description', $discount)";
+    $sql = "INSERT into products(`name`,`brandID`,`catalogID`,`price`,`description`, `discount`,`sell_quantity`) values ('$name',$brand, $catalog , $price, '$description', $discount,0)";
     $result = $conn->query($sql);
     // if ($result->errno) {
     //     header("location:products.php?error5");
@@ -148,7 +148,7 @@ include("header.php");
                                             </td>
                                             <td></td>
                                             <td>
-                                                <button class="btn btn-primary form-control">Add product</button>
+                                                <button class="btn btn-primary form-control text-nowrap">Add product</button>
                                             </td>
                                     <tr>
                                         <td colspan="8">
@@ -170,7 +170,7 @@ include("header.php");
                                         echo ("<td>" . $product["price"] . "</td>");
                                         echo ("<td>" . $product["discount"] . "</td>");
                                         echo ('<td>' . $pricedc .  '</td>');
-                                        echo ('<td><a class="btn btn-danger" href="remove.php?product=' . $product["productID"] . '">Remove</a></td>');
+                                        echo ('<td><a class="btn btn-primary" href="addstockroom.php?prod=' . $product["productID"] . '">Add to stockroom</a></td>');
                                         echo ("</tr>");
                                         echo ('<tr class="expandable-body">');
                                         echo ("<td colspan='6'>");
@@ -182,7 +182,8 @@ include("header.php");
                                         echo ('<div class="col-6"><p>' . $product["description"] . '</p></div></div></div></div>');
                                         // echo ("<td colspan='2'><p>" . $product["pic1"] . "</p></td>");
                                         // echo ("<td colspan='4'><p>" . $product["description"] . "</p></td>");
-                                        echo ('</td><td colspan="2" ><div class="d-flex justify-content-center"><a href="addpic.php?prod=' . $product["productID"] . '" class="btn btn-primary">Add/Change picture</a></div></td>');
+                                        echo ('</td><td colspan="2" ><div class="d-flex justify-content-center"><a href="addpic.php?prod=' . $product["productID"] . '" class="btn btn-primary">Add/Change picture</a></div>');
+                                        echo ('<div class="d-flex justify-content-center"><a class="btn btn-danger" href="remove.php?product=' . $product["productID"] . '">Remove</a></div></td>');
                                         echo ("</tr>");
                                     };
                                     ?>

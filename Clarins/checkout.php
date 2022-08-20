@@ -34,8 +34,8 @@
             $sql = "INSERT into stockroom(productID,quantity) values ('$id',-$quantity)";
             $conn->query($sql);
             //insert to products to increase the sell quantity
-
-
+            $sql = "UPDATE products SET sell_quantity = sell_quantity +" . $quantity . " where productID =" . $productID;
+            $conn->query($sql);
             //
         }
         //check out complete, cleanup cookie

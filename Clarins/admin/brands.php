@@ -72,10 +72,10 @@ include("header.php");
                                         <form action="brands.php" method="post">
                                             <td></td>
                                             <td>
-                                                <input type="text" class="form-control" name="name" placeholder="Name" >
+                                                <input type="text" class="form-control" name="name" placeholder="Name">
                                             </td>
                                             <td>
-                                                <textarea class="form-control" name="description" placeholder="Description" ></textarea>
+                                                <textarea class="form-control" name="description" placeholder="Description"></textarea>
                                             </td>
                                             <td>
                                                 <button class="btn btn-primary form-control" type="submit">Add brand</button>
@@ -107,7 +107,7 @@ include("header.php");
                                         echo ("<td>" . ($id + 1) . "</td>");
                                         echo ("<td>" . $brand["name"] . "</td>");
                                         echo ("<td>" . $brand["description"] . "</td>");
-                                        echo ('<td><a class="btn btn-danger" href="remove.php?brand=' . $brand["brandID"] . '">Remove</a></td>');
+                                        echo ('<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" onclick="submit(event)" brand="' . $brand["brandID"] . '">Delete</button></td>');
                                         echo ("</tr>");
                                     };
                                     ?>
@@ -126,6 +126,39 @@ include("header.php");
         </div>
     </section>
 </div>
+
+<!-- .modal -->
+<div class="modal fade" id="deleteModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h4 class="modal-title">Caution!</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>You cannot revert this action! all products associate with this brands will be removed. Are you sure to do this?</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<script>
+    function submit(e) {
+        console.log("alo");
+        var text = e.currentTarget.getAttribute("brand");
+        text = '<button type="button" class="btn btn-default" data-dismiss="modal">No</button><a class="btn btn-danger" href="remove.php?brand=' + text + '">Yes</a>';
+        console.log(text);
+        $(".modal-footer").html(text);
+    };
+</script>
 <?php
 //footer
 include("footer.php");

@@ -21,6 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") :
         if ($result->num_rows < 1) :
             header("location:brands.php?error");
         else :
+            $query = "DELETE FROM products WHERE `brandID` = '" . (int)$_GET["brand"] . "'";
+            $conn->query($query);
             $query = "DELETE FROM brands WHERE `brands`.`brandID` = '" . (int)$_GET["brand"] . "'";
             $conn->query($query);
             header("location:brands.php?rmsuccess");

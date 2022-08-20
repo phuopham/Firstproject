@@ -71,8 +71,8 @@ include("config.php");
 
 <body>
     <!-- Topbar Start -->
-    <div class="container-fluid bg-primary py-1 d-none d-md-block">
-        <div class="container">
+    <div class="container-fluid bg-primary py-1 d-none d-sm-block">
+        <div class="container-fluid container-md">
             <div class="row">
                 <div class="col-4">
 
@@ -82,7 +82,7 @@ include("config.php");
                         <h1 class="d-block text-white m-0"><span class="text-secondary">C</span>LARINS</h1>
                     </a>
                 </div>
-                <div class="col-md-4 text-center text-lg-right">
+                <div class="col-4 text-right">
                     <div class="d-inline-flex align-items-center">
                         Visitor count: <?php echo ($visitorcount); ?>
                     </div>
@@ -101,7 +101,7 @@ include("config.php");
                 </button>
                 <div class="col-12 collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-lg-auto py-0 col-5 ">
-                        <a href="index.php" class="col nav-item nav-link 
+                        <a href="index.php" class="col nav-item nav-link text-lg-center 
                         <?php
                         if ($page == "index") {
                             echo ("active");
@@ -118,14 +118,14 @@ include("config.php");
                             <span class="d-lg-none">Gallery</span>
                         </a>
                         <!--<a href="gallery.php" class="col nav-item nav-link text-lg-center"><i class=" fas fa-map-marker-alt"></i></a>-->
-                        <a href="about.php" class="col nav-item nav-link
+                        <a href="about.php" class="col nav-item nav-link text-lg-center 
                         <?php
                         if ($page == "about") {
                             echo ("active");
                         };
                         ?>
                         ">About</a>
-                        <a href="products.php" class="col nav-item nav-link
+                        <a href="products.php" class="col nav-item nav-link text-lg-center
                         <?php
                         if ($page == "product") {
                             echo ("active");
@@ -191,7 +191,7 @@ include("config.php");
                             </div>
                         </div>
                         <div class="col-xs-4">
-                            <a href="contact.php" class="nav-item nav-link
+                            <a href="contact.php" class="nav-item nav-link text-lg-center
                             <?php if ($page == "contact") {
                                 echo ("active");
                             }; ?>

@@ -67,7 +67,7 @@ include("header.php");
                                 </div>
                             </div>
                             <div class="col-md-8 text-center text-sm-right">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.924278651594!2d105.81684051396614!3d21.035715592918905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab145bf89bd7%3A0xd94a869b494c04b6!2zMjg1IMSQ4buZaSBD4bqlbiwgVsSpbmggUGjDuiwgQmEgxJDDrG5oLCBIw6AgTuG7mWkgMTAwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1653971874345!5m2!1svi!2s" style="border: 0;max-width: 100%;border: 0;width: -webkit-fill-available;height: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.924278651594!2d105.81684051396614!3d21.035715592918905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab145bf89bd7%3A0xd94a869b494c04b6!2zMjg1IMSQ4buZaSBD4bqlbiwgVsSpbmggUGjDuiwgQmEgxJDDrG5oLCBIw6AgTuG7mWkgMTAwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1653971874345!5m2!1svi!2s" style="border: 0;width: 100%;border: 0;width: -webkit-fill-available;height: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                                 </iframe>
                             </div>
                         </div>
@@ -80,29 +80,17 @@ include("header.php");
         <!-- effect start -->
         <div class="container-fluid">
             <div class="row justify-content-center mt-5">
-                <div class="col-lg-6">
+                <div class="col-12">
                     <h1 class="section-title position-relative text-center mb-5 text-white">Clarins Web's Effect</h1>
                 </div>
             </div>
-            <div class="effect" style="text-align:center;align-items: center;">
-                <div class="check">
-                    <h4 class="fa fa-check-square card-body bg-primary rounded text-white" style=" margin-top: 2%;align-items: center;letter-spacing:1px;margin-bottom: 2%;">Providing botanical-based and innovative solutions</h4>
-                </div>
-                <div class="check">
-                    <h4 class="fa fa-check-square card-body bg-light rounded" style=" margin-top: 2%;align-items: center;letter-spacing:1px;margin-bottom: 2%;">The formulas embody the best of what the botanical world has to offer</h4>
-                </div>
-                <div class="check">
-                    <h4 class="fa fa-check-square card-body bg-primary rounded text-white" style=" margin-top: 2%;align-items: center;letter-spacing:1px;margin-bottom: 2%;">Offer products from various other brands on the website</h4>
-                </div>
-                <div class="check">
-                    <h4 class="fa fa-check-square card-body bg-light rounded" style=" margin-top: 2%;align-items: center;letter-spacing:1px;margin-bottom: 2%;">To simultaneously achieve great results and a sensorial experience in itself</h4>
-                </div>
-                <div class="check">
-                    <h4 class="fa fa-check-square card-body bg-primary rounded text-white" style=" margin-top: 2%;align-items: center;letter-spacing:1px;margin-bottom: 2%;">Every product conveys expertise and top performance of Clarins beauty solutions. </h4>
-                </div>
-                <div class="check">
-                    <h4 class="fa fa-check-square card-body bg-light rounded" style=" margin-top: 2%;align-items: center;letter-spacing:1px;margin-bottom: 2%;">A wide catalog that offers skincare solutions</h4>
-                </div>
+            <div class="col-12">
+                <h4 class="fa fa-check-square card-body d-block text-center my-4 bg-primary rounded text-white" style="letter-spacing:1px">Providing botanical-based and innovative solutions</h4>
+                <h4 class="fa fa-check-square card-body d-block text-center my-4 bg-light rounded" style="letter-spacing:1px">The formulas embody the best of what the botanical world has to offer</h4>
+                <h4 class="fa fa-check-square card-body d-block text-center my-4 bg-primary rounded text-white" style="letter-spacing:1px">Offer products from various other brands on the website</h4>
+                <h4 class="fa fa-check-square card-body d-block text-center my-4 bg-light rounded" style="letter-spacing:1px">To simultaneously achieve great results and a sensorial experience in itself</h4>
+                <h4 class="fa fa-check-square card-body d-block text-center my-4 bg-primary rounded text-white" style="letter-spacing:1px">Every product conveys expertise and top performance of Clarins beauty solutions. </h4>
+                <h4 class="fa fa-check-square card-body d-block text-center my-4 bg-light rounded" style="letter-spacing:1px">A wide catalog that offers skincare solutions</h4>
             </div>
 
         </div>

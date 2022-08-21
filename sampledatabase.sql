@@ -677,10 +677,15 @@ VALUES
         "Twitter",
         "excellent"
     ),
-    ("IronMan", "genius@gmail.com", "Facebook", "good");
+    (
+        "IronMan",
+        "genius@gmail.com",
+        "Facebook",
+        "good"
+    );
 
 INSERT INTO
-    user_order (name, email, phone, address, paymethod)
+    user_order (name, email, phone, address, message)
 VALUES
     (
         "John",

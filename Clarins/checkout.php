@@ -10,8 +10,8 @@
         $email = $_POST['email'] ?? '';
         $phone = $_POST['phone'] ?? '';
         $address = $_POST['address'] ?? '';
-        $paymethod = $_POST['paymethod'] ?? '';
-        $sql = "INSERT INTO user_order (name,email,phone,address,paymethod) VALUES('$name','$email','$phone','$address','$paymethod')";
+        $message = $_POST['message'] ?? '';
+        $sql = "INSERT INTO user_order (name,email,phone,address,message) VALUES('$name','$email','$phone','$address','$message')";
         $result = $conn->query($sql);
         $sql = "SELECT * FROM user_order order by ordernumber desc limit 1";
         $result = $conn->query($sql);

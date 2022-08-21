@@ -79,7 +79,7 @@ create table user_order(
     email varchar(100) not null,
     phone int(10) not null,
     address varchar(200) not null,
-    paymethod text,
+    message text,
     create_by DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 

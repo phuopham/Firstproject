@@ -33,7 +33,7 @@ include("header.php");
                 <div class="row portfolio-container">
                     <?php foreach ($discounts as $id => $discount) {
                         $pricedc = $discount["price"] - ($discount["price"] * ($discount["discount"] / 100));
-                        echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item">');
+                        echo ('<div class="col-lg-4 col-md-6 mb-4 pb-2 portfolio-item">');
                         echo ('<div class="product-item d-flex flex-column align-items-center text-center bg-light rounded py-5 px-3">');
                         echo ('<div class="bg-primary mt-n5 py-3" style="width: 80px;">');
                         echo ('<h4 class="font-weight-bold text-white mb-0"> $' . $discount["price"] . '</h4>');
@@ -121,10 +121,14 @@ include("header.php");
                 <div class="row portfolio-container">
                     <?php foreach ($allproducts as $id => $allproduct) {
                         $pricedc = $allproduct["price"] - ($allproduct["price"] * ($allproduct["discount"] / 100));
-                        echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item cat' . $allproduct["category"] . '">');
+                        echo ('<div class="col-lg-4 col-md-6 mb-4 pb-2 portfolio-item cat' . $allproduct["category"] . '">');
                         echo ('<div class="product-item d-flex flex-column align-items-center text-center bg-light rounded py-5 px-3">');
                         echo ('<div class="bg-primary mt-n5 py-3" style="width: 80px;">');
-                        echo ('<h4 class="font-weight-bold text-danger mb-0">$' . $pricedc . '</h4>');
+                        if ($allproduct["discount"] > 0 && $allproduct["discount"] < 100) {
+                            echo ('<h4 class="font-weight-bold text-danger mb-0">$' . $pricedc . '</h4>');
+                        } else {
+                            echo ('<h4 class="font-weight-bold mb-0">$' . $pricedc . '</h4>');
+                        }
                         echo ("</div>");
                         echo ('<div class="position-relative bg-primary rounded-circle mt-n3 mb-4 p-3" style="width: 150px; height: 150px;">');
                         echo ('<img class="rounded-circle w-100 h-100" src="' . $allproduct['pic1'] . '" style="object-fit: cover;">');

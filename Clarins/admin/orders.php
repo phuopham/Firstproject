@@ -92,7 +92,7 @@ include("header.php");
                                     </tfoot>
                                 </table>
                                 <div>
-                                    <b>Note from customer:</b> <?php echo ($order['paymethod']) ?>
+                                    <b>Note from customer:</b> <?php echo ($order['message']) ?>
                                 </div>
                             </div>
                             <!-- /.card-body -->

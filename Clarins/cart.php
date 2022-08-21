@@ -72,7 +72,13 @@ include("header.php");
                         <h5 class=" mb-3 text-primary"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
                         <h5 class=" mb-3 text-primary"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
                         <h5 class=" mb-3 text-primary"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
-                        <a href="" class="btn btn-primary mt-2" data-toggle="modal" data-target="#Checkout">Check out</a>
+                        <?php
+                        if ($empty) :
+                            echo ('<button class="btn btn-primary mt-2" disabled="disabled">Check out</button>');
+                        else :
+                            echo ('<a href="" class="btn btn-primary mt-2" data-toggle="modal" data-target="#Checkout">Check out</a>');
+                        endif;
+                        ?>
                     </div>
                 </div>
             </div>
@@ -119,7 +125,7 @@ include("header.php");
                             </div>
 
                             <div class="control-group">
-                                <textarea class="form-control p-4" rows="6" id="paymethod" name="paymethod" placeholder="Message" data-validation-required-message="Please enter your message"></textarea>
+                                <textarea class="form-control p-4" rows="6" id="message" name="message" placeholder="Message" data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
 

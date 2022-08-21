@@ -1,5 +1,5 @@
 <?php
-$priv = [1,2];
+$priv = [1, 2];
 require_once('../dbconnect.php');
 
 //add product
@@ -112,8 +112,8 @@ include("header.php");
                                         <th>Brand</th>
                                         <th>Catalog</th>
                                         <th>Price</th>
-                                        <th>Discount</th>
-                                        <th>Price After Discount</th>
+                                        <th>Discount (%)</th>
+                                        <th>edit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -145,7 +145,7 @@ include("header.php");
                                                 <input type="number" class="form-control" name="price" placeholder="Price" required>
                                             </td>
                                             <td>
-                                                <input type="number" class="form-control" name="discount" placeholder="Discount"> %
+                                                <input type="number" class="form-control" name="discount" placeholder="Discount">
                                             </td>
                                             <td></td>
                                             <td>
@@ -177,8 +177,8 @@ include("header.php");
                                         echo ("<td>" . $catalog . "</td>");
                                         echo ("<td>" . $product["price"] . "</td>");
                                         echo ("<td>" . $product["discount"] . "</td>");
-                                        echo ('<td>' . $pricedc .  '</td>');
-                                        echo ('<td><a class="btn btn-primary" href="addstockroom.php?prod=' . $product["productID"] . '">Add to stockroom</a></td>');
+                                        echo ('<td><a href="modifyprod.php?prod=' . $product["productID"] . '" class="btn btn-primary">Edit</a></td>');
+                                        echo ('<td><a class="btn btn-primary text-nowrap" href="addstockroom.php?prod=' . $product["productID"] . '">Add to stockroom</a></td>');
                                         echo ("</tr>");
                                         echo ('<tr class="expandable-body">');
                                         echo ("<td colspan='6'>");
@@ -187,7 +187,8 @@ include("header.php");
                                         echo ('<div class="m-2"><img class="img-fluid" src="../' . $product["pic3"] . '" alt=""></div></div>');
                                         echo ('<div class="col-3"><div class="m-2"><img class="img-fluid" src="../' . $product["pic2"] . '" alt=""></div>');
                                         echo ('<div class="m-2"><img class="img-fluid" src="../' . $product["pic4"] . '" alt=""></div></div>');
-                                        echo ('<div class="col-6"><p>' . $product["description"] . '</p></div></div></div></div>');
+                                        echo ('<div class="col-6"><p>' . $product["description"]);
+                                        echo ('</p></div></div></div></div>');
                                         // echo ("<td colspan='2'><p>" . $product["pic1"] . "</p></td>");
                                         // echo ("<td colspan='4'><p>" . $product["description"] . "</p></td>");
                                         echo ('</td><td colspan="2" ><div class="d-flex justify-content-center"><a href="addpic.php?prod=' . $product["productID"] . '" class="btn btn-primary">Add/Change picture</a></div>');

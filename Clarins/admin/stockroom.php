@@ -63,6 +63,7 @@ include("header.php");
                                             echo ("<td>" . $good["quantity"] . "</td>");
                                             echo ("<td>" . $good["username"] . "</td>");
                                             echo ("<td>" . $good["create_by"] . "</td>");
+                                            echo ('<td><a class="btn btn-primary" href="addstockroom.php?prod=' . $good["productID"] . '">Add more</a></td>');
                                             echo ("</tr>");
                                         endif;
                                     };

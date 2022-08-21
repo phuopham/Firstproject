@@ -100,7 +100,7 @@ include("config.php");
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="col-12 collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <div class="navbar-nav ml-lg-auto py-0 col-5 ">
+                    <div class="navbar-nav ml-lg-auto py-0 col-lg-5 ">
                         <a href="index.php" class="col nav-item nav-link text-lg-center 
                         <?php
                         if ($page == "index") {
@@ -134,7 +134,7 @@ include("config.php");
                         ">Products</a>
                     </div>
                     <img src="img/skin-care.png" class="p-0 col-2 mx-xl-3 d-none d-lg-block " style="max-width:8%;">
-                    <div class="col-lg-5 navbar-nav mr-auto py-0">
+                    <div class="navbar-nav mr-lg-auto py-0 col-lg-5">
                         <div class="dropdown show col-xs-3">
                             <a href="#" class="nav-item nav-link dropdown-toggle" role="button" id="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Catergoies</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown" style="left:-400% !important">
@@ -190,14 +190,14 @@ include("config.php");
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-4">
+                        <div>
                             <a href="contact.php" class="nav-item nav-link text-lg-center
                             <?php if ($page == "contact") {
                                 echo ("active");
                             }; ?>
                             ">Contact</a>
                         </div>
-                        <div class="container-fluid col">
+                        <div class="container-fluid justify-content-lg-end px-0">
                             <a href="cart.php" class="nav-item btn 
                             <?php if ($page == "cart") :
                                 echo ("btn-secondary");

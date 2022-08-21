@@ -12,8 +12,8 @@
         $address = $_POST['address'] ?? '';
         $paymethod = $_POST['paymethod'] ?? '';
         $sql = "INSERT INTO user_order (name,email,phone,address,paymethod) VALUES('$name','$email','$phone','$address','$paymethod')";
-        $conn->query($sql);
-        $sql = "SELECT * FROM user_order WHERE name = '$name'";
+        $result = $conn->query($sql);
+        $sql = "SELECT * FROM user_order order by ordernumber desc limit 1";
         $result = $conn->query($sql);
         $product = $result->fetch_assoc();
         $order_number = $product['ordernumber'];

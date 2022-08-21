@@ -114,7 +114,7 @@ if (!in_array($elm["type"], $priv)) {
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="order.php" class="nav-link">
+                            <a href="orders.php" class="nav-link">
                                 <p>Orders</p>
                             </a>
                         </li>

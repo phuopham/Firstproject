@@ -1,5 +1,5 @@
 <?php
-$priv = [0,1,2];
+$priv = [0, 1, 2];
 require_once("../dbconnect.php");
 // customer count//
 $result = $conn->query("SELECT id from visitorcount");
@@ -66,7 +66,7 @@ include("header.php");
             <div class="icon">
               <i class="fas fa-shopping-cart"></i>
             </div>
-            <a href="order.php" class="small-box-footer">
+            <a href="orders.php" class="small-box-footer">
               More info <i class="fas fa-arrow-circle-right"></i>
             </a>
           </div>
@@ -99,7 +99,7 @@ include("header.php");
             <div class="icon">
               <i class="far fa-comments"></i>
             </div>
-            <a href="order.php" class="small-box-footer">
+            <a href="orders.php" class="small-box-footer">
               More info <i class="fas fa-arrow-circle-right"></i>
             </a>
           </div>

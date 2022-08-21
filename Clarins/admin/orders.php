@@ -5,9 +5,7 @@ $priv = [0, 1, 2];
 // get user data
 require_once("../dbconnect.php");
 
-$sql = "SELECT user_order.name, user_order.ordernumber, user_order.email,user_order.phone,user_order.address, 
-orders.productID, orders.quantity,orders.price,orders.create_by  from orders inner join user_order 
-ON orders.ordernumber = user_order.ordernumber";
+$sql = "SELECT * from user_order ORDER BY ordernumber desc";
 $result = $conn->query($sql);
 $orderlist = $result->fetch_all(MYSQLI_ASSOC);
 //get user data end
@@ -39,65 +37,70 @@ include("header.php");
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="card card-default shadow-sm">
-                        <div class="card-header">
-                            <h3 class="card-title font-weight-bold"><?php echo ("Ordernumber - Name") ?></h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                    <i class="fas fa-minus"></i>
-                                </button>
+                <?php foreach ($orderlist as $id => $order) :
+                    $total = 0;
+                    $sql = "SELECT * from orders where ordernumber =" . $order["ordernumber"];
+                    $result = $conn->query($sql);
+                    $items = $result->fetch_all(MYSQLI_ASSOC);
+                ?>
+                    <div class="col-md-6">
+                        <div class="card card-default shadow-sm">
+                            <div class="card-header">
+                                <h3 class="card-title font-weight-bold"><?php echo ($order["ordernumber"] . " - " . $order['name']) ?></h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                                <!-- /.card-tools -->
                             </div>
-                            <!-- /.card-tools -->
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive">
+                                <div class="mb-2">
+                                    <b>Address:</b><?php echo ($order["address"]) ?>
+                                </div>
+                                <div class="d-inline-block pr-3 mb-2">
+                                    <b>Phone: </b><?php echo ($order["phone"]) ?>
+                                </div>
+                                <div class="d-inline-block mb-2">
+                                    <b>Email :</b><?php echo ($order["email"]) ?>
+                                </div>
+                                <table class="table table-bordered">
+                                    <thead class="bg-gray">
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($items as $iid => $item) :
+                                            $sql = "SELECT name from products where productID=" . $item['productID'];
+                                            $result = $conn->query($sql);
+                                            $itemname = $result->fetch_column();
+                                            echo ('<tr><td>' . $itemname);
+                                            echo ('</td><td>' . $item['quantity']);
+                                            echo ('</td><td>' . ($item['quantity'] * $item['price']));
+                                            $total += ($item['quantity'] * $item['price']);
+                                        endforeach;
+                                        ?>
+                                    </tbody>
+                                    <tfoot class="bg-gray">
+                                        <th>Total</th>
+                                        <th></th>
+                                        <th>$ <?php echo ($total) ?></th>
+                                    </tfoot>
+                                </table>
+                                <div>
+                                    <b>Note from customer:</b> <?php echo ($order['paymethod']) ?>
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body table-responsive">
-                            <div>
-                                <b>Address:</b>
-                            </div>
-                            <div class="d-inline-block pr-3">
-                                <b>Phone: </b>3458308694
-                            </div>
-                            <div class="d-inline-block">
-                                <b>Email:</b>
-                            </div>
-                            <table class="table table-bordered">
-                                <thead class="bg-gray">
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Quantity</th>
-                                        <th>Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            abc
-                                        </td>
-                                        <td>
-                                            23
-                                        </td>
-                                        <td>
-                                            400
-                                        </td>
-                                    </tr>
-                                </tbody>
-                                <tfoot class="bg-gray">
-                                    <th>Total</th>
-                                    <th></th>
-                                    <th>$ 500</th>
-                                </tfoot>
-                            </table>
-                            <div>
-                                <b>Note from customer:</b>
-                            </div>
-                        </div>
-                        <!-- /.card-body -->
+                        <!-- /.card -->
                     </div>
-                    <!-- /.card -->
-                </div>
-                <!-- /.col -->
-
+                    <!-- /.col -->
+                <?php endforeach; ?>
             </div>
         </div>
 </div>

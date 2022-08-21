@@ -39,14 +39,11 @@ include("header.php");
                             <li class="btn btn-sm btn-outline-primary m-1 active" data-filter="*">All</li>
                             <?php
                             foreach ($brands as $id => $brand) {
-                                echo ('<li class="btn btn-sm btn-outline-primary m-1 active" data-filter="*">All</li>');
+                                $sql = "SELECT name from brands where brandID =" . $brand["brandID"];
+                                $result = $conn->query($sql);
+                                $brandname = $result->fetch_column();
+                                echo ('<li class="btn btn-sm btn-outline-primary m-1" data-filter=".' . $brand['brandID'] . '">' . $brandname . '</li>');
                             } ?>
-                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Cleanser</li>
-                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Lipstick</li>
-                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">Perfume</li>
-                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".fourth">Powder</li>
-                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".fifth">Eyeliner</li>
-                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".sixth">Remover</li>
                         </ul>
                     </div>
                 </div>

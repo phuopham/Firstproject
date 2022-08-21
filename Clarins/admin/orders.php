@@ -5,7 +5,7 @@ $priv = [0, 1, 2];
 // get user data
 require_once("../dbconnect.php");
 
-$sql = "SELECT * from user_order ORDER BY ordernumber desc";
+$sql = "SELECT * from user_order ORDER BY ordernumber desc limit 50";
 $result = $conn->query($sql);
 $orderlist = $result->fetch_all(MYSQLI_ASSOC);
 //get user data end
@@ -44,7 +44,7 @@ include("header.php");
                     $items = $result->fetch_all(MYSQLI_ASSOC);
                 ?>
                     <div class="col-md-6">
-                        <div class="card card-default shadow-sm">
+                        <div class="card card-primary card-outline shadow-sm">
                             <div class="card-header">
                                 <h3 class="card-title font-weight-bold"><?php echo ($order["ordernumber"] . " - " . $order['name']) ?></h3>
                                 <div class="card-tools">

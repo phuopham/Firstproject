@@ -1,5 +1,5 @@
 <?php
-$priv = 1;
+$priv = [1, 2];
 require("../dbconnect.php");
 if (isset($_FILES['image'])) {
     $errors = array();

@@ -50,7 +50,7 @@ include("header.php");
                 <div class="row portfolio-container">
                     <?php foreach ($products as $id => $product) {
 
-                        echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item second">');
+                        echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item ' . $product['brandID'] . '">');
                         echo ('<div class="product-item d-flex flex-column align-items-center text-center bg-light rounded py-5 px-3">');
                         echo ('<div class="bg-primary mt-n5 py-3" style="width: 80px;">');
                         echo ('<h4 class="font-weight-bold text-white mb-0">$' . $product["price"] . '</h4>');

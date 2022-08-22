@@ -122,7 +122,7 @@ include("header.php");
                   <div class="progress-bar bg-primary" role="progressbar" style="width: <?php echo (($item['sell_quantity'] / $best_sells[0]['sell_quantity']) * 100) ?>%">
                   </div>
                 </div>
-              <?php echo ('<p>' . $item['name'] . '</p>');
+              <?php echo ('<div class="d-flex justify-content-between mb-3"><div>' . $item['name'] . '</div><div>' . $item['sell_quantity'] . '</div></div>');
               endforeach; ?>
             </div>
             <!-- /.card-body -->

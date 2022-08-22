@@ -15,8 +15,8 @@ if (isset($_FILES['image'])) {
         $errors[] = "extension not allowed, please choose a JPEG or PNG file.";
     }
 
-    if ($file_size > 5000000) {
-        $errors[] = 'File size must not bigger than 5 MB';
+    if ($file_size > 2000000) {
+        $errors[] = 'File size must not bigger than 2 MB';
     }
 
     if (empty($errors) == true) {

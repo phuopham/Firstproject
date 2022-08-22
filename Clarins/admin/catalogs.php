@@ -1,32 +1,42 @@
 <?php
-$priv = [1,2];
+$priv = [1, 2];
 require_once('../dbconnect.php');
 
 //add catalog
 if ($_SERVER["REQUEST_METHOD"] == "POST") :
-    if (!isset($_POST["name"])) :
-        header("location:catalogs.php?error");
-    endif;
-    if (empty($_POST['name'])) {
-        header("location:brands.php?error1");
-        exit;
-    };
     if (!isset($_POST["description"])) :
         header("location:catalogs.php?error");
     endif;
-    if (!is_int($_POST["category"])) :
-        header("location:catalogs.php?error");
+    $description = htmlspecialchars($_POST["description"]);
+
+    if (isset($_POST['catalogID'])) :
+        $sql = "UPDATE catalogs SET description ='$description' WHERE catalogID =" . $_POST['catalogID'];
+        $result = $conn->query($sql);
+        header('location:catalogs.php');
     endif;
 
-    $name = htmlspecialchars($_POST["name"]);
-    $description = htmlspecialchars($_POST["description"]);
-    $category = $_POST["category"];
-    $sql = "INSERT into catalogs(`name`,`category`,`description`) values ('$name', $category ,'$description')";
-    $result = $conn->query($sql);
-    if ($result->errno) {
+    output("here");
+    die();
+    if (!isset($_POST["name"])) :
         header("location:catalogs.php?error");
-    };
-    header("location:catalogs.php?success");
+    else :
+        if (empty($_POST['name'])) {
+            header("location:catalogs.php?error");
+        };
+
+        if (!is_int($_POST["category"])) :
+            header("location:catalogs.php?error");
+        endif;
+
+        $name = htmlspecialchars($_POST["name"]);
+        $category = $_POST["category"];
+        $sql = "INSERT into catalogs(`name`,`category`,`description`) values ('$name', $category ,'$description')";
+        $result = $conn->query($sql);
+        if ($result->errno) {
+            header("location:catalogs.php?error");
+        };
+        header("location:catalogs.php?success");
+    endif;
 endif;
 // header
 include("header.php");
@@ -88,7 +98,7 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <form action="catalogs.php" method="post">
+                                        <form action="catalogs.php" method="post" id="new">
                                             <td></td>
                                             <td>
                                                 <input type="text" class="form-control" name="name" placeholder="Name">
@@ -134,7 +144,10 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
                             //echo ('<td><a class="btn btn-danger" href="remove.php?catalog=' . $catalog["catalogID"] . '">Remove</a></td>');
                             echo ("</tr>");
                             echo ('<tr class="expandable-body">');
-                            echo ("<td colspan='4'><p>" . $catalog["description"] . "</p></td> </tr>");
+                            echo ('<td colspan="4"><form action="catalogs.php" method="post" id="' . $id . '">');
+                            echo ('<textarea class="form-control" style="min-height:100px" name="description">' . $catalog["description"] . '</textarea>');
+                            echo ('<input type="text" class="d-none" name="catalogID" value="' . $catalog['catalogID'] . '">');
+                            echo ('<button type="submit" class="btn btn-warning mt-2 ml-2">Save edit</button></form></td> </tr>');
                         };
                         ?>
 

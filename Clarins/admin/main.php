@@ -14,6 +14,10 @@ $total_order = mysqli_num_rows($result);
 $result = $conn->query("SELECT commentID from comments");
 $total_comment = mysqli_num_rows($result);
 
+// best sell product
+$result = $conn->query("SELECT name from products order by sell_quantity desc limit 1");
+$best_sell = $result->fetch_column();
+
 //header
 include("header.php");
 ?>
@@ -56,6 +60,22 @@ include("header.php");
           </div>
         </div>
         <div class="col-lg-3 col-6">
+          <!-- total comments -->
+          <div class="small-box bg-gradient-info">
+            <div class="inner">
+              <h3><?php echo ($total_comment) ?></h3>
+
+              <p>Total comments</p>
+            </div>
+            <div class="icon">
+              <i class="far fa-comments"></i>
+            </div>
+            <a href="comment.php" class="small-box-footer">
+              More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6">
           <!-- total order -->
           <div class="small-box bg-gradient-info">
             <div class="inner">
@@ -72,32 +92,15 @@ include("header.php");
           </div>
         </div>
         <div class="col-lg-3 col-6">
-          <!-- total comments -->
-          <div class="small-box bg-gradient-info">
-            <div class="inner">
-              <h3><?php echo ($total_comment) ?></h3>
-
-              <p>Total comments</p>
-            </div>
-            <div class="icon">
-              <i class="far fa-comments"></i>
-            </div>
-            <a href="comment.php" class="small-box-footer">
-              More info <i class="fas fa-arrow-circle-right"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-6">
           <!-- total products sell this month -->
           <div class="small-box bg-gradient-info">
             <div class="inner">
-              <h3>Total product sell this month</h3>
+              <h3><?php echo ($best_sell) ?></h3>
 
-              <p>Total product sell this month</p>
+              <p>Best sell product</p>
             </div>
             <div class="icon">
-              <i class="far fa-comments"></i>
+              <i class="fa fa-gift"></i>
             </div>
             <a href="orders.php" class="small-box-footer">
               More info <i class="fas fa-arrow-circle-right"></i>
@@ -107,7 +110,73 @@ include("header.php");
 
       </div>
       <div class="row">
-        <!-- /.col-md-6 -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Vertical Progress Bars Different Sizes</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body text-center">
+              <p> Top 5 Products sell this month
+              </p>
+
+              <div class="progress vertical">
+                <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="height: 40%">
+                  <span class="sr-only">40%</span>
+                </div>
+              </div>
+              <div class="progress vertical">
+                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="height: 100%">
+                  <span class="sr-only">100%</span>
+                </div>
+              </div>
+              <div class="progress vertical">
+                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%">
+                  <span class="sr-only">60%</span>
+                </div>
+              </div>
+              <div class="progress vertical">
+                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%">
+                  <span class="sr-only">60%</span>
+                </div>
+              </div>
+              <div class="progress vertical">
+                <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="height: 40%">
+                  <span class="sr-only">40%</span>
+                </div>
+              </div>
+              <div class="progress vertical">
+                <div class="progress-bar bg-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="height: 100%">
+                  <span class="sr-only">100%</span>
+                </div>
+              </div>
+              <div class="progress vertical">
+                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%">
+                  <span class="sr-only">60%</span>
+                </div>
+              </div>
+              <div class="progress vertical">
+                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%">
+                  <span class="sr-only">60%</span>
+                </div>
+              </div>
+              <div class="progress vertical">
+                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%">
+                  <span class="sr-only">60%</span>
+                </div>
+              </div>
+              <div class="progress vertical">
+                <div class="progress-bar bg-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="height: 60%">
+                  <span class="sr-only">60%</span>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+        <!-- col-md-6 -->
         <div class="col-lg-6">
           <div class="card">
             <div class="card-header">
@@ -121,15 +190,10 @@ include("header.php");
             </div>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="card">
-            <div class="card-body">
-              <h2 class="text-center">Visitor count: <?php echo ($visitorcount) ?> </h2>
-
-            </div>
-          </div>
-        </div>
         <!-- /.col-md-6 -->
+      </div>
+      <div class="row">
+
       </div>
       <!-- /.row -->
     </div><!-- /.container-fluid -->

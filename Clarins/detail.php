@@ -8,8 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") :
     $sql = "SELECT * from products where productID = '" . $_GET['prod'] . "';";
     $result = $conn->query($sql);
     $product = $result->fetch_assoc();
-    // $sql = "INSERT INTO comments (name,email,message,productID) VALUES('$name','$email','$message','".$_GET['prod']."')";
-    // $conn->query($sql);
+    $pricedc = $product["price"] - ($product["price"] * ($product["discount"] / 100));
+
     // fetch catalog
     $sql =  "SELECT name, category from catalogs where catalogID ='" . $product["catalogID"] . "';";
     $result = $conn->query($sql);
@@ -19,22 +19,16 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") :
     $sql =  "SELECT name, description from brands where brandID ='" . $product["brandID"] . "';";
     $result = $conn->query($sql);
     $brand = $result->fetch_assoc();
-    // if ($_POST) {
-    //     $products = json_decode($_COOKIE["Clarins"], true);
-    //     $id=$_GET['prod'] ?? '';
-    //     $name = $_POST['name'] ?? '';
-    //     $email = $_POST['email'] ?? '';
-    //     $message = $_POST['message'] ?? '';
-    //     $sql = "INSERT INTO comments (name,email,message,productID) VALUES('$name','$email','$message','$id')";
-    //     $conn->query($sql);
 
-    // }
-    // fetch comment
-    $sql = "SELECT name, message, visible from comments where productID = '" . $product["productID"] . "' ";
-    // AND visible = 0 ORDER BY sell_quantity;
+    //fetch message
+    $sql = "SELECT name, message, visible from comments where productID = '" . $product["productID"] . "' AND visible = 0";
     $result = $conn->query($sql);
     $comments = $result->fetch_all(MYSQLI_ASSOC);
 
+    //check out of stock
+    $sql = "SELECT SUM(quantity) as quantity from stockroom where productID = '" . $product["productID"] . "'";
+    $result = $conn->query($sql);
+    $quantity = $result->fetch_column();
 
 else :
     header("location:products.php");
@@ -51,7 +45,7 @@ if ($_POST) {
     $conn->query($sql);
     header("location: detail.php?prod=" . $id);
 };
-$pricedc = $product["price"] - ($product["price"] * ($product["discount"] / 100));
+
 // header
 $page = "product";
 include('header.php');
@@ -90,8 +84,16 @@ include('header.php');
             </div>
             <form action="cartcookie.php" method="get">
                 <input type="number" hidden name="product" value="<?php echo ($product["productID"]); ?>">
-                <input class="form-control ml-4" type="number" name="quantity" value="1" min="0" style="max-width: 100px; text-align: center;">
-                <div><button class="btn btn-secondary py-3 px-5 mt-2">Add To Cart</button></div>
+                <input class="form-control ml-4" type="number" name="quantity" value="1" min="1" max="<?php echo ($quantity) ?>" style="max-width: 100px; text-align: center;">
+                <div>
+                    <?php
+                    if (!empty($quantity) && (int)$quantity > 0) {
+                        echo ('<button class="btn btn-secondary py-3 px-5 mt-2">Add To Cart</button>');
+                    } else {
+                        echo ('<button type="button" class="btn btn-secondary py-3 px-5 mt-2" disabled>Out of stock</button>');
+                    }
+                    ?>
+                </div>
             </form>
         </div>
     </div>
@@ -102,25 +104,23 @@ include('header.php');
             <h1 class=" position-relative mb-3">Comments</h1>
         </div>
     </div>
-    <?php foreach ($comments as $id => $comment) {
-        if ($comment["visible"] == '0') {
+    <?php foreach ($comments as $id => $comment) :
     ?>
-            <div class="mb-3 row">
-                <div class="col-md-1"></div>
-                <div class="col-md-1 d-none d-md-block text-right">
-                    <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
+        <div class="mb-3 row">
+            <div class="col-md-1"></div>
+            <div class="col-md-1 d-none d-md-block text-right">
+                <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle">
+            </div>
+            <div class="col-md-9 border rounded" style=" background: lightgray;">
+                <div>
+                    <h5><?php echo ($comment['name']) ?></h5>
                 </div>
-                <div class="col-md-9 border rounded" style=" background: lightgray;">
-                    <div>
-                        <h5><?php echo ($comment['name']) ?></h5>
-                    </div>
-                    <div>
-                        <p><?php echo ($comment['message']) ?></p>
-                    </div>
+                <div>
+                    <p><?php echo ($comment['message']) ?></p>
                 </div>
             </div>
-    <?php }
-    } ?>
+        </div>
+    <?php endforeach; ?>
 
 </div>
 <div class="container-fluid pb-5">

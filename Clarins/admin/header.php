@@ -23,7 +23,7 @@ $elm = $result->fetch_array(MYSQLI_ASSOC);
 //fetch data end
 //test privilege
 if (!in_array($elm["type"], $priv)) {
-    header("location:main.php");
+    header("location:main.php?denied");
 }
 
 ?>
@@ -49,7 +49,6 @@ if (!in_array($elm["type"], $priv)) {
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
@@ -165,3 +164,16 @@ if (!in_array($elm["type"], $priv)) {
             </div>
             <!-- /.sidebar -->
         </aside>
+
+        <?php
+        if (isset($_GET["denied"])) : ?>
+            <div class="main-header">
+                <div class="alert alert-danger alert-dismissible mb-0">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                    Access denied!
+                </div>
+            </div>
+        <?php
+        endif;
+        ?>

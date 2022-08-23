@@ -1,7 +1,7 @@
 <?php
 require_once("dbconnect.php");
 // top product sold
-$sql = "SELECT * FROM products ORDER BY sell_quantity DESC LIMIT 5";
+$sql = "SELECT * FROM products ORDER BY sell_quantity DESC LIMIT 10";
 $result = $conn->query($sql);
 $topsells = $result->fetch_all(MYSQLI_ASSOC);
 //all product
@@ -30,24 +30,28 @@ include("header.php");
                         <h1 class="section-title position-relative text-center mb-5 text-white">EVENTS DISCOUNT!!!</h1>
                     </div>
                 </div>
-                <div class="row portfolio-container">
-                    <?php foreach ($discounts as $id => $discount) {
-                        $pricedc = $discount["price"] - ($discount["price"] * ($discount["discount"] / 100));
-                        echo ('<div class="col-lg-4 col-md-6 mb-4 pb-2 portfolio-item">');
-                        echo ('<div class="product-item d-flex flex-column align-items-center text-center bg-light rounded py-5 px-3">');
-                        echo ('<div class="bg-primary mt-n5 py-3" style="width: 80px;">');
-                        echo ('<h4 class="font-weight-bold text-white mb-0"> $' . $discount["price"] . '</h4>');
-                        echo ('</div>');
-                        echo ('<div class="position-relative bg-primary rounded-circle mt-n3 mb-4 p-3" style="width: 150px; height: 150px;">');
-                        echo ('<img class="rounded-circle w-100 h-100" src="' . $discount["pic1"] . '" style="object-fit: cover;">');
-                        echo ('</div>');
-                        echo ('<h5 class="font-weight-bold mb-4">' . $discount["name"] . '</h5>');
-                        echo ('<h5 class="font-weight-bold mb-4 text-danger">-' . $discount["discount"] . '%</h5>');
-                        echo ('<h4 class="font-weight-bold mb-4 text-danger"> ->> $' . $pricedc . '</h4>');
-                        echo ('<a href="detail.php?prod=' . $discount["productID"] . '" class="btn btn-sm btn-secondary" style="z-index:2;">Order Now</a>');
-                        echo ('</div>');
-                        echo ('</div>');
-                    } ?>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="owl-carousel team-carousel">
+                            <?php foreach ($discounts as $id => $discount) :
+                                $pricedc = $discount["price"] - ($discount["price"] * ($discount["discount"] / 100)); ?>
+                                <div class="team-item">
+                                    <div class="team-img mx-auto">
+                                        <img class="rounded-circle w-100 h-100" src="<?php echo ($discount["pic1"]) ?>" style="object-fit: cover;">
+                                    </div>
+                                    <div class="position-relative text-center bg-light rounded px-4 py-5" style="margin-top: -100px;">
+                                        <h3 class="font-weight-bold mt-5 mb-3 pt-5"><?php echo ($discount["name"]) ?></h3>
+                                        <h3 class="font-weight-bold mb-3 text-primary">Only $<?php echo ($pricedc) ?> </h3>
+                                        <h6 class="text-muted mb-4" style="height:3rem"><?php echo (substr($discount["description"], 0, 100)) ?></h6>
+                                        <div class="d-flex justify-content-center pt-1">
+                                            <a href="detail.php?prod=<?php echo ($discount["productID"]) ?>" class=" btn btn-sm btn-secondary" style="z-index:2;">Order Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -56,11 +60,10 @@ include("header.php");
         <!-- Top sell Start -->
         <div class="container-fluid py-5">
             <div class="container py-5">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h1 class="section-title position-relative mb-5 mt-5 text-white">Our best sell products</h1>
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <h1 class="section-title position-relative text-center mb-5 text-white">Our best sell products</h1>
                     </div>
-                    <div class="col-lg-6 mb-5 mb-lg-0 pb-5 pb-lg-0"></div>
                 </div>
                 <div class="row">
                     <div class="col-12">
@@ -73,7 +76,7 @@ include("header.php");
                                     echo ('<div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">');
                                     echo ('<h5 class="font-weight-semi-bold mt-5 pt-5 text-danger">EVENT DISCOUNT!!!</h5>');
                                     echo ('<h5 class="font-weight-semi-bold mb-3">' . $item["name"] . '</h5>');
-                                    echo ('<p>' . substr($item["description"], 0, 100) . '</p>');
+                                    echo ('<p style="height:3rem">' . substr($item["description"], 0, 100) . '</p>');
                                     echo ('<a href="detail.php?prod=' . $item["productID"] . '" class="btn btn-primary">Buy now</a>');
                                     echo ('</div></div>');
                                 } else {
@@ -81,8 +84,8 @@ include("header.php");
                                     echo ('<img class="rounded-circle w-100 h-100 bg-light p-3" src="' . $item["pic1"] . '" style="object-fit: cover;"></div>');
                                     echo ('<div class="position-relative text-center bg-light rounded p-4 pb-5" style="margin-top: -75px;">');
                                     echo ('<h5 class="font-weight-semi-bold mt-5 pt-5"></h5>');
-                                    echo ('<h5 class="font-weight-semi-bold mt-4 mb-3">' . $item["name"] . '</h5>');
-                                    echo ('<p>' . substr($item["description"], 0, 100) . '</p>');
+                                    echo ('<h5 class="font-weight-semi-bold my-4">' . $item["name"] . '</h5>');
+                                    echo ('<p style="height:3rem">' . substr($item["description"], 0, 100) . '</p>');
                                     echo ('<a href="detail.php?prod=' . $item["productID"] . '" class="btn btn-primary" style="z-index:2;">Buy now</a>');
                                     echo ('</div></div>');
                                 }

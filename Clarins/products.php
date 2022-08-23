@@ -4,8 +4,6 @@ require_once("dbconnect.php");
 $sql = "SELECT products.`productID`, products.`name`, products.`catalogID`, products.`description`, products.`brandID`, products.`sell_quantity`, products.`price`, products.`discount`, products.`pic1`, products.`pic2`, products.`pic3`, products.`pic4`, products.`create_by`, catalogs.category FROM `products` JOIN catalogs WHERE products.catalogID = catalogs.catalogID ORDER BY discount desc LIMIT 50;";
 $result = $conn->query($sql);
 $allproducts = $result->fetch_all(MYSQLI_ASSOC);
-// //discount
-// $sql="UPDATE products SET price= price-(price*(discount/100))";
 $sql = "SELECT * FROM products where discount > 0 && discount < 100 ";
 $result = $conn->query($sql);
 $discounts = $result->fetch_all(MYSQLI_ASSOC);

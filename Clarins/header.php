@@ -79,7 +79,7 @@ include("config.php");
                 </div>
                 <div class="col-4 px-2 text-center">
                     <a href="index.php" class="navbar-brand px-5 py-0 m-0">
-                        <h1 class="d-block text-white m-0"><span class="text-secondary">C</span>LARINS</h1>
+                        <h1 class="d-none d-lg-block text-white m-0"><span class="text-secondary">C</span>LARINS</h1>
                     </a>
                 </div>
                 <div class="col-4 text-right">
@@ -95,6 +95,10 @@ include("config.php");
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="col-12 navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
+                <img src="img/skin-care.png" class="p-0 col-2 mx-xl-3 d-none d-sm-block d-lg-none " style="max-width:8%;">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">C</span>LARINS</h1>
+                </a>
 
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>

@@ -56,8 +56,8 @@ if (!in_array($elm["type"], $priv)) {
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="./index.php" class="nav-link">Home</a>
+                <li class="nav-item d-inline-block">
+                    <a href="./index.php" class="nav-link"><i class="fa fa-home"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Guide</a>
@@ -67,7 +67,7 @@ if (!in_array($elm["type"], $priv)) {
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <a class="nav-link d-none d-md-inline-block" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
@@ -78,7 +78,7 @@ if (!in_array($elm["type"], $priv)) {
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="header.php?logout" role="button">
-                        <p>Logout</p>
+                        <i class="fa fa-power-off"></i>
                     </a>
                 </li>
             </ul>
@@ -101,7 +101,7 @@ if (!in_array($elm["type"], $priv)) {
                         <img src="../img/skin-care.png" class="img-circle elevation-2 bg-warning" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"><?php echo ($_SESSION["username"]) ?></a>
+                        <a href="main.php" class="d-block"><?php echo ($_SESSION["username"]) ?></a>
                     </div>
                 </div>
                 <!-- Sidebar Menu -->

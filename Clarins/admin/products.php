@@ -98,8 +98,12 @@ include("header.php");
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-
             <div class="row">
+                <div class="col-12">
+                    <p class="bg-warning">
+                        A new product considered out of stock unless you add its current quantity to stockroom
+                    </p>
+                </div>
                 <div class="col-12">
                     <div class="card">
                         <!-- /.card-header -->

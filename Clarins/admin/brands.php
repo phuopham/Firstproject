@@ -7,7 +7,17 @@ $result = $conn->query($sql);
 $brandlist = $result->fetch_all(MYSQLI_ASSOC);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") :
-    if (empty($_POST['name'])) {
+    if (!isset($_POST["description"])) :
+        header("location:catalogs.php?error");
+    endif;
+    $description = htmlspecialchars($_POST["description"]);
+    //update brand
+    if (isset($_POST['brandID'])) :
+        $sql = "UPDATE brands SET description ='$description' WHERE brandID =" . $_POST['brandID'];
+        $result = $conn->query($sql);
+        header('location:brands.php');
+    endif;
+    if (isset($_POST['name']) && empty($_POST['name'])) {
         header("location:brands.php?error1");
         exit;
     };
@@ -53,7 +63,11 @@ include("header.php");
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <p class="text-danger"><b>WARNING:</b> If you delete a brand, all related product will be removed too . Be careful!</p>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -70,7 +84,7 @@ include("header.php");
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <form action="brands.php" method="post">
+                                        <form action="brands.php" id="add" method="post">
                                             <td></td>
                                             <td>
                                                 <input type="text" class="form-control" name="name" placeholder="Name">
@@ -107,8 +121,14 @@ include("header.php");
                                         echo ('<tr>');
                                         echo ("<td>" . ($id + 1) . "</td>");
                                         echo ("<td>" . $brand["name"] . "</td>");
-                                        echo ("<td>" . $brand["description"] . "</td>");
+                                        echo ('<td><form action="brands.php" style="width:700px" method="post" id="' . $id . '">');
+                                        echo ('<textarea class="form-control m-0" style="min-height:120px" name="description">' . $brand["description"] . '</textarea>');
+                                        echo ('<input type="text" class="d-none" name="brandID" value="' . $brand['brandID'] . '">');
+                                        echo ('<button type="submit" class="btn btn-warning mt-2 ml-2">Save edit</button></form></td>');
+
+                                        //echo ("<td>" . $brand["description"] . "</td>");
                                         echo ('<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" onclick="submit(event)" brand="' . $brand["brandID"] . '">Delete</button></td>');
+
                                         echo ("</tr>");
                                     };
                                     ?>

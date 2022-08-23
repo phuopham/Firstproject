@@ -8,15 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
         header("location:catalogs.php?error");
     endif;
     $description = htmlspecialchars($_POST["description"]);
-
+    //update catalog
     if (isset($_POST['catalogID'])) :
         $sql = "UPDATE catalogs SET description ='$description' WHERE catalogID =" . $_POST['catalogID'];
         $result = $conn->query($sql);
         header('location:catalogs.php');
     endif;
 
-    output("here");
-    die();
     if (!isset($_POST["name"])) :
         header("location:catalogs.php?error");
     else :

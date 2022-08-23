@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") :
     $pricedc = $product["price"] - ($product["price"] * ($product["discount"] / 100));
 
     // fetch catalog
-    $sql =  "SELECT name, category from catalogs where catalogID ='" . $product["catalogID"] . "';";
+    $sql =  "SELECT name, category, description from catalogs where catalogID ='" . $product["catalogID"] . "';";
     $result = $conn->query($sql);
     $catalog = $result->fetch_assoc();
 
@@ -80,7 +80,7 @@ include('header.php');
             <h1 class="text-uppercase"><?php echo ($product["name"]) ?></h1>
             <h4>$<?php echo ($pricedc); ?></h4>
             <div>
-                <p style="height:150px;"> <?php echo ($product["description"]); ?></p>
+                <p style="height:150px;"> Total sell: <?php echo ($quantity > 0 ? $quantity : ""); ?></p>
             </div>
             <form action="cartcookie.php" method="get">
                 <input type="number" hidden name="product" value="<?php echo ($product["productID"]); ?>">
@@ -95,6 +95,22 @@ include('header.php');
                     ?>
                 </div>
             </form>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-4">
+        <div class="col-11">
+            <h3>Product description</h3>
+            <p>
+                <?php echo ($product["description"]) ?>
+            </p>
+            <h3>Brand description</h3>
+            <p>
+                <?php echo ($catalog["description"]) ?>
+            </p>
+            <h3>Catalog description</h3>
+            <p>
+                <?php echo ($catalog["description"]) ?>
+            </p>
         </div>
     </div>
 </div>
@@ -173,5 +189,8 @@ include('header.php');
 </script>
 
 <?php
+echo ('<div class="bg-secondary">');
+include("bestsells.php");
+echo ('</div>');
 include('footer.php');
 ?>

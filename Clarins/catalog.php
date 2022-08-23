@@ -73,5 +73,8 @@ include("header.php");
 </div>
 
 <?php
+echo ('<div class="bg-secondary">');
+include("bestsells.php");
+echo ('</div>');
 include("footer.php");
 ?>

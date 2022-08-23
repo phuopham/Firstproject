@@ -54,6 +54,9 @@
         echo ('<div class="container text-center py-5 px-0">');
         echo ("Thank you for puschasing our product!");
         echo ('</div>');
+        echo ('<div class="bg-secondary">');
+        include("bestsells.php");
+        echo ('</div>');
         include("footer.php");
     }
 

@@ -14,9 +14,14 @@ $total_order = mysqli_num_rows($result);
 $result = $conn->query("SELECT commentID from comments");
 $total_comment = mysqli_num_rows($result);
 
-// best sell product
+// best sell products
 $result = $conn->query("SELECT name, sell_quantity from products order by sell_quantity desc limit 10");
 $best_sells = $result->fetch_all(MYSQLI_ASSOC);
+
+// stockroom
+
+$result = $conn->query("SELECT productID, SUM(quantity) as quantity from stockroom group by productID order by quantity");
+$stockroom = $result->fetch_all(MYSQLI_ASSOC);
 
 //header
 include("header.php");
@@ -122,7 +127,9 @@ include("header.php");
                   <div class="progress-bar bg-primary" role="progressbar" style="width: <?php echo (($item['sell_quantity'] / $best_sells[0]['sell_quantity']) * 100) ?>%">
                   </div>
                 </div>
-              <?php echo ('<div class="d-flex justify-content-between mb-3"><div>' . $item['name'] . '</div><div>' . $item['sell_quantity'] . '</div></div>');
+              <?php
+
+                echo ('<div class="d-flex justify-content-between mb-3"><div>' . $item["name"] . '</div><div>' . $item['sell_quantity'] . '</div></div>');
               endforeach; ?>
             </div>
             <!-- /.card-body -->
@@ -130,6 +137,30 @@ include("header.php");
           <!-- /.card -->
         </div>
         <!-- /.col (left) -->
+
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Top 10 lowest quantity in stockroom</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <?php foreach ($stockroom as $id => $item) : ?>
+                <div class="progress">
+                  <div class="progress-bar bg-danger" role="progressbar" style="width: <?php echo ($item['quantity']) ?>%">
+                  </div>
+                </div>
+              <?php $sql = "SELECT name from products where productID ='" . $item["productID"] . "';";
+                $result = $conn->query($sql);
+                echo ('<div class="d-flex justify-content-between mb-3"><div>' . $result->fetch_column() . '</div><div>' . $item['quantity'] . '</div></div>');
+              endforeach; ?>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col (left) -->
+
         <!-- col-md-6 -->
         <div class="col-lg-6">
           <div class="card">
@@ -155,17 +186,6 @@ include("header.php");
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-  <!-- Control sidebar content goes here -->
-  <div class="p-3">
-    <h5>Title</h5>
-    <p>Sidebar content</p>
-  </div>
-</aside>
-<!-- /.control-sidebar -->
-
 <?php
 include("footer.php");
 ?>

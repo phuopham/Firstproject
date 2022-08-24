@@ -17,7 +17,7 @@ endif;
 
 // get user data
 
-$sql = "SELECT * from comments inner join products 
+$sql = "SELECT products.name as pname, comments.* from comments join products 
 ON comments.productID = products.productID ";
 $result = $conn->query($sql);
 $userlist = $result->fetch_all(MYSQLI_ASSOC);
@@ -59,11 +59,11 @@ include("header.php");
                             <table class="table table-hover text-nowrap">
                                 <thead>
                                     <tr>
-                                        <th>Comment ID</th>
-                                        <th>User Name</th>
+                                        <th>ID</th>
+                                        <th>Username</th>
                                         <th>Email</th>
                                         <th>Message</th>
-                                        <th>Product ID</th>
+                                        <th>Product Name</th>
                                         <th>Visible</th>
                                         <th>Create by</th>
                                     </tr>
@@ -75,8 +75,8 @@ include("header.php");
                                         echo ("<td>" . ($id + 1) . "</td>");
                                         echo ("<td>" . $user["name"] . "</td>");
                                         echo ("<td>" . $user["email"] . "</td>");
-                                        echo ("<td>" . $user["message"] . "</td>");
-                                        echo ("<td>" . $user["productID"] . "</td>");
+                                        echo ("<td class='text-wrap'>" . $user["message"] . "</td>");
+                                        echo ("<td>" . $user["pname"] . "</td>");
                                         echo ('<td><a href="comment.php?vision=' . $user["commentID"] . '" class="btn ' . ($user["visible"] == '0' ? 'btn-primary"><i class="fas fa-eye"></i>' : 'btn-danger"><i class="fas fa-eye-slash"></i>') . '</a></td>');
                                         echo ("<td>" . $user["create_by"] . "</td>");
                                         echo ("</tr>");

@@ -64,7 +64,7 @@ include("header.php");
                                                 <input type="number" class="form-control" name="phone" placeholder="Phonenumber" require>
                                             </td>
                                             <td>
-                                                <select name="type" id="">
+                                                <select class="form-control" name="type" id="">
                                                     <option value="0">Agent</option>
                                                     <option value="1">Operator</option>
                                                     <option value="2">Administrator</option>

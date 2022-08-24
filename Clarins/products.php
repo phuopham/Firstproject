@@ -14,7 +14,8 @@ include("header.php");
     <img src="img/bg2.jpg" style="background-repeat: no-repeat;position: fixed;width: -webkit-fill-available; max-height: -webkit-fill-available;margin-top: -8%; height:200%;z-index:-1; ">
     <div style="background-color:rgb(0,0,0,0.6);">
 
-        <?php include("discount.php");
+        <?php
+        include("discount.php");
         include("bestsells.php"); ?>
 
         <!-- Products Start -->

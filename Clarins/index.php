@@ -1,5 +1,10 @@
 <?php
+require_once("dbconnect.php");
 $page = "index";
+// $sql="SELECT * from products order by sell_quantity desc limit 1";
+// $result = $conn->query($sql);
+// $top1 = $result->fetch_all(MYSQLI_ASSOC);
+
 include("header.php");
 ?>
 <!-- Carousel Start -->
@@ -98,24 +103,30 @@ include("header.php");
 
 
         <!-- Promotion Start -->
+        <?php 
+            $result = $conn->query("SELECT * from products order by sell_quantity desc limit 1");
+            $best_sells = $result->fetch_all(MYSQLI_ASSOC); 
+        ?>
+        <?php foreach($best_sells as $id => $item): ?>
         <div class="container-fluid my-5 py-5 px-0">
             <div class="row bg-primary m-0">
                 <div class="col-md-6 px-0" style="min-height: 500px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100" src="img/order.jpg" style="object-fit: cover;">
+                        <img class="position-absolute w-100 h-100" src="<?php echo($item["pic1"]) ?>" style="object-fit: cover;">
                     </div>
                 </div>
+                
                 <div class="col-md-6 py-5 py-md-0 px-0">
                     <div class="h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
                         <div class="d-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 100px; height: 100px;">
-                            <h3 class="font-weight-bold text-secondary mb-0">$199</h3>
+                            <h3 class="font-weight-bold text-secondary mb-0">$<?php echo($item["price"])  ?></h3>
                         </div>
-                        <h3 class="font-weight-bold text-white mt-3 mb-4 text-white">"Love the texture"</h3>
-                        <p class="text-white mb-4 text-white">I started using this a month ago, and I have seen great results.
-                            I love the texture of the serum and I love the fact that its very smooth and light.</p>
-                        <a href="detail.php" class="btn btn-secondary py-3 px-5 mt-2">Order Now</a>
+                        <h3 class="font-weight-bold text-white mt-3 mb-4 text-white"><?php echo($item['name']) ?></h3>
+                        <p class="text-white mb-4 text-white"><?php echo($item["description"])  ?></p>
+                        <a href="detail.php?prod=<?php echo($item['productID']) ?>" class="btn btn-secondary py-3 px-5 mt-2">Order Now</a>
                     </div>
                 </div>
+                <?php endforeach ?>
             </div>
         </div>
         <!-- Promotion End -->
@@ -153,30 +164,26 @@ include("header.php");
                         <div class="owl-carousel testimonial-carousel">
                             <div class="text-center">
                                 <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                                <h4 class="font-weight-light mb-4 text-white">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos.
-                                    Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet
-                                    eirmod eos labore diam</h4>
-                                <img class="img-fluid mx-auto mb-3" src="img/testimonial-1.jpg" alt="">
-                                <h5 class="font-weight-bold m-0">Client Name</h5>
-                                <span>Profession</span>
+                                <h4 class="font-weight-light mb-4 text-white">The face wash arrived quickly, was well-packaged, and seems to 
+                                    work wonders. It doesn't leave my face feeling oily or stripped. Some face washes leave a weird residue 
+                                    behind but not this one!</h4>
+                                <img class="img-fluid mx-auto mb-3" src="img/ngan.jpg" alt="">
+                                <h5 class="font-weight-bold m-0 text-primary">Ngan</h5>
                             </div>
                             <div class="text-center">
                                 <i class="fa fa-3x fa-quote-left text-primary mb-4 text-white"></i>
-                                <h4 class="font-weight-light mb-4 text-white">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos.
-                                    Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet
-                                    eirmod eos labore diam</h4>
-                                <img class="img-fluid mx-auto mb-3" src="img/testimonial-2.jpg" alt="">
-                                <h5 class="font-weight-bold m-0">Client Name</h5>
-                                <span>Profession</span>
+                                <h4 class="font-weight-light mb-4 text-white">Always great and a pleasure to do business with this company.
+                                     Cream is excellent. I have been using it for years. Thanks.</h4>
+                                <img class="img-fluid mx-auto mb-3" src="img/ngan5.jpg" alt="">
+                                <h5 class="font-weight-bold m-0 text-primary">Anna</h5>
                             </div>
                             <div class="text-center">
                                 <i class="fa fa-3x fa-quote-left text-primary mb-4 text-white"></i>
-                                <h4 class="font-weight-light mb-4 text-white">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos.
-                                    Rebum elitr dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet
-                                    eirmod eos labore diam</h4>
-                                <img class="img-fluid mx-auto mb-3" src="img/testimonial-3.jpg" alt="">
-                                <h5 class="font-weight-bold m-0">Client Name</h5>
-                                <span>Profession</span>
+                                <h4 class="font-weight-light mb-4 text-white">Love the smell!! Fantastic products! Great present for my other 
+                                    half who loved them also, will definitely be buying again :-) love the little bag they come in with nice
+                                     printed lining! Just fantastic! Thank you!</h4>
+                                <img class="img-fluid mx-auto mb-3" src="img/ngan1.jpg" alt="">
+                                <h5 class="font-weight-bold m-0 text-primary">Giang</h5>
                             </div>
                         </div>
                     </div>

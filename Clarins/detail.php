@@ -46,6 +46,8 @@ if ($_POST) {
     header("location: detail.php?prod=" . $id);
 };
 
+$categoriesname = [null, "Hair", "Makeup", "Perfumes", "Face", "Body", "Suncream"];
+
 // header
 $page = "product";
 include('header.php');
@@ -76,11 +78,11 @@ include('header.php');
         </div>
 
         <div class="col-md-7">
-            <p class="text-uppercase">HOME / PRODUCTS / <?php echo ($catalog["category"] . " / " . $catalog["name"]); ?></p>
+            <p class="text-uppercase">HOME / PRODUCTS / <?php echo ($categoriesname[$catalog["category"]] . " / " . $catalog["name"]); ?></p>
             <h1 class="text-uppercase"><?php echo ($product["name"]) ?></h1>
             <h4>$<?php echo ($pricedc); ?></h4>
             <div>
-                <p style="height:150px;"> Total sell: <?php echo ($quantity > 0 ? $quantity : ""); ?></p>
+                <p style="height:150px;"> <?php echo ($product["sell_quantity"] > 0 ? ("Total sell: " . $quantity) : ""); ?></p>
             </div>
             <form action="cartcookie.php" method="get">
                 <input type="number" hidden name="product" value="<?php echo ($product["productID"]); ?>">

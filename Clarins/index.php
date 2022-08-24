@@ -46,7 +46,7 @@ include("header.php");
         </div>
         <!-- Carousel End -->
         <!-- discount start -->
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" style="position: fixed;top: 50%;z-index: 9;margin-left: 20px;">
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" style="position: fixed;top: 50%;z-index: 5;margin-left: 20px;">
             EVENT!
         </button>
 

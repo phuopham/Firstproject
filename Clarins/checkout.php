@@ -22,11 +22,11 @@
 
         foreach ($products as $productID => $quantity) {
 
-            $sql = "SELECT price from products where productID =" . $productID;
+            $sql = "SELECT price, discount from products where productID =" . $productID;
             $result = $conn->query($sql);
             $product = $result->fetch_assoc();
             $id = $productID;
-            $price = $product['price'];
+            $price = $product['price'] * (100 - $product["discount"]) / 100;
             $sql = "INSERT into orders(ordernumber,productID,quantity,price) VALUES('$order_number','$id','$quantity','$price')";
             $conn->query($sql);
 

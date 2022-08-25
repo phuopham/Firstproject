@@ -4,7 +4,7 @@ require_once("../dbconnect.php");
 
 // get good data
 
-$sql = "SELECT * from stockroom ORDER BY create_by desc limit 30";
+$sql = "SELECT * from stockroom ORDER BY create_by desc limit 100";
 $result = $conn->query($sql);
 $goodstocks = $result->fetch_all(MYSQLI_ASSOC);
 
@@ -46,7 +46,7 @@ include("header.php");
             </div>
             <div class="row">
                 <div class="col-12">
-                    <p>(Last 30 update)</p>
+                    <p>(Last 100 update)</p>
                 </div>
                 <div class="col-12">
                     <div class="card">

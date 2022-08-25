@@ -2,6 +2,8 @@
 $priv = [1, 2];
 require_once('../dbconnect.php');
 
+$categoriesname = [null, "Hair", "Makeup", "Perfumes", "Face", "Body", "Suncream"];
+
 //add catalog
 if ($_SERVER["REQUEST_METHOD"] == "POST") :
     if (!isset($_POST["description"])) :
@@ -103,12 +105,11 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
                                             </td>
                                             <td>
                                                 <select class="form-control" name="category" required>
-                                                    <option value="1">Hair</option>
-                                                    <option value="2">Makeup</option>
-                                                    <option value="3">Parfurms</option>
-                                                    <option value="4">Face</option>
-                                                    <option value="5">Body</option>
-                                                    <option value="6">Sunscreen</option>
+                                                    <?php
+                                                    foreach ($categoriesname as $id => $item) {
+                                                        echo $id != 0 ? "<option value='$id'>$item</option>" : '';
+                                                    }
+                                                    ?>
                                                 </select>
                         </div>
                         </td>
@@ -137,7 +138,7 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
                             echo ('<tr data-widget="expandable-table" aria-expanded="false" tooltip title="click the row to show description">');
                             echo ("<td>" . ($id + 1) . "</td>");
                             echo ("<td>" . $catalog["name"] . "</td>");
-                            echo ("<td>" . $catalog["category"] . "</td>");
+                            echo ("<td>" . $categoriesname[$catalog["category"]] . "</td>");
                             echo ('<td></td>');
                             //echo ('<td><a class="btn btn-danger" href="remove.php?catalog=' . $catalog["catalogID"] . '">Remove</a></td>');
                             echo ("</tr>");

@@ -57,7 +57,7 @@ else :
     $result = $conn->query($sql);
     $products = $result->fetch_all(MYSQLI_ASSOC);
 endif;
-if ($result->num_rows = 26) {
+if ($result->num_rows == 26) {
     $next = true;
 } else {
     $next = false;

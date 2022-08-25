@@ -103,20 +103,24 @@ include("header.php");
                     <li>Filename cannot have any special chars</li>
                     <li>Maximum 4 pictures allow</li>
                 </ul>
-                <a href="products.php">
-                    <- Back to products </a>
-                        <form action="" class="row mt-3" method="POST" enctype="multipart/form-data">
-                            <input type="text" name="productID" value="<?php echo ($_GET["prod"]); ?>" class="d-none">
-                            <div class="form-group col-7 bg-secondary py-1 pl-4 rounded-pill">
-                                <input type="file" name="image" class="form-control-file" />
-                            </div>
-                            <div class="form-group col-5">
-                                <input type="submit" class="btn btn-primary form-control" value="Upload" />
-                            </div>
 
-                        </form>
+                <form action="" class="row mt-3" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="productID" value="<?php echo ($_GET["prod"]); ?>" class="d-none">
+                    <div class="form-group col-7 bg-secondary py-1 pl-4 rounded-pill">
+                        <input type="file" name="image" class="form-control-file" />
+                    </div>
+                    <div class="form-group col-5">
+                        <input type="submit" class="btn btn-primary form-control" value="Upload picture" />
+                    </div>
+
+                </form>
             </div>
             <div class="row">
+                <div class="col-12 d-flex justify-content-between">
+                    <a href="products.php">
+                        <- Back to products </a>
+                            <a class="btn btn-primary" href="addstockroom.php?prod=<?php echo $_GET["prod"] ?>">Add quantity of the product</a>
+                </div>
                 <div class="col-10">
                     <h4>Current pictures of the products</h4>
                 </div>

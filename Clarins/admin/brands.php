@@ -83,20 +83,6 @@ include("header.php");
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <form action="brands.php" id="add" method="post">
-                                            <td style="max-width:50px"></td>
-                                            <td style="max-width:100px">
-                                                <input type="text" class="form-control" name="name" placeholder="Name">
-                                            </td>
-                                            <td>
-                                                <textarea class="form-control" name="description" placeholder="Description"></textarea>
-                                            </td>
-                                            <td style="max-width:75px">
-                                                <button class="btn btn-primary form-control" type="submit">Add brand</button>
-                                            </td>
-                                        </form>
-                                    </tr>
                                     <?php
                                     if (isset($_GET["error"])) {
                                         echo ('<div class="alert alert-danger alert-dismissible">
@@ -130,10 +116,23 @@ include("header.php");
                                         echo ("</tr>");
                                     };
                                     ?>
-
-
-
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <form action="brands.php" id="add" method="post">
+                                            <td style="max-width:50px"></td>
+                                            <td style="max-width:100px">
+                                                <input type="text" class="form-control" name="name" placeholder="Name">
+                                            </td>
+                                            <td>
+                                                <textarea class="form-control" name="description" placeholder="Description"></textarea>
+                                            </td>
+                                            <td style="max-width:75px">
+                                                <button class="btn btn-primary form-control" type="submit">Add brand</button>
+                                            </td>
+                                        </form>
+                                    </tr>
+                                </tfoot>
                             </table>
 
                         </div>

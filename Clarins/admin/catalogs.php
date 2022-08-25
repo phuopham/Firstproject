@@ -81,7 +81,15 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-
+            <?php
+            if (isset($_GET["error"])) {
+                echo ('<div class="alert alert-danger alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                            Username already matches your existing name!
+                            </div>');
+            }
+            ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -97,6 +105,27 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                    foreach ($catalogs as $id => $catalog) {
+                                        echo ('<tr data-widget="expandable-table" aria-expanded="false" tooltip title="click the row to show description">');
+                                        echo ("<td>" . ($id + 1) . "</td>");
+                                        echo ("<td>" . $catalog["name"] . "</td>");
+                                        echo ("<td>" . $categoriesname[$catalog["category"]] . "</td>");
+                                        echo ('<td></td>');
+                                        //echo ('<td><a class="btn btn-danger" href="remove.php?catalog=' . $catalog["catalogID"] . '">Remove</a></td>');
+                                        echo ("</tr>");
+                                        echo ('<tr class="expandable-body">');
+                                        echo ('<td colspan="4"><form action="catalogs.php" method="post" id="' . $id . '">');
+                                        echo ('<textarea class="form-control" style="min-height:100px" name="description">' . $catalog["description"] . '</textarea>');
+                                        echo ('<input type="text" class="d-none" name="catalogID" value="' . $catalog['catalogID'] . '">');
+                                        echo ('<button type="submit" class="btn btn-warning mt-2 ml-2">Save edit</button></form></td> </tr>');
+                                    };
+                                    ?>
+
+
+
+                                </tbody>
+                                <tfoot>
                                     <tr>
                                         <form action="catalogs.php" method="post" id="new">
                                             <td></td>
@@ -111,58 +140,28 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
                                                     }
                                                     ?>
                                                 </select>
+
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-primary form-control">Add catalog</button>
+                                            </td>
+                                    <tr>
+                                        <td colspan="4">
+                                            <textarea class="form-control" name="description" placeholder="Description" required></textarea>
+                                        </td>
+                                        </form>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
                         </div>
-                        </td>
-                        <td>
-                            <button class="btn btn-primary form-control">Add catalog</button>
-                        </td>
-                        <tr>
-                            <td colspan="4">
-                                <textarea class="form-control" name="description" placeholder="Description" required></textarea>
-                            </td>
-                        </tr>
-
-                        </form>
-                        </tr>
-                        <?php
-                        if (isset($_GET["error"])) {
-                            echo ('<div class="alert alert-danger alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-                            Username already matches your existing name!
-                            </div>');
-                        }
-                        ?>
-                        <?php
-                        foreach ($catalogs as $id => $catalog) {
-                            echo ('<tr data-widget="expandable-table" aria-expanded="false" tooltip title="click the row to show description">');
-                            echo ("<td>" . ($id + 1) . "</td>");
-                            echo ("<td>" . $catalog["name"] . "</td>");
-                            echo ("<td>" . $categoriesname[$catalog["category"]] . "</td>");
-                            echo ('<td></td>');
-                            //echo ('<td><a class="btn btn-danger" href="remove.php?catalog=' . $catalog["catalogID"] . '">Remove</a></td>');
-                            echo ("</tr>");
-                            echo ('<tr class="expandable-body">');
-                            echo ('<td colspan="4"><form action="catalogs.php" method="post" id="' . $id . '">');
-                            echo ('<textarea class="form-control" style="min-height:100px" name="description">' . $catalog["description"] . '</textarea>');
-                            echo ('<input type="text" class="d-none" name="catalogID" value="' . $catalog['catalogID'] . '">');
-                            echo ('<button type="submit" class="btn btn-warning mt-2 ml-2">Save edit</button></form></td> </tr>');
-                        };
-                        ?>
-
-
-
-                        </tbody>
-                        </table>
-
+                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card-body -->
+                    <!-- /.card -->
                 </div>
-                <!-- /.card -->
             </div>
         </div>
-</div>
-</section>
+    </section>
 </div>
 <?php
 //footer

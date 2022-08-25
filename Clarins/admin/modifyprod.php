@@ -1,16 +1,30 @@
 <?php
 $priv = [1, 2];
 require_once("../dbconnect.php");
-
-if (isset($_POST["productID"])) :
-    if (empty($_POST["description"])) {
-        header("location: modifyprod.php?error");
+if ($_SERVER["REQUEST_METHOD"] == "POST") :
+    if ($_POST["discount"] > 100 || $_POST["discount"] < 0 || empty($_POST["discount"])) {
+        header("location: modifyprod.php?prod=" . $_POST["productID"] . "&error");
     }
-    $sql = "UPDATE products SET description = '" . $_POST["description"] . "', price = " . $_POST["price"] . ", discount = " . $_POST["discount"] . " WHERE productID = " . $_POST["productID"];
-    $conn->query($sql);
-    header("location:products.php?description=success");
-endif;
+    if ($_POST["price"] < 0 || empty($_POST["price"])) {
+        header("location: modifyprod.php?prod=" . $_POST["productID"] . "&error");
+    }
+    if (empty($_POST["description"])) {
+        header("location: modifyprod.php?prod=" . $_POST["productID"] . "&error");
+    }
+    $description = htmlspecialchars($_POST["description"]);
 
+    if (isset($_POST["productID"])) :
+
+        $sql = "UPDATE products SET description = '" . $description . "', price = " . $_POST["price"] . ", discount = " . $_POST["discount"] . " WHERE productID = " . $_POST["productID"];
+        $conn->query($sql);
+        if (isset($_POST["back"])) {
+            header("location:products.php?description=success");
+        }
+        if (isset($_POST["addpic"])) {
+            header("location:addpic.php?prod=" . $_POST["productID"]);
+        }
+    endif;
+endif;
 if (isset($_GET["prod"])) :
     $product = true;
     $sql = "SELECT name, description, price, discount from products where productID =" . $_GET["prod"];
@@ -26,6 +40,27 @@ if (isset($_GET["prod"])) :
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
+                <?php
+                if (isset($_GET["success"])) {
+                    echo ('<div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <h5><i class="icon fas fa-thumbs-up"></i> Alert!</h5>
+    Product info update successfully!
+    </div>');
+                }
+                if (isset($_GET["error"])) {
+                    echo ('<div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+    Product info cannot be update! Please make sure:
+    <ul>
+    <li>Description cannot be blank</li>
+    <li>Discount percentage must be between 0 and 100</li>
+    <li>Price cannot be negative</li>
+    </ul>
+    </div>');
+                }
+                ?>
                 <div class="row mb-2">
                     <div class="col-sm-6">
                         <h1>Edit description of <?php echo ($product["name"]); ?>
@@ -56,7 +91,8 @@ if (isset($_GET["prod"])) :
                     <div class="form-group d-flex justify-content-between">
                         <a href="products.php">
                             <-Back to products </a>
-                                <button class="btn btn-primary position-end" type="submit">Save</button>
+                                <button class="btn btn-primary position-end" name="back" type="submit">Save and back to products</button>
+                                <button class="btn btn-primary position-end" name="addpic" type="submit"> Save and add picture</button>
                     </div>
                 </form>
                 <div>

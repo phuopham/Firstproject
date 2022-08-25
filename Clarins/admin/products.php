@@ -47,10 +47,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
 endif;
 
 // get product data
-$sql = "SELECT * from products";
-$result = $conn->query($sql);
-$products = $result->fetch_all(MYSQLI_ASSOC);
-
+$result = [];
+if (isset($_GET["page"]) && $_GET["page"] > 1) :
+    $sql = "SELECT * from products ORDER BY productID desc LIMIT 26 OFFSET (25*(" . $_GET["page"] . " -1));";
+    $result = $conn->query($sql);
+    $products = $result->fetch_all(MYSQLI_ASSOC);
+else :
+    $sql = "SELECT * from products;";
+    $result = $conn->query($sql);
+    $products = $result->fetch_all(MYSQLI_ASSOC);
+endif;
+if ($result->num_rows = 26) {
+    $next = true;
+} else {
+    $next = false;
+}
 // get catalogs data
 $sql = "SELECT catalogID, name from catalogs";
 $result = $conn->query($sql);
@@ -210,6 +221,18 @@ include("header.php");
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
+                </div>
+                <div class="col-12 d-flex justify-content-center">
+                    <a class="btn btn-primary" href="product.php">Firstpage</a>
+                    <?php
+                    if (!isset($_GET["page"]) || $_GET["page"] == 1) :
+                    else :
+                        echo ('<a class="btn btn-primary" href="product.php?page=' . ($_GET["page"] - 1) . '">Previous</a>');
+                    endif;
+                    if ($next) :
+                        echo ('<a class="btn btn-primary" href="product.php?page=' . ($_GET["page"] - 1) . '">Next</a>');
+                    endif;
+                    ?>
                 </div>
             </div>
         </div>

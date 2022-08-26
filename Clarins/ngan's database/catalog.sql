@@ -33,6 +33,7 @@ SET
 --
 -- Table structure for table `catalogs`
 --
+<<<<<<< Updated upstream
 CREATE TABLE if not exists `catalogs` (
   `catalogID` int(11) NOT NULL,
   `name` varchar(40) NOT NULL,
@@ -40,6 +41,16 @@ CREATE TABLE if not exists `catalogs` (
   `description` text DEFAULT NULL,
   `create_by` datetime DEFAULT current_timestamp()
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+=======
+
+-- CREATE TABLE `catalogs` (
+--   `catalogID` int(11) NOT NULL,
+--   `name` varchar(40) NOT NULL,
+--   `category` int(11) DEFAULT NULL,
+--   `description` text DEFAULT NULL,
+--   `create_by` datetime DEFAULT current_timestamp()
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+>>>>>>> Stashed changes
 
 --
 -- Dumping data for table `catalogs`

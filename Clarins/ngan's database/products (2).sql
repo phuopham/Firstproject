@@ -33,6 +33,7 @@ SET
 --
 -- Table structure for table `products`
 --
+<<<<<<< Updated upstream
 CREATE TABLE if not exists `products` (
   `productID` int(10) NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -48,6 +49,24 @@ CREATE TABLE if not exists `products` (
   `pic4` varchar(40) DEFAULT NULL,
   `create_by` datetime DEFAULT current_timestamp()
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+=======
+
+-- CREATE TABLE `products` (
+--   `productID` int(10) NOT NULL,
+--   `name` varchar(100) NOT NULL,
+--   `catalogID` int(11) DEFAULT NULL,
+--   `description` text DEFAULT NULL,
+--   `brandID` int(11) NOT NULL,
+--   `sell_quantity` int(11) DEFAULT 0,
+--   `price` int(11) NOT NULL,
+--   `discount` int(11) DEFAULT NULL,
+--   `pic1` varchar(40) DEFAULT NULL,
+--   `pic2` varchar(40) DEFAULT NULL,
+--   `pic3` varchar(40) DEFAULT NULL,
+--   `pic4` varchar(40) DEFAULT NULL,
+--   `create_by` datetime DEFAULT current_timestamp()
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+>>>>>>> Stashed changes
 
 --
 -- Dumping data for table `products`

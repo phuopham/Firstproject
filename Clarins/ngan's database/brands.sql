@@ -33,12 +33,22 @@ SET
 --
 -- Table structure for table `brands`
 --
+<<<<<<< Updated upstream
 CREATE TABLE if not exists `brands` (
   `brandID` int(11) NOT NULL,
   `name` varchar(40) NOT NULL,
   `description` text DEFAULT NULL,
   `create_by` datetime DEFAULT current_timestamp()
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+=======
+
+-- CREATE TABLE `brands` (
+--   `brandID` int(11) NOT NULL,
+--   `name` varchar(40) NOT NULL,
+--   `description` text DEFAULT NULL,
+--   `create_by` datetime DEFAULT current_timestamp()
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+>>>>>>> Stashed changes
 
 --
 -- Dumping data for table `brands`

@@ -22,7 +22,7 @@ $discounts = $result->fetch_all(MYSQLI_ASSOC);
                                 <img class="rounded-circle w-100 h-100" src="<?php echo ($discount["pic1"]) ?>" style="object-fit: cover;">
                             </div>
                             <div class="position-relative text-center bg-light rounded px-4 py-5" style="margin-top: -100px;">
-                                <h3 class="font-weight-bold mt-5 mb-3 pt-5" style="height:4em;"><?php echo ($discount["name"]) ?></h3>
+                                <h3 class="font-weight-bold mt-5 mb-3 pt-5" style="height:5em;"><?php echo ($discount["name"]) ?></h3>
                                 <h3 class="font-weight-bold mb-3 text-primary">Only $<?php echo ($pricedc) ?> </h3>
                                 <h6 class="text-muted mb-4" style="height:5rem"><?php echo (substr($discount["description"], 0, 100)) ?></h6>
                                 <div class="d-flex justify-content-center pt-1">

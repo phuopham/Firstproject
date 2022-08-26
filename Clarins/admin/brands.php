@@ -15,10 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     if (isset($_POST['brandID'])) :
         $sql = "UPDATE brands SET description ='$description' WHERE brandID =" . $_POST['brandID'];
         $result = $conn->query($sql);
-        header('location:brands.php');
+        header('location:brands.php?editsuccess');
     endif;
     if (isset($_POST['name']) && empty($_POST['name'])) {
-        header("location:brands.php?error1");
+        header("location:brands.php?error");
         exit;
     };
 
@@ -63,6 +63,36 @@ include("header.php");
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
+            <?php
+            if (isset($_GET["error"])) {
+                echo ('<div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+    Fields cannot be blank!
+    </div>');
+            }
+            if (isset($_GET["editsuccess"])) {
+                echo ('<div class="alert alert-success alert-dismissible">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+<h5><i class="icon fas fa-thumbs-up"></i> Alert!</h5>
+Brand edited successfully!
+</div>');
+            }
+            if (isset($_GET["rmsuccess"])) {
+                echo ('<div class="alert alert-success alert-dismissible">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+<h5><i class="icon fas fa-thumbs-up"></i> Alert!</h5>
+Brand remove successfully!
+</div>');
+            }
+            if (isset($_GET["success"])) {
+                echo ('<div class="alert alert-success alert-dismissible">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+<h5><i class="icon fas fa-thumbs-up"></i> Alert!</h5>
+Brand create successfully!
+</div>');
+            }
+            ?>
             <div class="row justify-content-center">
                 <div class="col-10">
                     <p class="text-danger"><b>WARNING:</b> If you delete a brand, all related product will be removed too . Be careful!</p>
@@ -83,25 +113,6 @@ include("header.php");
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    if (isset($_GET["error"])) {
-                                        echo ('<div class="alert alert-danger alert-dismissible">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-                                        Username already matches your existing name!
-                                      </div>');
-                                    }
-                                    if (isset($_GET["error1"])) {
-                                        echo ('<div class="alert alert-danger alert-dismissible">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                        <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-                                        You forget entering your name!
-                                      </div>');
-                                    }
-                                    ?>
-
-                                    </tr>
-
                                     <?php
                                     foreach ($brandlist as $id => $brand) {
                                         echo ('<tr>');

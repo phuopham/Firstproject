@@ -50,7 +50,22 @@ include("header.php");
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-
+            <?php
+            if (isset($_GET["error"])) {
+                echo ('<div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+    Try again or contact our admin!
+    </div>');
+            }
+            if (isset($_GET["success"])) {
+                echo ('<div class="alert alert-success alert-dismissible">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+<h5><i class="icon fas fa-thumbs-up"></i> Alert!</h5>
+Vision changed successfully!
+</div>');
+            }
+            ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">

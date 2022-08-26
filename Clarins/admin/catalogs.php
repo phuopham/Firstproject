@@ -6,7 +6,7 @@ $categoriesname = [null, "Hair", "Makeup", "Perfumes", "Face", "Body", "Suncream
 
 //add catalog
 if ($_SERVER["REQUEST_METHOD"] == "POST") :
-    if (!isset($_POST["description"])) :
+    if (!isset($_POST["description"]) || empty($_POST["description"])) :
         header("location:catalogs.php?error");
     endif;
     $description = htmlspecialchars($_POST["description"]);
@@ -14,10 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     if (isset($_POST['catalogID']) && !empty($_POST['catalogID'])) :
         $sql = "UPDATE catalogs SET description ='$description' WHERE catalogID =" . $_POST['catalogID'];
         $result = $conn->query($sql);
-        header('location:catalogs.php?updatesuccess');
+        header('location:catalogs.php?editsuccess');
+        die();
     endif;
 
     if (!isset($_POST["name"]) || empty($_POST['name'])) :
+        die();
         header("location:catalogs.php?error");
         $name = htmlspecialchars($_POST["name"]);
     else :
@@ -55,6 +57,20 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
     <h5><i class="icon fas fa-ban"></i> Alert!</h5>
     Fields cannot be blank!
     </div>');
+            }
+            if (isset($_GET["editsuccess"])) {
+                echo ('<div class="alert alert-success alert-dismissible">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+<h5><i class="icon fas fa-thumbs-up"></i> Alert!</h5>
+Catalog edited successfully!
+</div>');
+            }
+            if (isset($_GET["rmsuccess"])) {
+                echo ('<div class="alert alert-success alert-dismissible">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+<h5><i class="icon fas fa-thumbs-up"></i> Alert!</h5>
+Catalog remove successfully!
+</div>');
             }
             if (isset($_GET["success"])) {
                 echo ('<div class="alert alert-success alert-dismissible">

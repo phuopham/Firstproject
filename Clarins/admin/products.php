@@ -230,7 +230,7 @@ include("header.php");
                         echo ('<a class="btn btn-primary" href="products.php?page=' . ($_GET["page"] - 1) . '">Previous</a>');
                     endif;
                     if ($next) :
-                        echo ('<a class="btn btn-primary" href="products.php?page=' . ($_GET["page"] - 1) . '">Next</a>');
+                        echo ('<a class="btn btn-primary" href="products.php?page=' . (($_GET["page"] ?? 1) + 1) . '">Next</a>');
                     endif;
                     ?>
                 </div>

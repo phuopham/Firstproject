@@ -223,14 +223,14 @@ include("header.php");
                     <!-- /.card -->
                 </div>
                 <div class="col-12 d-flex justify-content-center">
-                    <a class="btn btn-primary" href="products.php">Firstpage</a>
+                    <a class="btn btn-primary mx-2" href="products.php">Firstpage</a>
                     <?php
                     if (!isset($_GET["page"]) || $_GET["page"] == 1) :
                     else :
-                        echo ('<a class="btn btn-primary" href="products.php?page=' . ($_GET["page"] - 1) . '">Previous</a>');
+                        echo ('<a class="btn btn-primary mx-2" href="products.php?page=' . ($_GET["page"] - 1) . '">Previous</a>');
                     endif;
                     if ($next) :
-                        echo ('<a class="btn btn-primary" href="products.php?page=' . (($_GET["page"] ?? 1) + 1) . '">Next</a>');
+                        echo ('<a class="btn btn-primary mx-2" href="products.php?page=' . (($_GET["page"] ?? 1) + 1) . '">Next</a>');
                     endif;
                     ?>
                 </div>

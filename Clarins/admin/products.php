@@ -227,10 +227,10 @@ include("header.php");
                     <?php
                     if (!isset($_GET["page"]) || $_GET["page"] == 1) :
                     else :
-                        echo ('<a class="btn btn-primary" href="product.php?page=' . ($_GET["page"] - 1) . '">Previous</a>');
+                        echo ('<a class="btn btn-primary" href="products.php?page=' . ($_GET["page"] - 1) . '">Previous</a>');
                     endif;
                     if ($next) :
-                        echo ('<a class="btn btn-primary" href="product.php?page=' . ($_GET["page"] - 1) . '">Next</a>');
+                        echo ('<a class="btn btn-primary" href="products.php?page=' . ($_GET["page"] - 1) . '">Next</a>');
                     endif;
                     ?>
                 </div>

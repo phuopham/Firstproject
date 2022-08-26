@@ -53,7 +53,7 @@ if (isset($_GET["page"]) && $_GET["page"] > 1) :
     $result = $conn->query($sql);
     $products = $result->fetch_all(MYSQLI_ASSOC);
 else :
-    $sql = "SELECT * from products;";
+    $sql = "SELECT * from products ORDER BY productID desc LIMIT 26 OFFSET 0;";
     $result = $conn->query($sql);
     $products = $result->fetch_all(MYSQLI_ASSOC);
 endif;

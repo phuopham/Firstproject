@@ -223,7 +223,7 @@ include("header.php");
                     <!-- /.card -->
                 </div>
                 <div class="col-12 d-flex justify-content-center">
-                    <a class="btn btn-primary" href="product.php">Firstpage</a>
+                    <a class="btn btn-primary" href="products.php">Firstpage</a>
                     <?php
                     if (!isset($_GET["page"]) || $_GET["page"] == 1) :
                     else :

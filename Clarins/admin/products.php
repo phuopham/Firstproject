@@ -49,15 +49,15 @@ endif;
 // get product data
 $result = [];
 if (isset($_GET["page"]) && $_GET["page"] > 1) :
-    $sql = "SELECT * from products ORDER BY productID desc LIMIT 26 OFFSET (25*(" . $_GET["page"] . " -1));";
+    $sql = "SELECT * from products ORDER BY productID desc LIMIT 21 OFFSET " . (((int)$_GET["page"] - 1) * 20);
     $result = $conn->query($sql);
     $products = $result->fetch_all(MYSQLI_ASSOC);
 else :
-    $sql = "SELECT * from products ORDER BY productID desc LIMIT 26 OFFSET 0;";
+    $sql = "SELECT * from products ORDER BY productID desc LIMIT 21 OFFSET 0;";
     $result = $conn->query($sql);
     $products = $result->fetch_all(MYSQLI_ASSOC);
 endif;
-if ($result->num_rows == 26) {
+if ($result->num_rows == 21) {
     $next = true;
 } else {
     $next = false;

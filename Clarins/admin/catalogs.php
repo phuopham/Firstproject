@@ -11,24 +11,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     endif;
     $description = htmlspecialchars($_POST["description"]);
     //update catalog
-    if (isset($_POST['catalogID'])) :
+    if (isset($_POST['catalogID']) && !empty($_POST['catalogID'])) :
         $sql = "UPDATE catalogs SET description ='$description' WHERE catalogID =" . $_POST['catalogID'];
         $result = $conn->query($sql);
-        header('location:catalogs.php');
+        header('location:catalogs.php?updatesuccess');
     endif;
 
-    if (!isset($_POST["name"])) :
+    if (!isset($_POST["name"]) || empty($_POST['name'])) :
         header("location:catalogs.php?error");
+        $name = htmlspecialchars($_POST["name"]);
     else :
-        if (empty($_POST['name'])) {
-            header("location:catalogs.php?error");
-        };
-
         if (!is_int($_POST["category"])) :
             header("location:catalogs.php?error");
         endif;
-
-        $name = htmlspecialchars($_POST["name"]);
         $category = $_POST["category"];
         $sql = "INSERT into catalogs(`name`,`category`,`description`) values ('$name', $category ,'$description')";
         $result = $conn->query($sql);
@@ -53,6 +48,22 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
+            <?php
+            if (isset($_GET["error"])) {
+                echo ('<div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+    Fields cannot be blank!
+    </div>');
+            }
+            if (isset($_GET["success"])) {
+                echo ('<div class="alert alert-success alert-dismissible">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+<h5><i class="icon fas fa-thumbs-up"></i> Alert!</h5>
+Catalog create successfully!
+</div>');
+            }
+            ?>
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Catalogs</h1>
@@ -67,29 +78,9 @@ $catalogs = $result->fetch_all(MYSQLI_ASSOC);
         </div><!-- /.container-fluid -->
     </section>
 
-    <!--Null-->
-    <?php
-    if (isset($_GET["error1"])) {
-        echo ('<div class="alert alert-danger alert-dismissible">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-    You forget entering your name!
-    </div>');
-    }
-    ?>
-
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <?php
-            if (isset($_GET["error"])) {
-                echo ('<div class="alert alert-danger alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-                            Username already matches your existing name!
-                            </div>');
-            }
-            ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">

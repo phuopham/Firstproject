@@ -1,17 +1,16 @@
 <?php
 $priv = [1, 2];
 require_once("../dbconnect.php");
-
 // insert stockroom
-if ($_POST) :
-    output($_POST);
+if ($_SERVER["REQUEST_METHOD"] == "POST") :
     $sql = "INSERT INTO stockroom(productID, quantity, username) VALUES (" . $_POST["productID"] . "," . $_POST["quantity"] . ",'" . $_POST["username"] . "')";
     $result = $conn->query($sql);
     header("location:stockroom.php?success");
+    die();
 endif;
 
 // get good data
-if (isset($_GET["prod"])) :
+if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["prod"])) :
     $sql = "SELECT * from stockroom WHERE productID=" . $_GET["prod"];
     $result = $conn->query($sql);
     $goodstocks = $result->fetch_all(MYSQLI_ASSOC);

@@ -16,6 +16,15 @@ include("header.php");
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
+            <?php
+            if (isset($_GET["success"])) {
+                echo ('<div class="alert alert-success alert-dismissible">
+<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+<h5><i class="icon fas fa-thumbs-up"></i> Alert!</h5>
+Inventory successful!
+</div>');
+            }
+            ?>
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Stockroom</h1>

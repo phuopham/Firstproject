@@ -118,9 +118,18 @@
             $("#hours").html((hours < 10 ? "0" : "") + hours);
         }, 1000);
     });
+
+    // clock end //
+    // categories button //
+    function categories() {
+        $("#categories").toggle();
+    }
+    $("#categories").on("click", () => {
+        $("#categories").hide();
+    })
 </script>
 
-<!-- clock end -->
+
 
 </body>
 

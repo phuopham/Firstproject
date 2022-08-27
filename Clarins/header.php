@@ -48,7 +48,7 @@ include("config.php");
 <head>
     <meta charset="utf-8">
     <title>CLARINS</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="width=device-width, initial-scale=0.9" name="viewport">
     <meta content="Clarins" name="keywords">
     <meta content="Clarins" name="description">
 
@@ -95,11 +95,18 @@ include("config.php");
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="col-12 navbar navbar-expand-lg bg-light navbar-light shadow p-lg-0">
-                <img src="img/skin-care.png" class="p-0 col-2 mx-xl-3 d-none d-sm-block d-lg-none " style="max-width:8%;">
-                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                <a href="index.php" class="navbar-brand d-block d-lg-none">
                     <h1 class="m-0 display-4 text-primary"><span class="text-secondary">C</span>LARINS</h1>
                 </a>
-
+                <div class="d-block d-lg-none ml-auto px-3">
+                    <a href="cart.php" class="nav-item btn 
+                            <?php if ($page == "cart") :
+                                echo ("btn-secondary");
+                            else :
+                                echo ("btn-primary");
+                            endif;; ?>
+                            ">Cart</a>
+                </div>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -112,7 +119,7 @@ include("config.php");
                         };
                         ?>
                         ">Home</a>
-                        <a href="gallery.php" class="col nav-item nav-link text-lg-center 
+                        <a href="gallery.php" class="col nav-item nav-link text-lg-center
                         <?php
                         if ($page == "gallery") {
                             echo ("active");
@@ -121,7 +128,6 @@ include("config.php");
                         "><i class=" fas fa-images d-none d-lg-inline"></i>
                             <span class="d-lg-none">Gallery</span>
                         </a>
-                        <!--<a href="gallery.php" class="col nav-item nav-link text-lg-center"><i class=" fas fa-map-marker-alt"></i></a>-->
                         <a href="about.php" class="col nav-item nav-link text-lg-center 
                         <?php
                         if ($page == "about") {
@@ -138,16 +144,15 @@ include("config.php");
                         ">Products</a>
                     </div>
                     <img src="img/skin-care.png" class="p-0 col-2 mx-xl-3 d-none d-lg-block " style="max-width:8%;">
-                    <div class="navbar-nav mr-lg-auto py-0 col-lg-5">
-                        <a onclick="categories()" class="nav-item nav-link text-lg-center" style="cursor:pointer">Catalogs</a>
-                        <div>
+                    <div class="navbar-nav mr-lg-auto py-0 col-lg-5 d-lg-flex">
+                        <div class=" order-lg-2">
                             <a href="contact.php" class="nav-item nav-link text-lg-center
                             <?php if ($page == "contact") {
                                 echo ("active");
                             }; ?>
                             ">Contact</a>
                         </div>
-                        <div class="container-fluid justify-content-lg-end px-0">
+                        <div class="d-none d-lg-flex container-fluid justify-content-lg-end px-lg-3 order-lg-3">
                             <a href="cart.php" class="nav-item btn 
                             <?php if ($page == "cart") :
                                 echo ("btn-secondary");
@@ -156,62 +161,72 @@ include("config.php");
                             endif;; ?>
                             ">Cart</a>
                         </div>
+                        <div class="order-lg-1">
+                            <a onclick="categories()" class="nav-item nav-link text-lg-center" style="cursor:pointer">Catalogs</a>
+                        </div>
                     </div>
                 </div>
             </nav>
         </div>
     </div>
+
     <!-- catergories dropdown -->
-    <div class="position-relative">
-        <div id="categories" class="position-absolute w-100" style="top:0; display:none; height:1000px; z-index:30">
-            <div class="d-lg-flex justify-content-center">
-                <div class="bg-light border-top border-bottom rounded-left">
-                    <div class="dropdown-header">HAIR</div>
-                    <?php
-                    foreach ($hair_list as $id => $item) {
-                        echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
-                    }
-                    ?>
+    <div class="position-relative" id="categories" style="display:none">
+        <div class="position-absolute w-100 " style="top:0px; z-index:30; opacity:0.92">
+            <div class="d-md-flex justify-content-start justify-content-lg-center bg-primary">
+                <div class="d-xl-flex justify-content-around">
+                    <div>
+                        <div class="dropdown-header h4">HAIR</div>
+                        <?php
+                        foreach ($hair_list as $id => $item) {
+                            echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                        }
+                        ?>
+                    </div>
+                    <div>
+                        <div class="dropdown-header h4">MAKEUP</div>
+                        <?php
+                        foreach ($makeup_list as $id => $item) {
+                            echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                        }
+                        ?>
+                    </div>
                 </div>
-                <div class="bg-light border-top border-bottom">
-                    <div class="dropdown-header">MAKEUP</div>
-                    <?php
-                    foreach ($makeup_list as $id => $item) {
-                        echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
-                    }
-                    ?>
+                <div class="d-xl-flex justify-content-around">
+                    <div>
+                        <div class="dropdown-header h4">PERFUMES</div>
+                        <?php
+                        foreach ($perfumes_list as $id => $item) {
+                            echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                        }
+                        ?>
+                    </div>
+                    <div>
+                        <div class="dropdown-header h4">FACE</div>
+                        <?php
+                        foreach ($face_list as $id => $item) {
+                            echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                        }
+                        ?>
+                    </div>
                 </div>
-                <div class="bg-light border-top border-bottom">
-                    <div class="dropdown-header">PERFUMES</div>
-                    <?php
-                    foreach ($perfumes_list as $id => $item) {
-                        echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
-                    }
-                    ?>
-                </div>
-                <div class="bg-light border-top border-bottom">
-                    <div class="dropdown-header">FACE</div>
-                    <?php
-                    foreach ($face_list as $id => $item) {
-                        echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
-                    }
-                    ?>
-                </div>
-                <div class="bg-light border-top border-bottom">
-                    <div class="dropdown-header">BODY</div>
-                    <?php
-                    foreach ($body_list as $id => $item) {
-                        echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
-                    }
-                    ?>
-                </div>
-                <div class="bg-light border-top border-bottom rounded-right">
-                    <div class="dropdown-header">SUNCREAM</div>
-                    <?php
-                    foreach ($suncream_list as $id => $item) {
-                        echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
-                    }
-                    ?>
+                <div class="d-xl-flex justify-content-around">
+                    <div>
+                        <div class="dropdown-header h4">BODY</div>
+                        <?php
+                        foreach ($body_list as $id => $item) {
+                            echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                        }
+                        ?>
+                    </div>
+                    <div>
+                        <div class="dropdown-header h4">SUNCREAM</div>
+                        <?php
+                        foreach ($suncream_list as $id => $item) {
+                            echo ('<a href="catalog.php?catalog=' . $item["catalogID"] . '" class="dropdown-item">' . $item["name"] . '</a>');
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["prod"])) :
     $result = $conn->query($sql);
     $goodstocks = $result->fetch_all(MYSQLI_ASSOC);
 else :
-    header("location:stockroom.php");
+    header("location:stockroom.php?error");
 endif;
 
 //get product name

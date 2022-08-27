@@ -5,44 +5,22 @@ require_once('../dbconnect.php');
 //add product
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") :
-    if (!isset($_POST["name"])) :
-        header("location:products.php?error1");
-    endif;
-    if (empty($_POST['name'])) {
-        header("location:brands.php?error1");
-        exit;
-    };
-    $name = htmlspecialchars($_POST["name"]);
-
-    if (!isset($_POST["brand"])) :
+    if (
+        !isset($_POST["name"]) || empty($_POST['name']) || !isset($_POST["brand"]) || empty($_POST["brand"]) || !isset($_POST["catalogID"]) || empty($_POST["catalogID"]) || !isset($_POST["description"]) || empty($_POST["description"]) ||
+        !isset($_POST["price"]) || empty($_POST["price"])
+    ) :
         header("location:products.php?error");
     endif;
+    $name = htmlspecialchars($_POST["name"]);
     $brand = htmlspecialchars($_POST["brand"]);
-    if (!isset($_POST["catalogID"])) :
-        header("location:products.php?error2");
-    endif;
     $catalog = htmlspecialchars($_POST["catalogID"]);
-
-    if (!isset($_POST["description"])) :
-        header("location:products.php?error3");
-    endif;
     $description = $_POST["description"];
-
-    if (!isset($_POST["price"])) :
-        header("location:products.php?error4");
-    endif;
     $price = htmlspecialchars($_POST["price"]);
-
     $discount = $_POST["discount"] == null ? "0" : $_POST["discount"];
 
     $sql = "INSERT into products(`name`,`brandID`,`catalogID`,`price`,`description`, `discount`,`sell_quantity`) values ('$name',$brand, $catalog , $price, '$description', $discount,0)";
     $result = $conn->query($sql);
-    // if ($result->errno) {
-    //     header("location:products.php?error5");
-    // };
-    $sql = "SELECT productID from products where name='$name' and catalogID = $catalog and price = $price";
-    $result = $conn->query($sql);
-    $productID = $result->fetch_column(0);
+    $productID = mysqli_insert_id($conn);
     header("location:addpic.php?prod=" . $productID);
 endif;
 
@@ -85,17 +63,6 @@ include("header.php");
                 <div class="col-sm-6">
                     <h1>products</h1>
                 </div>
-
-                <?php
-                if (isset($_GET["error1"])) {
-                    echo ('<div class="alert alert-danger alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-                    You forget entering your name!
-                  </div>');
-                }
-                ?>
-
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="main.php">Home</a></li>
@@ -109,6 +76,22 @@ include("header.php");
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
+            <?php
+            if (isset($_GET["error"])) {
+                echo ('<div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                    Make sure following fields are not blank:
+                    <ul><li>Name</li><li>Price</li><li>Catalog</li><li>Brand</li><li>Description</li></ul></div>');
+            }
+            if (isset($_GET["editsuccess"])) {
+                echo ('<div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <h5><i class="icon fas fa-thumbs-up"></i> Alert!</h5>
+    Product edited successfully!
+    </div>');
+            }
+            ?>
             <div class="row">
                 <div class="col-12">
                     <p class="bg-warning">

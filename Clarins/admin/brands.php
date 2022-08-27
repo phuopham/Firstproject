@@ -106,23 +106,23 @@ Brand create successfully!
                             <table class="table table-hover text-wrap">
                                 <thead>
                                     <tr>
-                                        <th style="max-width:50px">Brand ID</th>
-                                        <th style="max-width:100px">Name</th>
+                                        <th>ID</th>
+                                        <th>Name</th>
                                         <th>Description</th>
-                                        <th style="max-width:75px"></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     foreach ($brandlist as $id => $brand) {
                                         echo ('<tr>');
-                                        echo ("<td style='max-width:50px'>" . ($id + 1) . "</td>");
-                                        echo ("<td style='max-width:100px'>" . $brand["name"] . "</td>");
+                                        echo ("<td >" . ($id + 1) . "</td>");
+                                        echo ("<td>" . $brand["name"] . "</td>");
                                         echo ('<td><form action="brands.php" style="width:100%" method="post" id="' . $id . '">');
                                         echo ('<textarea class="form-control m-0" style="min-height:120px" name="description">' . $brand["description"] . '</textarea>');
                                         echo ('<input type="text" class="d-none" name="brandID" value="' . $brand['brandID'] . '">');
                                         echo ('<button type="submit" class="btn btn-warning mt-2 ml-2">Save edit</button></form></td>');
-                                        echo ('<td style="max-width:75px"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" onclick="submit(event)" brand="' . $brand["brandID"] . '">Delete</button></td>');
+                                        echo ('<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" onclick="submit(event)" brand="' . $brand["brandID"] . '">Delete</button></td>');
 
                                         echo ("</tr>");
                                     };
@@ -131,14 +131,14 @@ Brand create successfully!
                                 <tfoot>
                                     <tr>
                                         <form action="brands.php" id="add" method="post">
-                                            <td style="max-width:50px"></td>
-                                            <td style="max-width:100px">
+                                            <td></td>
+                                            <td>
                                                 <input type="text" class="form-control" name="name" placeholder="Name">
                                             </td>
                                             <td>
                                                 <textarea class="form-control" name="description" placeholder="Description"></textarea>
                                             </td>
-                                            <td style="max-width:75px">
+                                            <td>
                                                 <button class="btn btn-primary form-control" type="submit">Add brand</button>
                                             </td>
                                         </form>

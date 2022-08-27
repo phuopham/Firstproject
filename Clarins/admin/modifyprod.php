@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
         $sql = "UPDATE products SET description = '" . $description . "', price = " . $_POST["price"] . ", discount = " . $_POST["discount"] . " WHERE productID = " . $_POST["productID"];
         $conn->query($sql);
         if (isset($_POST["back"])) {
-            header("location:products.php?description=success");
+            header("location:products.php?editsuccess");
         }
         if (isset($_POST["addpic"])) {
             header("location:addpic.php?prod=" . $_POST["productID"]);

@@ -92,13 +92,13 @@ include("header.php");
         <?php foreach ($best_sells as $id => $item) : ?>
             <div class="container-fluid my-5 py-5 px-0">
                 <div class="row bg-primary m-0">
-                    <div class="col-md-6 px-0" style="min-height: 500px;">
+                    <div class="col-md-4 px-0" style="min-height: 500px;">
                         <div class="position-relative h-100">
                             <img class="position-absolute w-100 h-100" src="<?php echo ($item["pic1"]) ?>" style="object-fit: cover;">
                         </div>
                     </div>
 
-                    <div class="col-md-6 py-5 py-md-0 px-0">
+                    <div class="col-md-8 py-5 py-md-0 px-0">
                         <div class="h-100 d-flex flex-column align-items-center justify-content-center text-center p-5">
                             <div class="d-flex align-items-center justify-content-center bg-white rounded-circle mb-4" style="width: 100px; height: 100px;">
                                 <h3 class="font-weight-bold text-secondary mb-0">$<?php echo ($item["price"])  ?></h3>

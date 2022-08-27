@@ -33,18 +33,39 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") :
 else :
     header("location:products.php");
 endif;
-if ($_POST) {
-    $sql = "SELECT * from products where productID = '" . $_GET['prod'] . "';";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") :
+    if (!isset($_POST['productID']) || empty($_POST['productID'])) {
+        header("location:products.php?error");
+        die();
+    }
+    $sql = "SELECT * from products where productID = '" . $_POST['productID'] . "';";
     $result = $conn->query($sql);
+    if ($result->num_rows == 0) {
+        header("location:products.php?error");
+        die();
+    }
     $product = $result->fetch_assoc();
-    $id = $product['productID'] ?? '';
-    $name = $_POST['name'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $message = $_POST['message'] ?? '';
+    $id = $product['productID'];
+    if (!isset($_POST['name']) || empty($_POST['name'])) {
+        header("location:detail.php?prod=" . $id . "&error");
+        die();
+    }
+    $name = $_POST['name'];
+    if (!isset($_POST['email']) || empty($_POST['email'])) {
+        header("location:detail.php?prod=" . $id . "&error");
+        die();
+    }
+    $email = $_POST['email'];
+    if (!isset($_POST['message']) || empty($_POST['message'])) {
+        header("location:detail.php?prod=" . $id . "&error");
+        die();
+    }
+    $message = $_POST['message'];
     $sql = "INSERT INTO comments (name,email,message,productID) VALUES('$name','$email','$message','$id')";
     $conn->query($sql);
-    header("location: detail.php?prod=" . $id);
-};
+    header("location: detail.php?prod=" . $id . "&success");
+endif;
 
 $categoriesname = [null, "Hair", "Makeup", "Perfumes", "Face", "Body", "Suncream"];
 
@@ -146,21 +167,20 @@ include('header.php');
         <div class="row justify-content-center">
             <div class="col-lg-9 p-2">
                 <div class="contact-form rounded p-sm-3">
-                    <div id="success"></div>
                     <form name="sentFeedback" id="commentForm" method="POST">
-                        <input class="d-none" type="number" value="<?php echo ($product["productID"]) ?>">
+                        <input class="d-none" type="number" name="productID" value="<?php echo ($product["productID"]) ?>">
                         <div class="form-row">
                             <div class="col-sm-4 control-group">
-                                <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="col-sm-8 control-group">
-                                <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="control-group">
-                            <textarea class="form-control p-4" id="message" name="message" placeholder="Comment" required="required" data-validation-required-message="Please enter your message"></textarea>
+                            <textarea class="form-control p-4" id="message" name="message" placeholder="Comment" required="required"></textarea>
                             <p class="help-block text-danger"></p>
                         </div>
                         <div>
@@ -172,6 +192,8 @@ include('header.php');
         </div>
     </div>
 </div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
     var ProductImg = document.getElementById("product-img");
     var SmallImg = document.getElementsByClassName("small-img");
@@ -188,6 +210,22 @@ include('header.php');
     SmallImg[3].onclick = function() {
         ProductImg.src = SmallImg[3].src;
     }
+
+    // alert
+    const sabootstrap = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-primary',
+        },
+        buttonsStyling: false
+    })
+    <?php
+    if (isset($_GET["error"])) :
+        echo ("sabootstrap.fire('Please check your input','Fields cannot leave blank','error')");
+    endif;
+    if (isset($_GET["success"])) :
+        echo ("sabootstrap.fire('Thank you!','We appreciate what you have done!','success')");
+    endif;
+    ?>
 </script>
 
 <?php

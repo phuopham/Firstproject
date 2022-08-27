@@ -6,11 +6,11 @@ $pwlen = 5;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") :
     $password = "Clarins";
-    if (!isset($_POST['username'])) {
+    if (!isset($_POST['username'])|| empty($_POST['username'])) {
         header("location:users.php?error");
     }
     $username = htmlspecialchars($_POST['username']);
-    if (!isset($_POST['email'])) {
+    if (!isset($_POST['email']) || empty($_POST['email'])) {
         header("location:users.php?error");
     }
     $email = htmlspecialchars($_POST['email']);

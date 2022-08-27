@@ -100,21 +100,21 @@ include("header.php");
                         <div class="modal-body">
                             <div class="form-row">
                                 <div class="col-sm-6 control-group">
-                                    <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name" value="<?php echo ($remember["name"] ?? "") ?>" required="required" data-validation-required-message="Please enter your name" />
+                                    <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name" value="<?php echo ($remember["name"] ?? "") ?>" required="required" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="col-sm-6 control-group">
-                                    <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email" value="<?php echo ($remember["email"] ?? "") ?>" required="required" data-validation-required-message="Please enter your email" />
+                                    <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email" value="<?php echo ($remember["email"] ?? "") ?>" required="required" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control p-4" id="address" name="address" placeholder="Address" value="<?php echo ($remember["address"] ?? "") ?>" required="required" data-validation-required-message="Please enter an address" />
+                                <input type="text" class="form-control p-4" id="address" name="address" placeholder="Address" value="<?php echo ($remember["address"] ?? "") ?>" required="required" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-row">
                                 <div class="col-sm-6 control-group">
-                                    <input type="number" class="form-control p-4" id="phone" name="phone" placeholder="Your Phone" value="<?php echo ($remember["phone"] ?? "") ?>" required="required" data-validation-required-message="Please enter your phone" />
+                                    <input type="number" class="form-control p-4" id="phone" name="phone" placeholder="Your Phone" value="<?php echo ($remember["phone"] ?? "") ?>" required="required" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="col-sm-6 control-group d-flex justify-content-center pb-3">
@@ -125,7 +125,7 @@ include("header.php");
                             </div>
 
                             <div class="control-group">
-                                <textarea class="form-control p-4" rows="6" id="message" name="message" placeholder="Message" data-validation-required-message="Please enter your message"></textarea>
+                                <textarea class="form-control p-4" rows="6" id="message" name="message" placeholder="Message"></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
 

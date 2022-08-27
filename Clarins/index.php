@@ -171,6 +171,15 @@ include("header.php");
             <!-- Testimonial End -->
     </div>
 </div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    Swal.fire({
+        imageUrl: 'img/contact.jpg',
+        imageWidth: 800,
+        imageHeight: 500,
+        imageAlt: 'Custom image'
+    })
+</script>
 <?php
 include("footer.php");
 ?>

@@ -129,7 +129,24 @@ include("header.php");
 
     </div>
 </div>
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // alert
+    const sabootstrap = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-primary',
+        },
+        buttonsStyling: false
+    })
+    <?php
+    if (isset($_GET["error"])) :
+        echo ("sabootstrap.fire('Something went wrong!','If issue happens again, please send us know via \"Contact\"','error')");
+    endif;
+    if (isset($_GET["success"])) :
+        echo ("sabootstrap.fire('Thank you for purchasing!','We will deliver it to you within next 3 days!','success')");
+    endif;
+    ?>
+</script>
 <?php
 include("footer.php");
 ?>

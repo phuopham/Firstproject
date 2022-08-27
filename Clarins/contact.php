@@ -1,20 +1,69 @@
 <?php
 $page = "contact";
-include("header.php");
+
 require_once('dbconnect.php');
-if ($_POST) {
-    $id = intval($_POST['id'] ?? 0);
-    $name = $_POST['name'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $subject = $_POST['subject'] ?? '';
-    $message = $_POST['message'] ?? '';
+if ($_SERVER["REQUEST_METHOD"] == "POST") :
+    if (!isset($_POST['name']) || empty($_POST['name']) || !isset($_POST['email']) || empty($_POST['email']) || !isset($_POST['subject']) || empty($_POST['subject'])) {
+        header("location:contact.php?error");
+        die();
+    }
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
     $sql = "INSERT INTO contact (name,email,subject,message) VALUES('$name','$email','$subject','$message')";
     $conn->query($sql);
-}
+    header("location:contact.php?success");
+endif;
+
+include("header.php");
 ?>
 <div>
     <img src="img/bg3.jpg" style="background-repeat: no-repeat;position: fixed;width: -webkit-fill-available; max-height: -webkit-fill-available;margin-top: -9%; height:200%;z-index:-1; ">
     <div style="background-color:rgb(0,0,0,0.5);">
+
+        <!-- Contact start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <h1 class="section-title position-relative text-center mb-5 text-white">Contact Us For Any Query</h1>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        <div class="contact-form bg-light rounded p-5">
+                            <div id="success"></div>
+                            <form name="sentMessage" id="contactForm" novalidate="novalidate" method="post">
+                                <div class="form-row">
+                                    <div class="col-sm-6 control-group">
+                                        <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name" required="required" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                    <div class="col-sm-6 control-group">
+                                        <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email" required="required" />
+                                        <p class="help-block text-danger"></p>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <input type="text" class="form-control p-4" id="subject" name="subject" placeholder="Subject" required="required" />
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="control-group">
+                                    <textarea class="form-control p-4" rows="6" id="message" name="message" placeholder="Message"></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary btn-block py-3 px-5" type="submit" id="sendMessageButton">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact End -->
+
         <!-- Our store start -->
         <section style="margin-top:-5%;">
             <div class="container-fluid footer bg-light py-5">
@@ -59,49 +108,26 @@ if ($_POST) {
         </section>
         <!-- Our Store end -->
 
-        <!-- Contact start -->
-        <div class="container-fluid py-5">
-            <div class="container py-5">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6">
-                        <h1 class="section-title position-relative text-center mb-5 text-white">Contact Us For Any Query</h1>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-9">
-                        <div class="contact-form bg-light rounded p-5">
-                            <div id="success"></div>
-                            <form name="sentMessage" id="contactForm" novalidate="novalidate" method="post">
-                                <div class="form-row">
-                                    <div class="col-sm-6 control-group">
-                                        <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                    <div class="col-sm-6 control-group">
-                                        <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
-                                        <p class="help-block text-danger"></p>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <input type="text" class="form-control p-4" id="subject" name="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="control-group">
-                                    <textarea class="form-control p-4" rows="6" id="message" name="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div>
-                                    <button class="btn btn-primary btn-block py-3 px-5" type="submit" id="sendMessageButton">Send Message</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Contact End -->
     </div>
 </div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // alert
+    const sabootstrap = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-primary',
+        },
+        buttonsStyling: false
+    })
+    <?php
+    if (isset($_GET["error"])) :
+        echo ("sabootstrap.fire('Please check your input','Fields cannot leave blank','error')");
+    endif;
+    if (isset($_GET["success"])) :
+        echo ("sabootstrap.fire('Thank you!','We appreciate what you have done!','success')");
+    endif;
+    ?>
+</script>
 <?php
 include('footer.php');
 ?>

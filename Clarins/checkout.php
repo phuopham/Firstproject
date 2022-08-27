@@ -49,15 +49,8 @@
             $rememberme["phone"] = $_POST["phone"];
             setcookie('user', json_encode($rememberme), time() + 3600 * 24 * 30);
         }
-        //display message
-        include("header.php");
-        echo ('<div class="container text-center py-5 px-0">');
-        echo ("Thank you for puschasing our product!");
-        echo ('</div>');
-        echo ('<div class="bg-secondary">');
-        include("bestsells.php");
-        echo ('</div>');
-        include("footer.php");
+        header("location:products.php?success");
+        die();
     }
-
+    header("location:products.php?error");
     ?>

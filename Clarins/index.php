@@ -45,26 +45,11 @@ include("header.php");
             </div>
         </div>
         <!-- Carousel End -->
-        <!-- discount start -->
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" style="position: fixed;top: 50%;z-index: 5;margin-left: 20px;">
+
+        <!-- discount -->
+        <button type="button" class="btn btn-danger" onclick=(discount()) style="position: fixed;top: 50%;z-index: 5;margin-left: 20px;">
             EVENT!
         </button>
-
-        <!-- The Modal -->
-        <div class="modal fade show" id="myModal">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content" style="background-color:rgb(0,0,0,0.5);">
-                    <a href="products.php">
-                        <img src="img/contact.jpg" style="width: -webkit-fill-available;height: -webkit-fill-available;">
-                        <div style=" position: absolute;top: 50%;left:50%;transform: translate(-50%, -50%);background-color:rgb(0,0,0,0.5);">
-                            <h1 class="text-white align-items-center justify-content-center" style="text-align:center; font-size:350%;">DISCOUNT 20% for some products!!!!</h1>
-                        </div>
-                    </a>
-                    <button type="button" class="close" data-dismiss="modal" style="position: absolute;font-size:40px;">&times;</button>
-                </div>
-            </div>
-        </div>
-        <!-- discount end -->
 
         <!-- About Start -->
         <div class="container-fluid py-5">
@@ -173,12 +158,27 @@ include("header.php");
 </div>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    Swal.fire({
+    const sabootstrap = Swal.mixin({
+        width: '70vw',
+        showConfirmButton: false,
+        showCloseButton: true,
+        closeButtonHtml: '&times;'
+    })
+    sabootstrap.fire({
         imageUrl: 'img/contact.jpg',
-        imageWidth: 800,
-        imageHeight: 500,
+        imageWidth: '90%',
+        imageHeight: 'auto',
         imageAlt: 'Custom image'
     })
+
+    function discount() {
+        sabootstrap.fire({
+            imageUrl: 'img/contact.jpg',
+            imageWidth: '90%',
+            imageHeight: 'auto',
+            imageAlt: 'Custom image'
+        })
+    }
 </script>
 <?php
 include("footer.php");

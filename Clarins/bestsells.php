@@ -10,7 +10,7 @@ $topsells = $result->fetch_all(MYSQLI_ASSOC);
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-7">
-                <h1 class="section-title position-relative text-center mb-5 text-white">Our best sell products</h1>
+                <h1 class="section-title position-relative text-center mt-5 mt-md-0 mb-md-5 text-white">Our best sell products</h1>
             </div>
         </div>
         <div class="row">

@@ -9,7 +9,7 @@ $discounts = $result->fetch_all(MYSQLI_ASSOC);
     <div class="container py-5 mt-5">
         <div class="row justify-content-center">
             <div class="col-lg-5">
-                <h1 class="section-title position-relative text-center mb-5 text-white">EVENTS DISCOUNT!!!</h1>
+                <h1 class="section-title position-relative text-center mt-5 mt-md-0 mb-md-5 text-white">EVENTS DISCOUNT!!!</h1>
             </div>
         </div>
         <div class="row">

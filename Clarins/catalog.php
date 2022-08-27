@@ -41,6 +41,7 @@ include("header.php");
                     <div class="col-12 text-center">
                         <ul class="list-inline mb-4 pb-2" id="portfolio-flters">
                             <li class="btn btn-sm btn-outline-primary m-1 active" data-filter="*">All</li>
+                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".onsale">On Sale</li>
                             <?php
                             foreach ($brands as $id => $brand) {
                                 $sql = "SELECT name from brands where brandID =" . $brand["brandID"];
@@ -54,7 +55,7 @@ include("header.php");
                 <div class="row portfolio-container">
                     <?php foreach ($products as $id => $product) {
 
-                        echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item ' . $product['brandID'] . '">');
+                        echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item ' . $product['brandID'] . ' ' . ($product['discount'] > 0 ? 'onsale' : '') . '">');
                         echo ('<div class="product-item d-flex flex-column justify-content-between align-items-center text-center bg-light rounded py-5" style="height:30em">');
                         echo ('<div class="d-flex flex-column align-items-center ">');
                         echo ('<div class="bg-primary mt-n5 py-3" style="width: 80px;">');

@@ -60,7 +60,6 @@ include("header.php");
                                         <th>Quantity</th>
                                         <th>Username</th>
                                         <th>Stock time</th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -74,7 +73,6 @@ include("header.php");
                                             echo ("<td>" . $good["quantity"] . "</td>");
                                             echo ("<td>" . $good["username"] . "</td>");
                                             echo ("<td>" . $good["create_by"] . "</td>");
-                                            echo ('<td><a class="btn btn-primary" href="addstockroom.php?prod=' . $good["productID"] . '">Add more</a></td>');
                                             echo ("</tr>");
                                         endif;
                                     };

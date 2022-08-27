@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     if (!isset($_POST["description"])) :
         header("location:products.php?error3");
     endif;
-    $description = htmlspecialchars($_POST["description"]);
+    $description = $_POST["description"];
 
     if (!isset($_POST["price"])) :
         header("location:products.php?error4");

@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     if (empty($_POST["description"])) {
         header("location: modifyprod.php?prod=" . $_POST["productID"] . "&error");
     }
-    $description = htmlspecialchars($_POST["description"]);
+    $description = $_POST["description"];
 
     if (isset($_POST["productID"])) :
 

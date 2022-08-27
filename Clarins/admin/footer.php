@@ -12,12 +12,17 @@
 
 <!-- REQUIRED SCRIPTS -->
 
+
 <!-- Jquerry + bootstrap -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../js/adminlte.min.js"></script>
-
+<!-- summernote -->
+<script src="../lib/summernote/summernote-bs4.js"></script>
+<script>
+    $("textarea").summernote();
+</script>
 </body>
 
 </html>

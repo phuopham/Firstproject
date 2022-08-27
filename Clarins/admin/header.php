@@ -44,6 +44,8 @@ if (!in_array($elm["type"], $priv)) {
     <link rel="stylesheet" href="../css/icheck-bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../css/adminlte.min.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="../lib/summernote/summernote-bs4.css">
 </head>
 
 

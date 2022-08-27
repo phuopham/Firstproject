@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     if (!isset($_POST["description"]) || empty($_POST["description"])) :
         header("location:catalogs.php?error");
     endif;
-    $description = htmlspecialchars($_POST["description"]);
+    $description = $_POST["description"];
     //update catalog
     if (isset($_POST['catalogID']) && !empty($_POST['catalogID'])) :
         $sql = "UPDATE catalogs SET description ='$description' WHERE catalogID =" . $_POST['catalogID'];

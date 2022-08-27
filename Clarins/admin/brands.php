@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     if (!isset($_POST["description"])) :
         header("location:catalogs.php?error");
     endif;
-    $description = htmlspecialchars($_POST["description"]);
+    $description = $_POST["description"];
     //update brand
     if (isset($_POST['brandID'])) :
         $sql = "UPDATE brands SET description ='$description' WHERE brandID =" . $_POST['brandID'];
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
         if ($result->num_rows > 0) :
             header('location:brands.php?error');
         else :
-            $description = htmlspecialchars($_POST["description"]);
+            $description = $_POST["description"];
             $sql = "INSERT into brands (`name`,`description`) values ( '" . $name . "', '" . $description . "'); ";
             $result = $conn->query($sql);
             header("location:brands.php?success");

@@ -55,14 +55,17 @@ include("header.php");
                     <?php foreach ($products as $id => $product) {
 
                         echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item ' . $product['brandID'] . '">');
-                        echo ('<div class="product-item d-flex flex-column align-items-center text-center bg-light rounded py-5 px-3">');
+                        echo ('<div class="product-item d-flex flex-column justify-content-between align-items-center text-center bg-light rounded py-5" style="height:30em">');
+                        echo ('<div class="d-flex flex-column align-items-center ">');
                         echo ('<div class="bg-primary mt-n5 py-3" style="width: 80px;">');
-                        echo ('<h4 class="font-weight-bold text-white mb-0">$' . $product["price"] . '</h4>');
+                        echo ('<h4 class="font-weight-bold text-white mb-0">$' . ($product["price"] * (100 - $product["discount"]) / 100) . '</h4>');
                         echo ("</div>");
                         echo ('<div class="position-relative bg-primary rounded-circle mt-n3 mb-4 p-3" style="width: 150px; height: 150px;">');
                         echo ('<img class="rounded-circle w-100 h-100" src="' . $product['pic1'] . '" style="object-fit: cover;">');
                         echo ('</div>');
-                        echo ('<h5 class="font-weight-bold mb-4">' . $product["name"] . '</h5>');
+                        echo ('</div>');
+                        echo ('<h5 class="font-weight-bold text-white mb-4 bg-secondary w-100">' . ($product["discount"] > 0 ? 'Discount ' . $product["discount"] . '%' : '') . '</h5>');
+                        echo ('<h5 class="font-weight-bold mb-4 px-3">' . $product["name"] . '</h5>');
                         echo ('<a href="detail.php?prod=' . $product["productID"] . '" style="z-index: 30;" class="btn btn-sm btn-secondary">Order Now</a>');
                         echo ('</div>');
                         echo ('</div>');

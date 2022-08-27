@@ -23,8 +23,8 @@ include("header.php");
     <div style="background-color:rgb(0,0,0,0.5);">
 
         <!-- Contact start -->
-        <div class="container-fluid py-5">
-            <div class="container py-5">
+        <div class="container-fluid py-5" style="margin-top:-5%;">
+            <div class="container py-5 mt-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <h1 class="section-title position-relative text-center mb-5 text-white">Contact Us For Any Query</h1>

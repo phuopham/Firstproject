@@ -4,6 +4,10 @@ require_once("dbconnect.php");
 if (isset($_GET["catalog"])) {
     $sql = "SELECT * FROM products where catalogID =" . $_GET["catalog"];
     $result = $conn->query($sql);
+    if ($result->num_rows == 0) {
+        header("location:products.php");
+        die();
+    }
     $products = $result->fetch_all(MYSQLI_ASSOC);
 } else {
     header("location:products.php");

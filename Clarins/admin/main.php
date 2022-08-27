@@ -20,7 +20,7 @@ $best_sells = $result->fetch_all(MYSQLI_ASSOC);
 
 // stockroom
 
-$result = $conn->query("SELECT productID, SUM(quantity) as quantity from stockroom group by productID order by quantity");
+$result = $conn->query("SELECT productID, SUM(quantity) as quantity from stockroom group by productID order by quantity limit 10");
 $stockroom = $result->fetch_all(MYSQLI_ASSOC);
 
 //header

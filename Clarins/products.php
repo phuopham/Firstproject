@@ -54,12 +54,7 @@ include("header.php");
                         echo ('<div class="position-relative bg-primary rounded-circle mt-n3 mb-4 p-3" style="width: 150px; height: 150px;">');
                         echo ('<img class="rounded-circle w-100 h-100" src="' . $allproduct['pic1'] . '" style="object-fit: cover;">');
                         echo ('</div>');
-                        echo ('<h5 class="font-weight-semi-bold text-danger" style="height:2em;">');
-                        if ($allproduct["discount"] > 0 && $allproduct["discount"] < 100) {
-                            echo ("EVENT DISCOUNT!!!");
-                        }
-                        echo ('</h5>');
-                        echo ('<h5 class="font-weight-bold mb-4" style="height:3em;">' . $allproduct["name"] . '</h5>');
+                        echo ('<h5 class="font-weight-bold mb-4" style="height:4em;">' . $allproduct["name"] . '</h5>');
                         echo ('<a href="detail.php?prod=' . $allproduct["productID"] . '" class="btn btn-sm btn-secondary" style="z-index:2;">Order Now</a>');
                         echo ('</div>');
                         echo ('</div>');

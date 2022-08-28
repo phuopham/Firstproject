@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") :
     $message = $_POST['message'];
     $sql = "INSERT INTO comments (name,email,message,productID) VALUES('$name','$email','$message','$id')";
     $conn->query($sql);
-    header("location: detail.php?prod=" . $id . "&success");
+    header("location: detail.php?prod=" . $id . "&postsuccess");
 endif;
 
 $categoriesname = [null, "Hair", "Makeup", "Perfumes", "Face", "Body", "Suncream"];
@@ -105,13 +105,13 @@ include('header.php');
             <div>
                 <p style="height:150px;"> <?php echo ($product["sell_quantity"] > 0 ? ("Total sell: " . $quantity) : ""); ?></p>
             </div>
-            <form action="cartcookie.php" method="get">
+            <form action="cartcookie.php" id="addtocart" method="get">
                 <input type="number" hidden name="product" value="<?php echo ($product["productID"]); ?>">
                 <input class="form-control ml-4" type="number" name="quantity" value="1" min="1" max="<?php echo ($quantity) ?>" style="max-width: 100px; text-align: center;">
                 <div>
                     <?php
                     if (!empty($quantity) && (int)$quantity > 0) {
-                        echo ('<button class="btn btn-secondary py-3 px-5 mt-2">Add To Cart</button>');
+                        echo ('<button class="btn btn-secondary py-3 px-5 mt-2" name="add">Add To Cart</button>');
                     } else {
                         echo ('<button type="button" class="btn btn-secondary py-3 px-5 mt-2" disabled>Out of stock</button>');
                     }
@@ -222,8 +222,11 @@ include('header.php');
     if (isset($_GET["error"])) :
         echo ("sabootstrap.fire('Please check your input','Fields cannot leave blank','error')");
     endif;
-    if (isset($_GET["success"])) :
+    if (isset($_GET["postsuccess"])) :
         echo ("sabootstrap.fire('Thank you!','We appreciate what you have done!','success')");
+    endif;
+    if (isset($_GET["success"])) :
+        echo ("sabootstrap.fire('Product is added to cart','Go to cart and checkout once you done!','success')");
     endif;
     ?>
 </script>

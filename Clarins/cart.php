@@ -27,8 +27,8 @@ include("header.php");
                         <table class="table rounded" style="background:#fff;">
                             <thead>
                                 <tr>
-                                    <th>No.</th>
                                     <th></th>
+                                    <th colspan="2">No.</th>
                                     <th>Name</th>
                                     <th>Quantity</th>
                                     <th>Price</th>
@@ -37,10 +37,11 @@ include("header.php");
                             <tbody>
                                 <?php
                                 if ($empty) :
-                                    echo ("<tr><td colspan=5> You have nothing to check out!!! </td></tr>");
+                                    echo ("<tr><td colspan=6> You have nothing to check out!!! </td></tr>");
                                 else :
                                     foreach ($items as $key => $item) {
                                         echo ("<tr>");
+                                        echo ("<td class='text-center'><a onclick='rm($key)' class='h2 text-primary'><i class='fa-solid fa-xmark'></i></a></td>");
                                         echo ("<td>$key</td>");
                                         $sql = "SELECT name, price, pic1,discount from products where productid = " . $key;
                                         $result = $conn->query($sql);
@@ -60,6 +61,7 @@ include("header.php");
                                     <th></th>
                                     <th></th>
                                     <th>Total</th>
+                                    <th></th>
                                     <th>$<?php echo ($total) ?></th>
                                 </tr>
                             </tbody>
@@ -142,7 +144,34 @@ include("header.php");
         <!-- Checkout End -->
     </div>
 </div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // alert
+    const sabootstrap = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-primary',
+        },
+        buttonsStyling: false
+    })
 
+    function rm(key) {
+        sabootstrap.fire('Really?', 'Do you want to remove this item?', 'question').then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                window.location.href = "cartcookie.php?rm&product=" + key;
+            }
+        })
+    }
+
+    <?php
+    if (isset($_GET["error"])) :
+        echo ("sabootstrap.fire('Something went wrong!','If issue happens again, please send us know via \"Contact\"','error')");
+    endif;
+    if (isset($_GET["success"])) :
+        echo ("sabootstrap.fire('Product added to cart successfully!','','success')");
+    endif;
+    ?>
+</script>
 <?php
 include("footer.php");
 ?>

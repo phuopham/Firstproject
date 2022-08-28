@@ -24,23 +24,24 @@ include("header.php");
                 <div class="row">
                     <div class="col-lg-8 py-5 mt-5">
                         <h4 class="font-weight-bold mb-3 text-primary">Shopping Cart</h4>
-                        <table class="table rounded" style="background:#fff;">
+                        <table class="table" style="background:#fff;">
                             <thead>
                                 <tr>
-                                    <th>No.</th>
                                     <th></th>
+                                    <th colspan="2">No.</th>
                                     <th>Name</th>
-                                    <th>Quantity</th>
+                                    <th colspan="3">Quantity</th>
                                     <th>Price</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 if ($empty) :
-                                    echo ("<tr><td colspan=5> You have nothing to check out!!! </td></tr>");
+                                    echo ("<tr><td colspan=6> You have nothing to check out!!! </td></tr>");
                                 else :
                                     foreach ($items as $key => $item) {
                                         echo ("<tr>");
+                                        echo ("<td class='text-center'><a onclick='rm($key)' class='h2 text-primary'><i class='fa-solid fa-xmark'></i></a></td>");
                                         echo ("<td>$key</td>");
                                         $sql = "SELECT name, price, pic1,discount from products where productid = " . $key;
                                         $result = $conn->query($sql);
@@ -48,7 +49,9 @@ include("header.php");
                                         $pricedc = $product["price"] - ($product["price"] * ($product["discount"] / 100));
                                         echo ('<td class="p-1" style="width:50px;"><img class="rounded w-100 h-100" src="' . $product["pic1"] . '"></td>');
                                         echo ("<td>" . $product["name"] . "</td>");
-                                        echo ("<td>$item</td>");
+                                        echo ("<td><a href='cartcookie.php?add=1&product=$key&quantity=-1' class='h2 text-primary'><i class='fa-solid fa-minus'></i></a></td>");
+                                        echo ("<td class='text-nowrap'> $item </td>");
+                                        echo ("<td><a href='cartcookie.php?add=1&product=$key&quantity=1' class='h2 text-primary'><i class='fa-solid fa-plus'></i></a></td>");
                                         echo ("<td>$" . $pricedc . "</td>");
                                         echo ("</tr>");
                                         $total += ($item * $pricedc);
@@ -60,6 +63,7 @@ include("header.php");
                                     <th></th>
                                     <th></th>
                                     <th>Total</th>
+                                    <th colspan="3"></th>
                                     <th>$<?php echo ($total) ?></th>
                                 </tr>
                             </tbody>
@@ -142,7 +146,34 @@ include("header.php");
         <!-- Checkout End -->
     </div>
 </div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // alert
+    const sabootstrap = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-primary',
+        },
+        buttonsStyling: false
+    })
 
+    function rm(key) {
+        sabootstrap.fire('Really?', 'Do you want to remove this item?', 'question').then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                window.location.href = "cartcookie.php?rm&product=" + key;
+            }
+        })
+    }
+
+    <?php
+    if (isset($_GET["error"])) :
+        echo ("sabootstrap.fire('Something went wrong!','If issue happens again, please send us know via \"Contact\"','error')");
+    endif;
+    if (isset($_GET["success"])) :
+        echo ("sabootstrap.fire('Product added to cart successfully!','','success')");
+    endif;
+    ?>
+</script>
 <?php
 include("footer.php");
 ?>

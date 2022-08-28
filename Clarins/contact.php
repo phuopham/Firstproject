@@ -36,22 +36,18 @@ include("header.php");
                             <div id="success"></div>
                             <form name="sentMessage" id="contactForm" novalidate="novalidate" method="post">
                                 <div class="form-row">
-                                    <div class="col-sm-6 control-group">
+                                    <div class="col-sm-6 control-group pb-3">
                                         <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name" required="required" />
-                                        <p class="help-block text-danger"></p>
                                     </div>
-                                    <div class="col-sm-6 control-group">
+                                    <div class="col-sm-6 control-group pb-3">
                                         <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email" required="required" />
-                                        <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
-                                <div class="control-group">
+                                <div class="control-group pb-3">
                                     <input type="text" class="form-control p-4" id="subject" name="subject" placeholder="Subject" required="required" />
-                                    <p class="help-block text-danger"></p>
                                 </div>
-                                <div class="control-group">
+                                <div class="control-group pb-3">
                                     <textarea class="form-control p-4" rows="6" id="message" name="message" placeholder="Message"></textarea>
-                                    <p class="help-block text-danger"></p>
                                 </div>
                                 <div>
                                     <button class="btn btn-primary btn-block py-3 px-5" type="submit" id="sendMessageButton">Send Message</button>

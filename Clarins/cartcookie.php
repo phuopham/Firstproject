@@ -24,6 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") :
                 $product[$key] = $value;
             else :
                 $product[$key] += $value;
+                if ($product[$key] == 0) {
+                    $product[$key] = 1;
+                }
             endif;
             setcookie('Clarins', json_encode($product), time() + 86400 * 30);
             if ($_GET["add"] == 1) {

@@ -44,7 +44,11 @@ include("header.php");
                                         $pricedc = $product["price"] - ($product["price"] * ($product["discount"] / 100));
                                         echo ('<td class="p-1" style="width:50px;"><img class="rounded w-100 h-100" src="' . $product["pic1"] . '"></td>');
                                         echo ("<td>" . $product["name"] . "</td>");
-                                        echo ("<td><a href='cartcookie.php?add=1&product=$key&quantity=-1' class='h2 text-primary'><i class='fa-solid fa-minus'></i></a></td>");
+                                        echo ("<td>");
+                                        if ((int)$item > 1) echo ("<a href='cartcookie.php?add=1&product=$key&quantity=-1' class='h2 text-primary'><i class='fa-solid fa-minus'></i></a>");
+                                        if ((int)$item == 1) echo ("<span class='h2 text-gray'><i class='fa-solid fa-minus'></i></span>");
+                                        echo ("</td>");
+
                                         echo ("<td class='text-nowrap'> $item </td>");
                                         echo ("<td><a href='cartcookie.php?add=1&product=$key&quantity=1' class='h2 text-primary'><i class='fa-solid fa-plus'></i></a></td>");
                                         echo ("<td>$" . $pricedc . "</td>");
@@ -71,10 +75,10 @@ include("header.php");
                         <h5 class=" mb-3 text-primary"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
                         <h5 class=" mb-3 text-primary"><i class="fa fa-check text-secondary mr-3"></i>Eos kasd eos dolor</h5>
                         <?php
-                        if ($empty) :
-                            echo ('<button class="btn btn-primary mt-2" disabled="disabled">Check out</button>');
-                        else :
+                        if (isset($_COOKIE["Clarins"]) && count(json_decode($_COOKIE["Clarins"], true)) != 0) :
                             echo ('<a href="" class="btn btn-primary mt-2" data-toggle="modal" data-target="#Checkout">Check out</a>');
+                        else :
+                            echo ('<button class="btn btn-primary mt-2" disabled="disabled">Check out</button>');
                         endif;
                         ?>
                     </div>
@@ -97,34 +101,27 @@ include("header.php");
                         </div>
                         <div class="modal-body">
                             <div class="form-row">
-                                <div class="col-sm-6 control-group">
+                                <div class="col-sm-6 control-group pb-3">
                                     <input type="text" class="form-control p-4" id="name" name="name" placeholder="Your Name" value="<?php echo ($remember["name"] ?? "") ?>" required="required" />
-                                    <p class="help-block text-danger"></p>
                                 </div>
-                                <div class="col-sm-6 control-group">
+                                <div class="col-sm-6 control-group pb-3">
                                     <input type="email" class="form-control p-4" id="email" name="email" placeholder="Your Email" value="<?php echo ($remember["email"] ?? "") ?>" required="required" />
-                                    <p class="help-block text-danger"></p>
                                 </div>
                             </div>
-                            <div class="control-group">
+                            <div class="control-group pb-3">
                                 <input type="text" class="form-control p-4" id="address" name="address" placeholder="Address" value="<?php echo ($remember["address"] ?? "") ?>" required="required" />
-                                <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-row">
-                                <div class="col-sm-6 control-group">
+                                <div class="col-sm-6 control-group pb-3">
                                     <input type="number" class="form-control p-4" id="phone" name="phone" placeholder="Your Phone" value="<?php echo ($remember["phone"] ?? "") ?>" required="required" />
-                                    <p class="help-block text-danger"></p>
                                 </div>
-                                <div class="col-sm-6 control-group d-flex justify-content-center pb-3">
+                                <div class="col-sm-6 control-group pb-3 d-flex justify-content-center pb-3">
                                     <input type="checkbox" class="align-self-center form-control p-4" id="rememberme" name="rememberme" style="display:inline-block; width:50px;" />
                                     <label for="rememberme" class="align-self-center mb-0">Remember me</label>
-                                    <p class="help-block text-danger"></p>
                                 </div>
                             </div>
-
-                            <div class="control-group">
+                            <div class="control-group pb-3">
                                 <textarea class="form-control p-4" rows="6" id="message" name="message" placeholder="Message"></textarea>
-                                <p class="help-block text-danger"></p>
                             </div>
 
                         </div>
@@ -161,7 +158,7 @@ include("header.php");
 
     <?php
     if (isset($_GET["error"])) :
-        echo ("sabootstrap.fire('Something went wrong!','If issue happens again, please send us know via \"Contact\"','error')");
+        echo ("sabootstrap.fire('Something went wrong!','Please check your input!','error')");
     endif;
     if (isset($_GET["success"])) :
         echo ("sabootstrap.fire('Product added to cart successfully!','','success')");

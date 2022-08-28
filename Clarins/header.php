@@ -161,10 +161,8 @@ include("config.php");
                             endif;; ?>
                             ">Cart</a>
                             <?php
-                            if (isset($_COOKIE["Clarins"])) {
-                                if (count(json_decode($_COOKIE["Clarins"])) != 0) {
-                                    echo ('<div class="position-absolute bg-info border rounded-circle" style="width:1em; height:1em; top:1em; right:1em"></div>');
-                                }
+                            if (isset($_COOKIE["Clarins"]) && !is_array(json_decode($_COOKIE["Clarins"]))) {
+                                echo ('<div class="position-absolute bg-info border rounded-circle" style="width:1em; height:1em; top:1em; right:1em"></div>');
                             }
                             ?>
                         </div>

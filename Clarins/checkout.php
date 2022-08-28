@@ -1,18 +1,20 @@
  <?php
     require_once("dbconnect.php");
-    if ($_POST) {
-        $name = $_POST['name'] ?? '';
-        $id = intval($_POST['id'] ?? 0);
-        $email = $_POST['email'] ?? '';
-        $phone = $_POST['phone'] ?? '';
-        $address = $_POST['address'] ?? '';
-        $message = $_POST['message'] ?? '';
+    if ($_SERVER["REQUEST_METHOD"] == "POST") :
+        if (
+            !isset($_POST["name"]) || empty($_POST['name']) || !isset($_POST["email"]) || empty($_POST["email"]) ||
+            !isset($_POST["phone"]) || empty($_POST["phone"]) || !isset($_POST["address"]) || empty($_POST["address"])
+        ) :
+            header("location:cart.php?error");
+        endif;
+        $name = htmlspecialchars($_POST['name']);
+        $email = htmlspecialchars($_POST['email']);
+        $phone = intval($_POST['phone']);
+        $address = htmlspecialchars($_POST['address']);
+        $message = htmlspecialchars($_POST['message']);
         $sql = "INSERT INTO user_order (name,email,phone,address,message) VALUES('$name','$email','$phone','$address','$message')";
         $result = $conn->query($sql);
-        $sql = "SELECT * FROM user_order order by ordernumber desc limit 1";
-        $result = $conn->query($sql);
-        $product = $result->fetch_assoc();
-        $order_number = $product['ordernumber'];
+        $order_number = $conn->insert_id;
 
         $products = json_decode($_COOKIE["Clarins"], true);
 
@@ -39,14 +41,14 @@
         setcookie('Clarins', '', time() - 3600);
         if (isset($_POST["rememberme"])) {
             $rememberme = [];
-            $rememberme["name"] = $_POST["name"];
-            $rememberme["email"] = $_POST["email"];
-            $rememberme["address"] = $_POST["address"];
-            $rememberme["phone"] = $_POST["phone"];
+            $rememberme["name"] = htmlspecialchars($_POST["name"]);
+            $rememberme["email"] = htmlspecialchars($_POST["email"]);
+            $rememberme["address"] = htmlspecialchars($_POST["address"]);
+            $rememberme["phone"] = intval($_POST["phone"]);
             setcookie('user', json_encode($rememberme), time() + 3600 * 24 * 30);
         }
         header("location:products.php?success");
         die();
-    }
+    endif;
     header("location:products.php?error");
     ?>

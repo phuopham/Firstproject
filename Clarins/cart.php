@@ -1,15 +1,10 @@
 <?php
 require_once("dbconnect.php");
 $total = 0;
-// product cookie
-if (!isset($_COOKIE["Clarins"])) :
-    $empty = true;
-else :
-    $empty = false;
-    $items = json_decode($_COOKIE["Clarins"], true);
-endif;
 // remember me info
-$remember = json_decode($_COOKIE["user"], true);
+if (isset($_COOKIE["user"])) {
+    $remember = json_decode($_COOKIE["user"], true);
+}
 
 $page = "cart";
 include("header.php");
@@ -36,9 +31,9 @@ include("header.php");
                             </thead>
                             <tbody>
                                 <?php
-                                if ($empty) :
-                                    echo ("<tr><td colspan=6> You have nothing to check out!!! </td></tr>");
-                                else :
+
+                                if (isset($_COOKIE["Clarins"]) && count(json_decode($_COOKIE["Clarins"], true)) != 0) :
+                                    $items = json_decode($_COOKIE["Clarins"], true);
                                     foreach ($items as $key => $item) {
                                         echo ("<tr>");
                                         echo ("<td class='text-center'><a onclick='rm($key)' class='h2 text-primary'><i class='fa-solid fa-xmark'></i></a></td>");
@@ -56,6 +51,8 @@ include("header.php");
                                         echo ("</tr>");
                                         $total += ($item * $pricedc);
                                     }
+                                else :
+                                    echo ("<tr><td colspan=6> You have nothing to check out!!! </td></tr>");
                                 endif;;
                                 ?>
                                 <tr>

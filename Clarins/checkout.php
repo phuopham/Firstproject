@@ -1,9 +1,5 @@
  <?php
     require_once("dbconnect.php");
-    // commit to database
-
-    //
-
     if ($_POST) {
         $name = $_POST['name'] ?? '';
         $id = intval($_POST['id'] ?? 0);

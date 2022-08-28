@@ -152,7 +152,7 @@ include("config.php");
                             }; ?>
                             ">Contact</a>
                         </div>
-                        <div class="d-none d-lg-flex container-fluid justify-content-lg-end px-lg-3 order-lg-3">
+                        <div class="d-none d-lg-flex container-fluid justify-content-lg-end px-lg-3 order-lg-3 position-relative">
                             <a href="cart.php" class="nav-item btn 
                             <?php if ($page == "cart") :
                                 echo ("btn-secondary");
@@ -160,6 +160,13 @@ include("config.php");
                                 echo ("btn-primary");
                             endif;; ?>
                             ">Cart</a>
+                            <?php
+                            if (isset($_COOKIE["Clarins"])) {
+                                if (count(json_decode($_COOKIE["Clarins"])) != 0) {
+                                    echo ('<div class="position-absolute bg-info border rounded-circle" style="width:1em; height:1em; top:1em; right:1em"></div>');
+                                }
+                            }
+                            ?>
                         </div>
                         <div class="order-lg-1">
                             <a onclick="categories()" class="nav-item nav-link text-lg-center" style="cursor:pointer">Catalogs</a>

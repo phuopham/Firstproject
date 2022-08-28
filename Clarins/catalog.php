@@ -28,7 +28,7 @@ include("header.php");
 
 <div>
     <img src="img/bg2.jpg" style="background-repeat: no-repeat;position: fixed;width: -webkit-fill-available; max-height: -webkit-fill-available;margin-top: -8%; height:200%;z-index:-1; ">
-    <div style="background-color:rgb(0,0,0,0.6);" >
+    <div style="background-color:rgb(0,0,0,0.6);">
         <!-- Products Start -->
         <div class="container-fluid py-5 px-0" style="margin-top:-5%;">
             <div class="container py-5 mt-5">
@@ -54,7 +54,6 @@ include("header.php");
                 </div>
                 <div class="row portfolio-container">
                     <?php foreach ($products as $id => $product) {
-
                         echo ('<div class="col-lg-3 col-md-6 mb-4 pb-2 portfolio-item ' . $product['brandID'] . ' ' . ($product['discount'] > 0 ? 'onsale' : '') . '">');
                         echo ('<div class="product-item d-flex flex-column justify-content-between align-items-center text-center bg-light rounded py-5" style="height:30em">');
                         echo ('<div class="d-flex flex-column align-items-center ">');

@@ -24,13 +24,13 @@ include("header.php");
                 <div class="row">
                     <div class="col-lg-8 py-5 mt-5">
                         <h4 class="font-weight-bold mb-3 text-primary">Shopping Cart</h4>
-                        <table class="table rounded" style="background:#fff;">
+                        <table class="table" style="background:#fff;">
                             <thead>
                                 <tr>
                                     <th></th>
                                     <th colspan="2">No.</th>
                                     <th>Name</th>
-                                    <th>Quantity</th>
+                                    <th colspan="3">Quantity</th>
                                     <th>Price</th>
                                 </tr>
                             </thead>
@@ -49,7 +49,9 @@ include("header.php");
                                         $pricedc = $product["price"] - ($product["price"] * ($product["discount"] / 100));
                                         echo ('<td class="p-1" style="width:50px;"><img class="rounded w-100 h-100" src="' . $product["pic1"] . '"></td>');
                                         echo ("<td>" . $product["name"] . "</td>");
-                                        echo ("<td>$item</td>");
+                                        echo ("<td><a href='cartcookie.php?add=1&product=$key&quantity=-1' class='h2 text-primary'><i class='fa-solid fa-minus'></i></a></td>");
+                                        echo ("<td class='text-nowrap'> $item </td>");
+                                        echo ("<td><a href='cartcookie.php?add=1&product=$key&quantity=1' class='h2 text-primary'><i class='fa-solid fa-plus'></i></a></td>");
                                         echo ("<td>$" . $pricedc . "</td>");
                                         echo ("</tr>");
                                         $total += ($item * $pricedc);
@@ -61,7 +63,7 @@ include("header.php");
                                     <th></th>
                                     <th></th>
                                     <th>Total</th>
-                                    <th></th>
+                                    <th colspan="3"></th>
                                     <th>$<?php echo ($total) ?></th>
                                 </tr>
                             </tbody>

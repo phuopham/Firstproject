@@ -26,7 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") :
                 $product[$key] += $value;
             endif;
             setcookie('Clarins', json_encode($product), time() + 86400 * 30);
-            header("location:detail.php?prod=" . $key . "&success");
+            if ($_GET["add"] == 1) {
+                header("location:cart.php?");
+            } else {
+                header("location:detail.php?prod=" . $key . "&success");
+            }
             die();
         endif;
     endif;

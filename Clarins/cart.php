@@ -59,11 +59,8 @@ include("header.php");
                                 endif;;
                                 ?>
                                 <tr>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th>Total</th>
-                                    <th colspan="3"></th>
+                                    <th colspan="4"></th>
+                                    <th colspan="3">Total</th>
                                     <th>$<?php echo ($total) ?></th>
                                 </tr>
                             </tbody>

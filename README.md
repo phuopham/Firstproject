@@ -13,7 +13,7 @@ https://clarinsaptech.herokuapp.com/
 
 docker image:
 <pre>
-docker push phuong89/clarins:tagname
+docker pull phuong89/clarins:tagname
 docker run --name clarinsexample -p 41061:22 -p 41062:80 -d clarins:latest
 localhost:41062
 </pre>

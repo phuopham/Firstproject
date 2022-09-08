@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") :
         if (!isset($_COOKIE['Clarins'])) :
             $product[$key] = $value;
             setcookie('Clarins', json_encode($product), time() + 86400 * 30);
-            header("location:detail.php?prod=" . $key);
+            header("location:detail.php?prod=" . $key . "&success");
         else :
             $product = json_decode($_COOKIE["Clarins"], true);
             if (!isset($product[$key])) :
